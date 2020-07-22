@@ -22,6 +22,9 @@ const locationdataSchema = new mongoose.Schema({
     lon: {
         type: String,
     },
+    locname: {
+        type: String,
+    },
     speed: {
         type: String,
     },
