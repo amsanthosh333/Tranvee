@@ -10,7 +10,7 @@ server.use(cors());
 
 //locationdata
 const locationdataRouter = require('./../router/locationdata');
-
+const userRouter = require('./../router/user');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`${protocal}${username}:${password}${host}:${port}/${name}`;
@@ -23,9 +23,9 @@ console.log('connected to the database',db);
 //     useNewUrlParser: true
 //     },function(error){
 //         if(error){
-// console.log(error);
+//         console.log(error);
 //         }else{
-// 			console.log('connected to the database',db);
+// 	console.log('connected to the database',db);
 //         }
 // 	});
 	
@@ -33,13 +33,17 @@ mongoose.connect(db, {
     useUnifiedTopology: true,
     useNewUrlParser: true
     },function(error){
-        if(error){
-console.log(error);
-        }else{
-			console.log('connected to the database',db);
+        if(error)
+        {
+        console.log(error);
+  }
+        else
+        {
+        console.log('connected to the database',db);
         }
 	});
 	//locationdata
 server.use("/locationdata", locationdataRouter);
+server.use("/user", userRouter);
 
 module.exports= server;
