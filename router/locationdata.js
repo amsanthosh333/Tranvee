@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
 })
 router.get('/fetchdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await locationdataController.fetchdata(req.query.username);
+	const response = await locationdataController.fetchdata(req.query.username,req.res.datetime);
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {
