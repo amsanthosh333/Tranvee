@@ -30,9 +30,9 @@ class locationdataController{
 		}
 	}
 
-	async fetchdata(username){
+	async fetchdata(username,datetime){
 		try{
-			let response = await locationdataSchema.find({'username':username});
+			let response = await locationdataSchema.find({'username':username},{'Date':datetime});
 			return response;
 			
 		} catch(error){
