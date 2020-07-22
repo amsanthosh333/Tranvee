@@ -5,101 +5,49 @@ const errorHandler = require('./../utils/error.handler');
 
 class UserController {
 
-     async add(users){
-                
-          try{
-          let userInfo=await userModel.create(users);
-          return{
-              status:"sucess",
-              result:userInfo 
-          };
-          }catch(error)
-          {
-          console.log(error);
-          return{
-              status:"error",
-              error:errorHandler.parseMongoError(error)
-              };
-            }
-    }
 
-    async update(id,update){
-                
+    async register(username, password){
         try{
-        let userInfo=await userModel.update({_id:id},update);
-        return{
-            status:"sucess",
-            result:userInfo 
-        };
-        }catch(error)
-        {
-        console.log(error);
-        return{
-            status:"error",
-            error:errorHandler.parseMongoError(error)
-            };
-          }
-  }
-  async fetch(){
-  try{
-    let userInfo=await userModel.find({});
-    return{
-        status:"sucess",
-        result:userInfo 
-    };
-    }catch(error)
-    {
-    console.log(error);
-    return{
-        status:"error",
-        error:errorHandler.parseMongoError(error)
-        };
-      }
-}
+            await userSchema.create({
+                username: username,
+                password: password
+            });
 
-async delete(id){        
-    try{
-    let userInfo=await userModel.deleteOne({_id:id});
-    return{
-        status:"sucess",
-        result:userInfo 
-    };
-    }catch(error)
-    {
-    console.log(error);
-    return{
-        status:"error",
-        error:errorHandler.parseMongoError(error)
-        };
-      }
-}
-
-async aggregation(){
-    try{
-// return await userModel.count([{
-
-//         $match:{
-//       city:"salam"
-//     }
-// },
-//     {
-//     $group:{
-//         _id:'$city',
-//         count:{$sum:1}
-//     }
-// }
-// ])
-//let result= await userModel.count({city:'tirupur'});
-
-let result= await userModel.distinct('city');
-return {result:result};
-    }catch{
-        return{
-            status:"error",
-            error:errorHandler.parseMongoError(error)
+            return {
+                status: 'success',
+                msg: 'User created'
             }
+        } catch(err){
+            return {
+                status: 'error',
+                msg: 'User creation failed'
+            }
+        }
     }
-}
+
+    async login(username, password){
+        try{
+            let user = await userSchema.findOne({
+                username: username,
+                password: password,
+            });
+
+            if(!user){
+                throw new Error('invalid creds');
+            }
+
+            return {
+                status: "success",
+                data: user
+            };
+
+        } catch(error){
+            return {
+                status: 'error',
+                msg: 'username or password invalid'
+            }
+        }
+    }
 
 }
 

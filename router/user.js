@@ -1,25 +1,16 @@
 const router = require('express').Router();
 const userController = require('./../controller/user');
 
-router.post('/add', async function(req, res) {
-    let response=await userController.add(req.body);
-    res.send(response);
+
+
+router.post('/register', async (req, res) => {
+    res.send(await userController.register(req.body.username, req.body.password,req.body.email,req.body.phone));
 });
 
-router.get('/', async function(req, res) {
-    let response=await userController.fetch();
-    res.send(response);
+router.post('/login', async (req, res) => {
+    res.send(await userController.login(req.query.username, req.query.password));
 });
-router.put('/update', async function(req, res) {
-    let response=await userController.update(req.query.id,req.body);
-    res.send(response);
-});
-router.delete('/delete', async function(req, res) {
-    let response=await userController.delete(req.query.id);
-    res.send(response);
-});
-router.get('/aggregation', async(req, res)=>{
-    let response=await userController.aggregation();
-    res.send(response);
-});
+
+module.exports = router;
+
 module.exports = router;
