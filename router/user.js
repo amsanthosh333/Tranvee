@@ -1,6 +1,5 @@
 const router = require('express').Router();
 const userController = require('./../controller/user');
-const { response } = require('../middleware/middleware');
 
 router.post('/add', async function(req, res) {
     let response=await userController.add(req.body);

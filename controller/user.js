@@ -1,6 +1,6 @@
-const userModel=require("../model/user");
-const errorHandler=require("./../util/error.handler");
-const { Aggregate } = require("mongoose");
+const userModel = require('./../model/user');
+const errorHandler = require('./../utils/error.handler');
+
 
 
 class UserController {
