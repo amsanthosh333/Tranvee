@@ -1,4 +1,4 @@
-const userModel = require('./../model/user');
+const userSchema = require('./../model/user');
 const errorHandler = require('./../utils/error.handler');
 
 
