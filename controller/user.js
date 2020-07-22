@@ -6,15 +6,9 @@ const errorHandler = require('./../utils/error.handler');
 class UserController {
 
 
-    async register(username,password,email,phone){
+    async register(newGender){
         try{
-            await userSchema.create({
-                username: username,
-                password: password,
-                email: email,
-                phone: phone
-              
-            });
+            await userSchema.create(newGender);
    return {
                 status: 'success',
                 msg: 'User created'

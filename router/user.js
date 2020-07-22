@@ -4,7 +4,7 @@ const userController = require('./../controller/user');
 
 
 router.post('/register', async (req, res) => {
-    res.send(await userController.register(req.body.username,req.body.password,req.body.email,req.body.phone));
+    res.send(await userController.register(req.body));
 });
 
 router.post('/login', async (req, res) => {
