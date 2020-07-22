@@ -15,8 +15,7 @@ class UserController {
                 phone: phone
               
             });
-
-            return {
+   return {
                 status: 'success',
                 msg: 'User created'
             }
