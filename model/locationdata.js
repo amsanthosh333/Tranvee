@@ -4,6 +4,12 @@ const locationdataSchema = new mongoose.Schema({
     url: {
         type: String,
     }, 
+    username: {
+        type: String,
+    }, 
+    currenttime: {
+        type: String,
+    }, 
     deviceid: {
         type: String,
     },
