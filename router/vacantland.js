@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const vancantController = require('./../controller/vancantland');
+const vancantController = require('./../controller/vacantland');
 
 router.post('/add', async (req, res) => {
 	const response = await vancantController.add(req.body);

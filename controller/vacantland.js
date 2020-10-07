@@ -1,4 +1,4 @@
-const vancantlandSchema = require('./../model/vancantland');
+const vancantlandSchema = require('./../model/vacantland');
 const errorHandler = require('../utils/error.handler');
 
 class VancantlantController{
