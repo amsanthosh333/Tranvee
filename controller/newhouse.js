@@ -61,7 +61,7 @@ class newhouseController{
 	async update(id, body) {
 
         try {
-            let response = await newhouseSchema.updateOne({_id: id}, body);
+            let response = await newhouseSchema.update({_id: id}, body);
             return { status: "success", msg:"Vancantland Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {

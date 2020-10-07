@@ -63,7 +63,7 @@ class VancantlantController{
 	async update(id, body) {
 
         try {
-            let response = await vancantlandSchema.updateOne({_id: id}, body);
+            let response = await vancantlandSchema.update({_id: id}, body);
             return { status: "success",   msg:"Vancantland Updated successfully", result: response, message: "Updated Successfully" };
 
         } catch (error) {
