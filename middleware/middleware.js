@@ -11,6 +11,8 @@ server.use(cors());
 //locationdata
 
 const userRouter = require('./../router/user');
+const vacantlandRouter = require('../router/vacantland');
+
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
  let db= process.env.MONGODB_URL ||`${protocal}${username}:${password}${host}:${port}/${name}`;
@@ -45,5 +47,7 @@ mongoose.connect(db, {
 	//locationdata
 
 server.use("/user", userRouter);
+server.use("/vancantland", vacantlandRouter);
+
 
 module.exports= server;
