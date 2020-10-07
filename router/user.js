@@ -11,6 +11,8 @@ router.post('/login', async (req, res) => {
     res.send(await userController.login(req.body));
 });
 
-
+router.post('/login1', async (req, res) => {
+    res.send(await userController.login1(req.query.username,req.query.password));
+});
 
 module.exports = router;

@@ -48,6 +48,33 @@ class UserController {
         }
     }
 
+
+
+    async login1(username,password){
+       
+        try{
+            let user = await userSchema.findOne({
+                username: username,
+                password: password,
+            });
+
+            if(!user){
+                throw new Error('invalid creds');
+            }
+
+            return {
+                status: "1",
+                msg: "Login Sucessfully",
+                user
+            };
+
+        } catch(error){
+            return {
+                status: '0',
+                msg: 'username or password invalid'
+            }
+        }
+    }
 }
 
        
