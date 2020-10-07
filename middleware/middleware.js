@@ -13,6 +13,7 @@ server.use(cors());
 const userRouter = require('./../router/user');
 const vacantlandRouter = require('../router/vacantland');
 const newhouseRouter = require('../router/newhouse');
+const commericialRouter = require('../router/commericial');
 
 
 // console.log("enter")
@@ -51,6 +52,6 @@ mongoose.connect(db, {
 server.use("/user", userRouter);
 server.use("/vancantland", vacantlandRouter);
 server.use("/newhouse", newhouseRouter);
-
+server.use("/commericial", commericialRouter);
 
 module.exports= server;
