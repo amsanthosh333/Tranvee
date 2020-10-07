@@ -9,7 +9,7 @@ server.use(cors());
 
 
 //locationdata
-const locationdataRouter = require('./../router/locationdata');
+
 const userRouter = require('./../router/user');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -43,7 +43,7 @@ mongoose.connect(db, {
         }
 	});
 	//locationdata
-server.use("/locationdata", locationdataRouter);
+
 server.use("/user", userRouter);
 
 module.exports= server;
