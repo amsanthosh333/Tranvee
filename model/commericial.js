@@ -5,91 +5,103 @@ const commericialSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Type: {
+    EBServices : {
         type: String,
         required: true
     },
-    Area: {
+    TAX: {
         type: String,
         required: true
     },
-    DTCP: {
+    Rent: {
         type: String,
         required: true
     },
-    Unapproved: {
+    NoofHouses: {
         type: String,
         required: true
     },
-    BuildingApproval : {
-        type: String,
-        required: true
-    },
-    BuildingPlan: {
+    Numberofbedrooms1BHK : {
         type: String,
         required: true
     }, 
-    Housetax: {
-        type: String,
-        required: true
-    },
-    HouseType: {
-        type: String,
-        required: true
-    },
-    Corporationwater: {
-        type: String,
-        required: true
-    },
-    LTWater: {
-        type: String,
-        required: true
-    },
-    Borewell: {
-        type: String,
-        required: true
-    },
-    Facing: {
-        type: String,
-        required: true
-    },
-    totalSizesq: {
-        type: String,
-        required: true
-    },
-    Northsizesq: {
-        type: String,
-        required: true
-    },
-    Eastsizesq: {
-        type: String,
-        required: true
-    },
-    Westsizesq: {
-        type: String,
-        required: true
-    },
-    Southsizesq: {
+     Numberofbedrooms2BHK : {
         type: String,
         required: true
     }, 
-    EBType: {
+     Numberofbedrooms3BHK : {
+        type: String,
+        required: true
+    },  
+    Numberofbedrooms4BHK : {
         type: String,
         required: true
     },
-    TemporaryEBconnection: {
+    Rainwaterharvest: {
+        type: String,
+        required: true
+    }, 
+    CorporationWater: {
         type: String,
         required: true
     },
-    BoreMotortype: {
+    Metturwaterline: {
         type: String,
         required: true
     },
-    SumpCapacity: {
+    CarParking: {
         type: String,
         required: true
     },
-    Septictank: {
+     YearofBuilding: {
+        type: String,
+        required: true
+    },
+    Liftfacility: {
+        type: String,
+        required: true
+    },
+    Pillar: {
+        type: String,
+        required: true
+    },
+    Others: {
+        type: String,
+        required: true
+    },
+    Referby : {
+        type: String,
+        required: true
+    },
+    ReferbyName: {
+        type: String,
+        required: true
+    },
+    ReferbyContact: {
+        type: String,
+        required: true
+    },
+    Budget: {
+        type: String,
+        required: true
+    }, 
+    BuildupArea: {
+        type: String,
+        required: true
+    },
+     LandArea: {
+        type: String,
+        required: true
+    },
+    OwnersDetailsName: {
+        type: String,
+        required: true
+    },
+    OwnersDetailsMobile: {
+        type: String,
+        required: true
+    },
+    Sold: {
         type: String,
         required: true
     },
