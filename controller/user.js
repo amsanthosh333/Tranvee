@@ -35,13 +35,13 @@ class UserController {
             }
 
             return {
-                status: "success",
+                status: "1",
                 data: user
             };
 
         } catch(error){
             return {
-                status: 'error',
+                status: '0',
                 msg: 'username or password invalid'
             }
         }
