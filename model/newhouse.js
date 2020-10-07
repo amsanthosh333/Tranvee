@@ -53,35 +53,51 @@ const newhouseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Sizeinsqft: {
+    totalSizesq: {
         type: String,
         required: true
     },
+    Northsizesq: {
+        type: String,
+        required: true
+    },
+    Eastsizesq: {
+        type: String,
+        required: true
+    },
+    Westsizesq: {
+        type: String,
+        required: true
+    },
+    Southsizesq: {
+        type: String,
+        required: true
+    }, 
     EBType: {
         type: String,
         required: true
     },
-    BorewellLevel: {
+    TemporaryEBconnection: {
         type: String,
         required: true
     },
-    Drainage: {
+    BoreMotortype: {
         type: String,
         required: true
     },
-    Undergrounddrainage: {
+    SumpCapacity: {
         type: String,
         required: true
     },
-    EBPost: {
+    Septictank: {
         type: String,
         required: true
     },
-    GuidelineValue: {
+    Pillartype: {
         type: String,
         required: true
     },
-    Budget: {
+    CornerSite: {
         type: String,
         required: true
     },
@@ -93,27 +109,103 @@ const newhouseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    EC: {
+    Rainwaterharvest: {
         type: String,
         required: true
     },
-    MainRoadFacing: {
+    Watertank: {
         type: String,
         required: true
     },
-    Distance: {
+    Undergrounddrainage: {
         type: String,
         required: true
     },
-    EBLineCrossing: {
+    Drainage: {
         type: String,
         required: true
     },
-    Vacantlandtax: {
+    CarParkingsize: {
         type: String,
         required: true
     },
-    RegisterOffice: {
+    Hallsize: {
+        type: String,
+        required: true
+    },
+    Bedroomsize: {
+        type: String,
+        required: true
+    },
+     Kitchensize: {
+        type: String,
+        required: true
+    },
+    Dinningsize: {
+        type: String,
+        required: true
+    },
+    Bathroomsize: {
+        type: String,
+        required: true
+    },
+    AttachedBathroom: {
+        type: String,
+        required: false
+    },
+    Commonbathroom: {
+        type: String,
+        required: false
+    },
+    OuterBathroom: {
+        type: String,
+        required: true
+    },
+    CompoundWall: {
+        type: String,
+        required: true
+    },
+    Kitchengranite: {
+        type: String,
+        required: true
+    },
+    ModelerKitchen: {
+        type: String,
+        required: true
+    },
+    Woodwork: {
+        type: String,
+        required: true
+    },
+    Firstfloor: {
+        type: String,
+        required: true
+    },
+    Passageside: {
+        type: String,
+        required: true
+    },
+    MainDoortype: {
+        type: String,
+        required: true
+    }, 
+    WindowType: {
+        type: String,
+        required: true
+    },
+    FlooringType: {
+        type: String,
+        required: true
+    },
+    Painting: {
+        type: String,
+        required: true
+    },
+    OtherDetails: {
+        type: String,
+        required: true
+    },
+    Budget: {
         type: String,
         required: true
     },
@@ -121,25 +213,9 @@ const newhouseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    OwnersDetailsMobile: {
+    OwnersDetailsContact: {
         type: String,
         required: true
-    },
-    Others: {
-        type: String,
-        required: true
-    },
-    Refertype: {
-        type: String,
-        required: true
-    },
-    ReferName: {
-        type: String,
-        required: false
-    },
-    ReferContact: {
-        type: String,
-        required: false
     },
     Sold: {
         type: String,

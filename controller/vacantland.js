@@ -7,7 +7,9 @@ class VancantlantController{
 	async add(vancantland){
 		try{
 			let response = await vancantlandSchema.create(vancantland);
-			return { status: "success", result: response, message: "Added Successfully" };
+            return { status: "success",
+            msg:"Vancantland Added successfully",
+             result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -62,7 +64,7 @@ class VancantlantController{
 
         try {
             let response = await vancantlandSchema.updateOne({_id: id}, body);
-            return { status: "success", result: response, message: "Updated Successfully" };
+            return { status: "success",   msg:"Vancantland Updated successfully", result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
