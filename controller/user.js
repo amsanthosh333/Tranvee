@@ -37,7 +37,7 @@ class UserController {
             return {
                 status: "1",
                 msg: "Login Sucessfully",
-                data: user
+                user
             };
 
         } catch(error){
