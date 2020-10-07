@@ -28,6 +28,10 @@ const vancantlandSchema = new mongoose.Schema({
     Southsizesq: {
         type: String,
         required: true
+    }, 
+    Facing: {
+        type: String,
+        required: true
     },
     RateperSq: {
         type: String,
