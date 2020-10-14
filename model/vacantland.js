@@ -91,7 +91,7 @@ const vancantlandSchema = new mongoose.Schema({
     },
     MAPIMAGE: {
         type: String,
-        required: true
+        required: false
     },
     EC: {
         type: String,

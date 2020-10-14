@@ -111,11 +111,11 @@ const farmSchema = new mongoose.Schema({
     },
     ReferbyName: {
         type: String,
-        required: true
+        required: false
     },
     ReferbyContact: {
         type: String,
-        required: true
+        required: false
     },
     OtherDetails: {
         type: String,

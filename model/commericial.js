@@ -21,19 +21,7 @@ const commericialSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    Numberofbedrooms1BHK : {
-        type: String,
-        required: true
-    }, 
-     Numberofbedrooms2BHK : {
-        type: String,
-        required: true
-    }, 
-     Numberofbedrooms3BHK : {
-        type: String,
-        required: true
-    },  
-    Numberofbedrooms4BHK : {
+    Numberofbedrooms: {
         type: String,
         required: true
     },
@@ -75,11 +63,11 @@ const commericialSchema = new mongoose.Schema({
     },
     ReferbyName: {
         type: String,
-        required: true
+        required: false
     },
     ReferbyContact: {
         type: String,
-        required: true
+        required: false
     },
     Budget: {
         type: String,

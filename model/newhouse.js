@@ -107,7 +107,7 @@ const newhouseSchema = new mongoose.Schema({
     },
     MAPIMAGE: {
         type: String,
-        required: true
+        required: false
     },
     Rainwaterharvest: {
         type: String,
@@ -216,6 +216,18 @@ const newhouseSchema = new mongoose.Schema({
     OwnersDetailsContact: {
         type: String,
         required: true
+    },
+    Refertype: {
+        type: String,
+        required: true
+    },
+    ReferName: {
+        type: String,
+        required: false
+    },
+    ReferContact: {
+        type: String,
+        required: false
     },
     Sold: {
         type: String,
