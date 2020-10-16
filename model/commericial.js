@@ -17,11 +17,11 @@ const commericialSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    NoofBedRooms: {
+    NoofHouses: {
         type: String,
         required: true
     },
-    Numberofbedrooms: {
+    NoofBedRooms: {
         type: String,
         required: true
     },
