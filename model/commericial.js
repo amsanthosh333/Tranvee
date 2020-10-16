@@ -17,7 +17,7 @@ const commericialSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    NoofHouses: {
+    NoofBedRooms: {
         type: String,
         required: true
     },
