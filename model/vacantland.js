@@ -89,7 +89,23 @@ const vancantlandSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    MAPIMAGE: {
+    MAPIMAGE1: {
+        type: String,
+        required: false
+    },
+     MAPIMAGE2: {
+        type: String,
+        required: false
+    }, 
+    MAPIMAGE3: {
+        type: String,
+        required: false
+    }, 
+    MAPIMAGE4: {
+        type: String,
+        required: false
+    }, 
+    MAPIMAGE5: {
         type: String,
         required: false
     },
@@ -142,6 +158,10 @@ const vancantlandSchema = new mongoose.Schema({
         required: false
     },
     Sold: {
+        type: String,
+        required: true
+    },
+    Remarks: {
         type: String,
         required: true
     }
