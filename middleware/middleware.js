@@ -55,4 +55,6 @@ server.use("/vancantland", vacantlandRouter);
 server.use("/newhouse", newhouseRouter);
 server.use("/commericial", commericialRouter);
 server.use("/farm", farmRouter);
+server.use(bodyParser.json({limit:'10mb',extended:true}));
+server.use(bodyParser.urlencoded({limit:'10mb',extended:true}))
 module.exports= server;
