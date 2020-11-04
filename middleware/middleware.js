@@ -59,11 +59,5 @@ server.use("/commericial", commericialRouter);
 server.use("/farm", farmRouter);
 
 
-server.use( bodyParser.json({limit: '100mb',extended:true}) );
-server.use(bodyParser.urlencoded({
-  limit: '100mb',
-  extended: true,
-  parameterLimit:5000000
-}));
 
 module.exports= server;
