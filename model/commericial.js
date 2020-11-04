@@ -92,6 +92,14 @@ const commericialSchema = new mongoose.Schema({
     Sold: {
         type: String,
         required: true
+    },
+    place: {
+        type: String,
+        required: true
+    },
+    gvalue: {
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('commericial',commericialSchema);
