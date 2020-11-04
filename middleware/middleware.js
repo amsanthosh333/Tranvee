@@ -57,6 +57,13 @@ server.use("/vancantlandimg", vacantlandimgRouter);
 server.use("/newhouse", newhouseRouter);
 server.use("/commericial", commericialRouter);
 server.use("/farm", farmRouter);
-server.use(bodyParser.json({limit:'100mb',extended:true}));
-server.use(bodyParser.urlencoded({limit:'100mb',extended:true}))
+
+
+server.use( bodyParser.json({limit: '100mb',extended:true}) );
+server.use(bodyParser.urlencoded({
+  limit: '100mb',
+  extended: true,
+  parameterLimit:500000
+}));
+server.use(express.limit(100000000));
 module.exports= server;
