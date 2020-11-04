@@ -101,14 +101,6 @@ const newhouseSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    MAP: {
-        type: String,
-        required: true
-    },
-    MAPIMAGE: {
-        type: String,
-        required: false
-    },
     Rainwaterharvest: {
         type: String,
         required: true
