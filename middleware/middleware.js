@@ -63,7 +63,7 @@ server.use( bodyParser.json({limit: '100mb',extended:true}) );
 server.use(bodyParser.urlencoded({
   limit: '100mb',
   extended: true,
-  parameterLimit:500000
+  parameterLimit:5000000
 }));
-server.use(express.limit(100000000));
+
 module.exports= server;
