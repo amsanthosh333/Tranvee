@@ -34,7 +34,7 @@ class VancantlantimgController{
 
 	async fetchdata(id){
 		try{
-			let response = await vancantlandimgSchema.find({'_id':id});
+			let response = await vancantlandimgSchema.find({'vacantid':id});
 			return response;
 			
 		} catch(error){
