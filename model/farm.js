@@ -68,10 +68,6 @@ const farmSchema = new mongoose.Schema({
     Fencing: {
         type: String,
         required: false
-    },
-    WaterLevel: {
-        type: String,
-        required: false
     }, 
     Canal: {
         type: String,
