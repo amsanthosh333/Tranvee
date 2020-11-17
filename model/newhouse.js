@@ -3,143 +3,143 @@ const mongoose = require("mongoose");
 const newhouseSchema = new mongoose.Schema({
     Date: {
         type: String,
-        required: true
+        required: false
     },
     Type: {
         type: String,
-        required: true
+        required: false
     },
     Area: {
         type: String,
-        required: true
+        required: false
     },
     DTCP: {
         type: String,
-        required: true
+        required: false
     },
     Unapproved: {
         type: String,
-        required: true
+        required: false
     },
     BuildingApproval : {
         type: String,
-        required: true
+        required: false
     },
     BuildingPlan: {
         type: String,
-        required: true
+        required: false
     }, 
     Housetax: {
         type: String,
-        required: true
+        required: false
     },
     HouseType: {
         type: String,
-        required: true
+        required: false
     },
     Corporationwater: {
         type: String,
-        required: true
+        required: false
     },
     LTWater: {
         type: String,
-        required: true
+        required: false
     },
     Borewell: {
         type: String,
-        required: true
+        required: false
     },
     Facing: {
         type: String,
-        required: true
+        required: false
     },
     totalSizesq: {
         type: String,
-        required: true
+        required: false
     },
     Northsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Eastsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Westsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Southsizesq: {
         type: String,
-        required: true
+        required: false
     }, 
     EBType: {
         type: String,
-        required: true
+        required: false
     },
     TemporaryEBconnection: {
         type: String,
-        required: true
+        required: false
     },
     BoreMotortype: {
         type: String,
-        required: true
+        required: false
     },
     SumpCapacity: {
         type: String,
-        required: true
+        required: false
     },
     Septictank: {
         type: String,
-        required: true
+        required: false
     },
     Pillartype: {
         type: String,
-        required: true
+        required: false
     },
     CornerSite: {
         type: String,
-        required: true
+        required: false
     },
     Rainwaterharvest: {
         type: String,
-        required: true
+        required: false
     },
     Watertank: {
         type: String,
-        required: true
+        required: false
     },
     Undergrounddrainage: {
         type: String,
-        required: true
+        required: false
     },
     Drainage: {
         type: String,
-        required: true
+        required: false
     },
     CarParkingsize: {
         type: String,
-        required: true
+        required: false
     },
     Hallsize: {
         type: String,
-        required: true
+        required: false
     },
     Bedroomsize: {
         type: String,
-        required: true
+        required: false
     },
      Kitchensize: {
         type: String,
-        required: true
+        required: false
     },
     Dinningsize: {
         type: String,
-        required: true
+        required: false
     },
     Bathroomsize: {
         type: String,
-        required: true
+        required: false
     },
     AttachedBathroom: {
         type: String,
@@ -151,67 +151,67 @@ const newhouseSchema = new mongoose.Schema({
     },
     OuterBathroom: {
         type: String,
-        required: true
+        required: false
     },
     CompoundWall: {
         type: String,
-        required: true
+        required: false
     },
     Kitchengranite: {
         type: String,
-        required: true
+        required: false
     },
     ModelerKitchen: {
         type: String,
-        required: true
+        required: false
     },
     Woodwork: {
         type: String,
-        required: true
+        required: false
     },
     Firstfloor: {
         type: String,
-        required: true
+        required: false
     },
     Passageside: {
         type: String,
-        required: true
+        required: false
     },
     MainDoortype: {
         type: String,
-        required: true
+        required: false
     }, 
     WindowType: {
         type: String,
-        required: true
+        required: false
     },
     FlooringType: {
         type: String,
-        required: true
+        required: false
     },
     Painting: {
         type: String,
-        required: true
+        required: false
     },
     OtherDetails: {
         type: String,
-        required: true
+        required: false
     },
     Budget: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsName: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsContact: {
         type: String,
-        required: true
+        required: false
     },
     Refertype: {
         type: String,
-        required: true
+        required: false
     },
     ReferName: {
         type: String,
@@ -223,7 +223,7 @@ const newhouseSchema = new mongoose.Schema({
     },
     Sold: {
         type: String,
-        required: true
+        required: false
     }
 
 })

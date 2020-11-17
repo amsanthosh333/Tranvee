@@ -3,63 +3,63 @@ const mongoose = require("mongoose");
 const commericialSchema = new mongoose.Schema({
     Date: {
         type: String,
-        required: true
+        required: false
     },
     EBServices : {
         type: String,
-        required: true
+        required: false
     },
     TAX: {
         type: String,
-        required: true
+        required: false
     },
     Rent: {
         type: String,
-        required: true
+        required: false
     },
     NoofHouses: {
         type: String,
-        required: true
+        required: false
     },
     NoofBedRooms: {
         type: String,
-        required: true
+        required: false
     },
     Rainwaterharvest: {
         type: String,
-        required: true
+        required: false
     }, 
     CorporationWater: {
         type: String,
-        required: true
+        required: false
     },
     Metturwaterline: {
         type: String,
-        required: true
+        required: false
     },
     CarParking: {
         type: String,
-        required: true
+        required: false
     },
      YearofBuilding: {
         type: String,
-        required: true
+        required: false
     },
     Liftfacility: {
         type: String,
-        required: true
+        required: false
     },
     Pillar: {
         type: String,
-        required: true
+        required: false
     },
     Others: {
         type: String,
-        required: true
+        required: false
     },
     Referby : {
         type: String,
-        required: true
+        required: false
     },
     ReferbyName: {
         type: String,
@@ -71,35 +71,35 @@ const commericialSchema = new mongoose.Schema({
     },
     Budget: {
         type: String,
-        required: true
+        required: false
     }, 
     BuildupArea: {
         type: String,
-        required: true
+        required: false
     },
      LandArea: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsName: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsMobile: {
         type: String,
-        required: true
+        required: false
     },
     Sold: {
         type: String,
-        required: true
+        required: false
     },
     place: {
         type: String,
-        required: true
+        required: false
     },
     gvalue: {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('commericial',commericialSchema);

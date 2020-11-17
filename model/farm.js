@@ -3,111 +3,111 @@ const mongoose = require("mongoose");
 const farmSchema = new mongoose.Schema({
     Date: {
         type: String,
-        required: true
+        required: false
     },
     Area: {
         type: String,
-        required: true
+        required: false
     },
     Acers: {
         type: String,
-        required: true
+        required: false
     },
     NoofWells: {
         type: String,
-        required: true
+        required: false
     },
     Well: {
         type: String,
-        required: true
+        required: false
     },
     BoreWell  : {
         type: String,
-        required: true
+        required: false
     },
     HP: {
         type: String,
-        required: true
+        required: false
     }, 
     FreeServices: {
         type: String,
-        required: true
+        required: false
     },
     EBServices: {
         type: String,
-        required: true
+        required: false
     },
     AgriLand: {
         type: String,
-        required: true
+        required: false
     },
     SuitableforSite: {
         type: String,
-        required: true
+        required: false
     },
     RoadFacility: {
         type: String,
-        required: true
+        required: false
     },
     MainRoadFacing: {
         type: String,
-        required: true
+        required: false
     },
     Roadfacedistance: {
         type: String,
-        required: true
+        required: false
     },
     SoilType: {
         type: String,
-        required: true
+        required: false
     },
     BusRoute: {
         type: String,
-        required: true
+        required: false
     },
     Fencing: {
         type: String,
-        required: true
+        required: false
     },
     WaterLevel: {
         type: String,
-        required: true
+        required: false
     }, 
     Canal: {
         type: String,
-        required: true
+        required: false
     },
     House: {
         type: String,
-        required: true
+        required: false
     },
     Distance: {
         type: String,
-        required: true
+        required: false
     },
     EBLinecrossing: {
         type: String,
-        required: true
+        required: false
     },
     RateperAcre: {
         type: String,
-        required: true
+        required: false
     },
     Budget: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsName: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsMobile: {
         type: String,
-        required: true
+        required: false
     },
     Referby: {
         type: String,
-        required: true
+        required: false
     },
     ReferbyName: {
         type: String,
@@ -119,15 +119,15 @@ const farmSchema = new mongoose.Schema({
     },
     OtherDetails: {
         type: String,
-        required: true
+        required: false
     },
     GuidelineValue: {
         type: String,
-        required: true
+        required: false
     },
     Sold: {
         type: String,
-        required: true
+        required: false
     }
 
 })
