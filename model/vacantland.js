@@ -3,91 +3,87 @@ const mongoose = require("mongoose");
 const vancantlandSchema = new mongoose.Schema({
     Date: {
         type: String,
-        required: true
+        required: false
     },
     Area: {
         type: String,
-        required: true
+        required: false
     },
     totalSizesq: {
         type: String,
-        required: true
+        required: false
     },
     Northsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Eastsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Westsizesq: {
         type: String,
-        required: true
+        required: false
     },
     Southsizesq: {
         type: String,
-        required: true
+        required: false
     }, 
     Facing: {
         type: String,
-        required: true
+        required: false
     },
     RateperSq: {
         type: String,
-        required: true
+        required: false
     },
     DTCP: {
         type: String,
-        required: true
-    },
-    Unapproved: {
-        type: String,
-        required: true
+        required: false
     },
     FrontRoadwidth: {
         type: String,
-        required: true
+        required: false
     },
     CornerSite: {
         type: String,
-        required: true
+        required: false
     },
     Corporationwater: {
         type: String,
-        required: true
+        required: false
     },
     LTWater: {
         type: String,
-        required: true
+        required: false
     },
     BorewellLevel: {
         type: String,
-        required: true
+        required: false
     },
     Drainage: {
         type: String,
-        required: true
+        required: false
     },
     Undergrounddrainage: {
         type: String,
-        required: true
+        required: false
     },
     EBPost: {
         type: String,
-        required: true
+        required: false
     },
     GuidelineValue: {
         type: String,
-        required: true
+        required: false
     },
     Budget: {
         type: String,
-        required: true
+        required: false
     },
     MAP: {
         type: String,
-        required: true
+        required: false
     },
     MAPIMAGE: {
         type: String,
@@ -95,43 +91,43 @@ const vancantlandSchema = new mongoose.Schema({
     },
     EC: {
         type: String,
-        required: true
+        required: false
     },
     MainRoadFacing: {
         type: String,
-        required: true
+        required: false
     },
     Distance: {
         type: String,
-        required: true
+        required: false
     },
     EBLineCrossing: {
         type: String,
-        required: true
+        required: false
     },
     Vacantlandtax: {
         type: String,
-        required: true
+        required: false
     },
     RegisterOffice: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsName: {
         type: String,
-        required: true
+        required: false
     },
     OwnersDetailsMobile: {
         type: String,
-        required: true
+        required: false
     },
     Others: {
         type: String,
-        required: true
+        required: false
     },
     Refertype: {
         type: String,
-        required: true
+        required: false
     },
     ReferName: {
         type: String,
@@ -143,11 +139,11 @@ const vancantlandSchema = new mongoose.Schema({
     },
     Sold: {
         type: String,
-        required: true
+        required: false
     },
     Remarks: {
         type: String,
-        required: true
+        required: false
     }
 
 })
