@@ -16,7 +16,7 @@ const vacantlandimgRouter = require('../router/vacantlandimg');
 const newhouseRouter = require('../router/newhouse');
 const commericialRouter = require('../router/commericial');
 const farmRouter = require('../router/farm');
-
+const partyRouter = require('../router/party');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -57,6 +57,7 @@ server.use("/vancantlandimg", vacantlandimgRouter);
 server.use("/newhouse", newhouseRouter);
 server.use("/commericial", commericialRouter);
 server.use("/farm", farmRouter);
+server.use("/party", partyRouter);
 
 
 
