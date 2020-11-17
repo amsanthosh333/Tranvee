@@ -24,6 +24,9 @@ const commericialSchema = new mongoose.Schema({
     NoofBedRooms: {
         type: String,
         required: false
+    },Nooffloors: {
+        type: String,
+        required: false
     },
     Rainwaterharvest: {
         type: String,
