@@ -19,8 +19,10 @@ class partyController{
 	async fetch(){
 		try{
 			let response = await partySchema.find({});
+			let count=Object.keys(response).length;
 			return {
-				response: response
+				response: response,
+				count:count
 			};
 		} catch(error){
 			return {
