@@ -22,7 +22,7 @@ class partyController{
 			let count=Object.keys(response).length;
 			return {
 				response: response,
-				count:count
+				count
 			};
 		} catch(error){
 			return {
