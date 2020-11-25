@@ -1,8 +1,10 @@
 const userSchema = require('./../model/user');
 const errorHandler = require('./../utils/error.handler');
-
-
-
+const commericialSchema = require('./../model/commericial');
+const farmSchema = require('./../model/farm');
+const newhouseSchema = require('./../model/newhouse');
+const vancantlandSchema = require('./../model/vacantland');
+const partySchema = require('./../model/party');
 class UserController {
 
 
@@ -48,6 +50,29 @@ class UserController {
         }
     }
 
+	async fetch(){
+		try{
+            let response = await partySchema.find({});
+            let response1 = await commericialSchema.find({});
+            let response2 = await farmSchema.find({});
+            let response3 = await newhouseSchema.find({});
+            let response4 = await vancantlandSchema.find({});
+            let partycount=Object.keys(response).length;
+            let commericialcount=Object.keys(response1).length;
+            let farmcount=Object.keys(response2).length;
+            let newhousecount=Object.keys(response3).length;
+            let vancountcount=Object.keys(response4).length;
+			return {
+				partycount,
+				commericialcount,farmcount,newhousecount,vancountcount
+			};
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 
 
     async login1(username,password){
