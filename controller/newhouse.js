@@ -19,8 +19,10 @@ class newhouseController{
 	async fetch(){
 		try{
 			let response = await newhouseSchema.find({});
+			let count=Object.keys(response).length;
 			return {
-				response: response
+				response: response,
+				count
 			};
 		} catch(error){
 			return {

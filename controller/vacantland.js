@@ -21,8 +21,10 @@ class VancantlantController{
 	async fetch(){
 		try{
 			let response = await vancantlandSchema.find({});
+			let count=Object.keys(response).length;
 			return {
-				response: response
+				response: response,
+				count
 			};
 		} catch(error){
 			return {
