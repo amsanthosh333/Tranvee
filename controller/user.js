@@ -63,7 +63,6 @@ class UserController {
             let newhousecount=Object.keys(response3).length;
             let vancountcount=Object.keys(response4).length;
 			return {
-                response:
 				partycount,
                 commericialcount,
                 farmcount,
