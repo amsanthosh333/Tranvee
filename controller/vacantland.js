@@ -22,10 +22,7 @@ class VancantlantController{
 		try{
 			let response = await vancantlandSchema.find({});
 			let count=Object.keys(response).length;
-			return {
-			 response,
-				count
-			};
+			return response;
 		} catch(error){
 			return {
 				status: "error",
