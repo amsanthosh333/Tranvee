@@ -20,10 +20,7 @@ class commericialController{
 		try{
 			let response = await commericialSchema.find({});
 			let count=Object.keys(response).length;
-			return {
-				response: response,
-				count
-			};
+			return response;
 		} catch(error){
 			return {
 				status: "error",
