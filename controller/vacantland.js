@@ -44,6 +44,20 @@ class VancantlantController{
 		}
 	}
 
+
+	async fetchdatafilter(Facing,DTCP,RegisterOffice,Sold,MainRoadFacing,Refertype){
+		try{
+			let response = await vancantlandSchema.find({'Facing':Facing,'DTCP':DTCP,'RegisterOffice':RegisterOffice,'Sold':Sold,'MainRoadFacing':MainRoadFacing,'Refertype':Refertype});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
 	async delete(id){
 		try{
 			let response = await vancantlandSchema.deleteOne({_id: id});

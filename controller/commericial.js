@@ -42,6 +42,7 @@ class commericialController{
 		}
 	}
 
+
 	async delete(id){
 		try{
 			let response = await commericialSchema.deleteOne({_id: id});
