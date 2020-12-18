@@ -47,7 +47,14 @@ class VancantlantController{
 
 	async fetchdatafilter(Facing,DTCP,RegisterOffice,Sold,MainRoadFacing,Refertype){
 		try{
-			let response = await vancantlandSchema.find({'Facing':Facing,'DTCP':DTCP,'RegisterOffice':RegisterOffice,'Sold':Sold,'MainRoadFacing':MainRoadFacing,'Refertype':Refertype});
+			let response = await vancantlandSchema.find({
+                Facing: Facing,
+				DTCP: DTCP,
+				RegisterOffice: RegisterOffice,
+				Sold: Sold,
+				MainRoadFacing: MainRoadFacing,
+				Refertype: Refertype,
+            });
 			return response;
 			
 		} catch(error){
