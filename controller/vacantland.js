@@ -50,37 +50,37 @@ class VancantlantController{
 		var query="";
 
 		if (Facing != null||"") {
-			query+="Facing:"+Facing;
+			query+="Facing:"+Facing+"&";
 			
 		}else{
 		}
 
 		if (DTCP != null||"") {
-			query+="DTCP:"+DTCP;
+			query+="DTCP:"+DTCP+"&";
 			
 		}else{
 		}
 		if (RegisterOffice != null||"") {
-			query+="RegisterOffice:"+RegisterOffice;
+			query+="RegisterOffice:"+RegisterOffice+"&";
 			
 		}else{
 		}
 		if (Sold != null||"") {
-			query+="Sold:"+Sold;
+			query+="Sold:"+Sold+"&";
 			
 		}else{
 		}
 		if (MainRoadFacing != null||"") {
-			query+="MainRoadFacing"+MainRoadFacing;
+			query+="MainRoadFacing"+MainRoadFacing+"&";
 			
 		}else{
 		}
 		if (Refertype != null||"") {
-			query+="Refertype"+Refertype;
+			query+="Refertype"+Refertype+"&";
 			
 		}else{
 		}
-		console.log("query",""+query);
+		console.log("query",""+query+"&");
 		try{
 			let response = await vancantlandSchema.find({
                query
