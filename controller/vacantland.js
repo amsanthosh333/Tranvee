@@ -49,41 +49,40 @@ class VancantlantController{
 
 		var query="";
 
-		if (Facing != null||"") {
-			query+="Facing:"+Facing+"&";
+		// if (Facing != null||"") {
+		// 	query+="Facing:"+Facing;
 			
-		}else{
-		}
+		// }else{
+		// }
 
-		if (DTCP != null||"") {
-			query+="DTCP:"+DTCP+"&";
+		// if (DTCP != null||"") {
+		// 	query+="DTCP:"+DTCP;
 			
-		}else{
-		}
-		if (RegisterOffice != null||"") {
-			query+="RegisterOffice:"+RegisterOffice+"&";
+		// }else{
+		// }
+		// if (RegisterOffice != null||"") {
+		// 	query+="RegisterOffice:"+RegisterOffice;
 			
-		}else{
-		}
-		if (Sold != null||"") {
-			query+="Sold:"+Sold+"&";
+		// }else{
+		// }
+		// if (Sold != null||"") {
+		// 	query+="Sold:"+Sold;
 			
-		}else{
-		}
-		if (MainRoadFacing != null||"") {
-			query+="MainRoadFacing"+MainRoadFacing+"&";
+		// }else{
+		// }
+		// if (Sold != null||"") {
+		// 	query+="Sold:"+Sold;
 			
-		}else{
-		}
-		if (Refertype != null||"") {
-			query+="Refertype"+Refertype+"&";
-			
-		}else{
-		}
-		console.log("query",""+query+"&");
+		// }else{
+		// }
 		try{
 			let response = await vancantlandSchema.find({
-               query
+                Facing: Facing,
+				DTCP: DTCP,
+				RegisterOffice: RegisterOffice,
+				Sold: Sold,
+				MainRoadFacing: MainRoadFacing,
+				Refertype: Refertype,
             });
 			return response;
 			
