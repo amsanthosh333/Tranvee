@@ -23,5 +23,9 @@ router.put('/update', async (req, res) => {
 	const response = await commericialController.update(req.query.id, req.body);
 	res.send(response);
 })
-
+router.get('/fetchdatafilter', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await commericialController.fetchdatafilter(req.query.Facing,req.query.DTCP,req.query.RegisterOffice,req.query.Sold,req.query.MainRoadFacing,req.query.Refertype);
+	res.send(response);
+})
 module.exports = router;
