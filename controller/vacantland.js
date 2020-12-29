@@ -112,7 +112,7 @@ class VancantlantController{
 			// 	// Facing:'North',DTCP:'Yes',RegisterOffice:'Rangampalayam',Sold:'Yes',MainRoadFacing:'Yes',Refertype:'Direct',				
 			// });
 
-			let response = await vancantlandSchema.find({$or:[{Facing: Facing},{DTCP:DTCP},{RegisterOffice:RegisterOffice},{Sold:Sold},{MainRoadFacing:MainRoadFacing},{Refertype:Refertype}]});
+			let response = await vancantlandSchema.find({$and:[{Facing: Facing},{DTCP:DTCP},{RegisterOffice:RegisterOffice},{Sold:Sold},{MainRoadFacing:MainRoadFacing},{Refertype:Refertype}]});
 			// return response;
 
 
