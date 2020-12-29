@@ -49,7 +49,10 @@ class VancantlantController{
 
 		var query={};
 
-		
+		var criteria = {
+			'Facing' : Facing ? { $regex: Facing, $options: 'i' } : null ,
+			'DTCP' : DTCP ? { $regex: DTCP, $options: 'i' } : null 
+		};
 
 		// if (Facing != ""||null) {
 		// 	query.Facing="Facing:"+"'"+Facing+"'"+",";
@@ -112,13 +115,13 @@ class VancantlantController{
 			// 	// Facing:'North',DTCP:'Yes',RegisterOffice:'Rangampalayam',Sold:'Yes',MainRoadFacing:'Yes',Refertype:'Direct',				
 			// });
 
-			let response = await vancantlandSchema.find({$and:[{Facing: Facing},{DTCP:DTCP},{RegisterOffice:RegisterOffice},{Sold:Sold},{MainRoadFacing:MainRoadFacing},{Refertype:Refertype}]});
+			 let response = await vancantlandSchema.find({$and:[{Facing:{$regex: Facing, $options: 'i'}},{DTCP:{$regex: DTCP, $options: 'i'}},{RegisterOffice:{$regex: RegisterOffice, $options: 'i'}},{Sold:{$regex: Sold, $options: 'i'}},{MainRoadFacing:{$regex: MainRoadFacing, $options: 'i'}},{Refertype:{$regex: Refertype, $options: 'i'}}]});
 			// return response;
 
 
 			let result = await vancantlandSchema.aggregate([{
 				$match: {
-					query
+					criteria
 
 				}
 			}]);
