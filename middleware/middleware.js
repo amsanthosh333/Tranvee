@@ -11,12 +11,7 @@ server.use(cors());
 //locationdata
 
 const userRouter = require('./../router/user');
-const vacantlandRouter = require('../router/vacantland');
-const vacantlandimgRouter = require('../router/vacantlandimg');
-const newhouseRouter = require('../router/newhouse');
-const commericialRouter = require('../router/commericial');
-const farmRouter = require('../router/farm');
-const partyRouter = require('../router/party');
+
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -25,16 +20,7 @@ const partyRouter = require('../router/party');
 
 console.log('connected to the database',db);
 
-// mongoose.connect("mongodb://localhost:27017/testDb", {
-//     useUnifiedTopology: true,
-//     useNewUrlParser: true
-//     },function(error){
-//         if(error){
-//         console.log(error);
-//         }else{
-// 	console.log('connected to the database',db);
-//         }
-// 	});
+
 	
 mongoose.connect(db, {
     useUnifiedTopology: true,
@@ -52,12 +38,7 @@ mongoose.connect(db, {
 	//locationdata
 
 server.use("/user", userRouter);
-server.use("/vancantland", vacantlandRouter);
-server.use("/vancantlandimg", vacantlandimgRouter);
-server.use("/newhouse", newhouseRouter);
-server.use("/commericial", commericialRouter);
-server.use("/farm", farmRouter);
-server.use("/party", partyRouter);
+
 
 
 
