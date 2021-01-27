@@ -1,10 +1,7 @@
 const userSchema = require('./../model/user');
 const errorHandler = require('./../utils/error.handler');
-const commericialSchema = require('./../model/commericial');
-const farmSchema = require('./../model/farm');
-const newhouseSchema = require('./../model/newhouse');
-const vancantlandSchema = require('./../model/vacantland');
-const partySchema = require('./../model/party');
+
+
 class UserController {
 
 
