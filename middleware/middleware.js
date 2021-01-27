@@ -15,7 +15,7 @@ const userRouter = require('./../router/user');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
- let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin@realestate.qcmhu.mongodb.net/realestate?retryWrites=true&w=majority`;
+ let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin123@cluster0.qcrci.mongodb.net/schoolsms?retryWrites=true&w=majority`;
 
 
 console.log('connected to the database',db);
