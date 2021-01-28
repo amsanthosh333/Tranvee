@@ -15,6 +15,11 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await contactController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.get('/fetchbycategory', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await contactController.fetchdata(req.query.category);
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await contactController.delete(req.query.id);
 	res.send(response);

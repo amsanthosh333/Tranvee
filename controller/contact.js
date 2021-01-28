@@ -32,9 +32,9 @@ class contactController{
 		}
 	}
 
-	async fetchdata(id){
+	async fetchdata1(category){
 		try{
-			let response = await contactSchema.find({'_id':id});
+			let response = await contactSchema.find({'category':category});
 			return response;
 			
 		} catch(error){
