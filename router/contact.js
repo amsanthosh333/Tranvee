@@ -17,7 +17,7 @@ router.get('/fetchdata', async (req, res) => {
 })
 router.get('/fetchbycategory', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await contactController.fetchdata(req.query.category);
+	const response = await contactController.fetchdata1(req.query.category);
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {
