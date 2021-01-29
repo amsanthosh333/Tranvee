@@ -35,7 +35,9 @@ class contactController{
 	async fetchdata1(category){
 		try{
 			let response = await contactSchema.find({'category':category});
-			return response;
+			return {
+				response: response,
+			};
 			
 		} catch(error){
 			return {
