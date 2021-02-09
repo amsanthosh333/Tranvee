@@ -51,10 +51,10 @@ class adminController {
 		try{
             let response = await adminSchema.find({});
           
-            let commericialcount=Object.keys(response).length;
+            let count=Object.keys(response).length;
     
 			return {
-				commericialcount
+				count
            
 			};
 		} catch(error){
