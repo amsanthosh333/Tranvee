@@ -74,5 +74,25 @@ class contactController{
 
     }
 
+	async aggregation() {
+		try {
+		return  await contactSchema.aggregate([
+				{$lookup:
+					  {
+						from: "categories",
+						localField: "category",
+						foreignField: "_id",
+						as: "categoryDetails"
+					  }
+				 },			 
+				]);
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 }
 module.exports = new contactController();
