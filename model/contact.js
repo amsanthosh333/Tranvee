@@ -1,18 +1,18 @@
 const mongoose = require("mongoose");
 
 const contactSchema = new mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    Regno: {
-        type: String,
-        required: true
-    },
-    fathername: {
-        type: String,
-        required: true
-    },
+ name: {
+     type: String,
+     required: true
+ },
+ Regno: {
+     type: String,
+     required: true
+ },
+ fathername: {
+     type: String,
+     required: true
+ },
 fathermobile: {
     type: String,
     required: true
@@ -36,6 +36,10 @@ guardianmobile: {
 category: {
     type: mongoose.Schema.ObjectId,
     required: true
+}, 
+password: {
+    type: String,
+    required: true,
 }
 })
 module.exports = new mongoose.model('contact',contactSchema);
