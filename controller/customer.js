@@ -98,9 +98,9 @@ class CustomerController {
         return require('crypto').createHash('md5').update(timeStamp).digest('hex')
     }
 
-    async validateToken(res, token, userId){
+    async validateToken(res, token){
         try{
-            let user = await userSchema.findOne({
+            let user = await customerSchema.findOne({
                 token: token
             });
 
@@ -132,7 +132,7 @@ class CustomerController {
 	
 	async fetch(){
 		try{
-			let response = await customerSchema.find({});
+			let response = await customerSchema.find({userId: userSession.id});
 			let count=Object.keys(response).length;
 			return {
 				response: response,

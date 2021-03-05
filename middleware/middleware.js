@@ -7,7 +7,7 @@ server.use(bodyParser.json());
 const cors = require('cors');
 server.use(cors());
 
-
+const customerController = require('./../controller/customer');
 //locationdata
 
 const userRouter = require('./../router/user');
@@ -38,5 +38,16 @@ mongoose.connect(db, {
 
 server.use("/user", userRouter);
 server.use("/customer", customerRouter);
+server.use(['/customer'], async (req, res, next) => {
+	if(!req.headers.authorization){
+		return res.send({
+			status: 'error',
+			msg: 'Invalid Token'
+		})
+	}
 
+	await customerController.validateToken(res, req.headers.authorization);
+
+	next();
+})
 module.exports= server;
