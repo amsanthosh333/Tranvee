@@ -11,6 +11,7 @@ server.use(cors());
 //locationdata
 
 const userRouter = require('./../router/user');
+const customerRouter = require('./../router/customer');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -36,6 +37,6 @@ mongoose.connect(db, {
 	//locationdata
 
 server.use("/user", userRouter);
-
+server.use("/customer", customerRouter);
 
 module.exports= server;
