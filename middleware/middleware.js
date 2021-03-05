@@ -46,7 +46,7 @@ server.use("/customer", async (req, res, next) => {
 		})
 	}
 
-	await customerController.validateToken(res, req.headers.authorization);
+	await customerController.validateToken(res,req.headers.authorization);
 
 	next();
 })
