@@ -37,7 +37,7 @@ mongoose.connect(db, {
 	//locationdata
 
 server.use("/user", userRouter);
-server.use("/customer", customerRouter);
+// server.use("/customer", customerRouter);
 server.use("/customer", async (req, res, next) => {
     console.log("eeeeeeee",""+req.headers.authorization);
 	if(!req.headers.authorization){
@@ -50,5 +50,5 @@ server.use("/customer", async (req, res, next) => {
 	await customerController.validateToken(res,req.headers.authorization);
 
 	next();
-})
+},customerRouter)
 module.exports= server;
