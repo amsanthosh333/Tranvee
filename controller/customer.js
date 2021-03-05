@@ -86,7 +86,7 @@ class CustomerController {
     }
     async saveToken(userID, token){
         try{
-            await userSchema.update({_id: userID}, {token: token})
+            await customerSchema.update({_id: userID}, {token: token})
         } catch(err){
             console.log(err);
         }
@@ -146,9 +146,9 @@ class CustomerController {
 		}
 	}
 
-	async fetchdata(id){
+	async fetchdata(token){
 		try{
-			let response = await customerSchema.find({'_id':id});
+			let response = await customerSchema.find({'token':token});
 			return response;
 			
 		} catch(error){
