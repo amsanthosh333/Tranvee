@@ -148,7 +148,7 @@ class CustomerController {
 
 	async fetchdata(id){
 		try{
-			let response = await customerSchema.find({_id: id, userId: userSession.id});
+			let response = await customerSchema.find({_id: id});
 			return response;
 			
 		} catch(error){
