@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
 })
 router.get('/fetchdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await customerController.fetchdata(req.query.token);
+	const response = await customerController.fetchdata(req.query.id);
 	res.send(response);
 })
 router.delete('/delete', async (req, res) => {

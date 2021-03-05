@@ -146,9 +146,9 @@ class CustomerController {
 		}
 	}
 
-	async fetchdata(token){
+	async fetchdata(id){
 		try{
-			let response = await customerSchema.find({'token':token});
+			let response = await customerSchema.find({_id: id, userId: userSession.id});
 			return response;
 			
 		} catch(error){
