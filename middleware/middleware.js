@@ -39,6 +39,7 @@ mongoose.connect(db, {
 server.use("/user", userRouter);
 // server.use("/customer", customerRouter);
 server.use("/customer", async (req, res, next) => {
+    console.log("eeeeeeee",""+req.headers.authorization);
 	if(!req.headers.authorization){
 		return res.send({
 			status: 'error',
