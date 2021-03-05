@@ -32,7 +32,11 @@ class CustomerController {
             if(!user){
                 throw new Error('invalid creds');
             }
+            let token = this.generateToken();
 
+            this.saveToken(user._id, token);
+
+            user.token = token;
             return {
                 status: "1",
                 msg: "Login Sucessfully",
