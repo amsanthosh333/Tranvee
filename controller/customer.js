@@ -132,7 +132,7 @@ class CustomerController {
 	
 	async fetch(){
 		try{
-			let response = await customerSchema.find({_id:userSession._id});
+			let response = await customerSchema.find();
 			let count=Object.keys(response).length;
 			return {
 				response: response,
