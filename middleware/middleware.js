@@ -37,7 +37,7 @@ mongoose.connect(db, {
 	//locationdata
 
 server.use("/user", userRouter);
-server.use("/customer", customerRouter);
+// server.use("/customer", customerRouter);
 server.use("/customer", async (req, res, next) => {
 	if(!req.headers.authorization){
 		return res.send({
