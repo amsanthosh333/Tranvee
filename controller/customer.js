@@ -10,7 +10,7 @@ class CustomerController {
             await customerSchema.create(newGender);
    return {
                 status: 'success',
-                msg: 'User created'
+                msg: 'Registered Sucessfully...'
             }
         } catch(err){
             return {
