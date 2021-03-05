@@ -21,11 +21,11 @@ class CustomerController {
     }
 
     async login(responce){
-        let username=responce.username;
+        let phone=responce.phone;
         let password=responce.password;
         try{
             let user = await customerSchema.findOne({
-                username: username,
+                phone: phone,
                 password: password,
             });
 
@@ -54,11 +54,11 @@ class CustomerController {
 
 
 
-    async login1(username,password){
+    async login1(phone,password){
        
         try{
             let user = await customerSchema.findOne({
-                username: username,
+                phone: phone,
                 password: password,
             });
 
