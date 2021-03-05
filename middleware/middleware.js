@@ -38,8 +38,8 @@ mongoose.connect(db, {
 
 server.use("/user", userRouter);
 server.use("/customer", customerRouter);
-server.use(['/customer'], async (req, res, next) => {
-	if(!req.headers.Authorization){
+server.use("/customer", async (req, res, next) => {
+	if(!req.headers.authorization){
 		return res.send({
 			status: 'error',
 			msg: 'Invalid Token'
