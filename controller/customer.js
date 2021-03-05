@@ -61,6 +61,11 @@ class CustomerController {
             if(!user){
                 throw new Error('invalid creds');
             }
+            let token = this.generateToken();
+
+            this.saveToken(user._id, token);
+
+            user.token = token;
 
             return {
                 status: "1",
@@ -75,7 +80,39 @@ class CustomerController {
             }
         }
     }
+    async saveToken(userID, token){
+        try{
+            await userSchema.update({_id: userID}, {token: token})
+        } catch(err){
+            console.log(err);
+        }
+    }
 
+    generateToken() {
+        let timeStamp = `${new Date().getTime()}`;
+
+        return require('crypto').createHash('md5').update(timeStamp).digest('hex')
+    }
+
+    async validateToken(res, token, userId){
+        try{
+            let user = await userSchema.findOne({
+                token: token
+            });
+
+            if(!user){
+                throw new Error('invalid token');
+            }
+
+            global.userSession = user;
+            
+        } catch(error){
+            res.send({
+                status: 'error',
+                msg: 'Invalid token'
+            });
+        }
+    }
 
 	async add(farm){
 		try{
