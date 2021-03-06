@@ -17,6 +17,8 @@ const driverRouter = require('./../router/driver');
 const paymentdetailsRouter = require('./../router/paymentdetails');
 const booktripRouter = require('./../router/booktrip');
 const goodstypeRouter = require('./../router/goodstype');
+const cityRouter = require('./../router/city');
+
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
 //  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin123@cluster0.qcrci.mongodb.net/schoolsms?retryWrites=true&w=majority`;
@@ -114,4 +116,15 @@ server.use("/goods", async (req, res, next) => {
 	await customerController.validateToken(res,req.headers.authorization);
 	next();
 },goodstypeRouter);
+server.use("/city", async (req, res, next) => {
+    console.log("eeeeeeee",""+req.headers.authorization);
+	if(!req.headers.authorization){
+		return res.send({
+			status: 'error',
+			msg: 'Invalid Token'
+		})
+	}
+	await customerController.validateToken(res,req.headers.authorization);
+	next();
+},cityRouter);
 module.exports= server;
