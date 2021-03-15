@@ -47,8 +47,10 @@ class vechicleController{
 	async fetchopenvechicle(){
 		try{
 			let response = await vechicleSchema.find({'VechicleType':"open"});
-			return response;
-			
+			return {
+				response: response,
+				count
+			};
 		} catch(error){
 			return {
 				status: "error",
@@ -59,7 +61,10 @@ class vechicleController{
 	async fetchclosevechicle(){
 		try{
 			let response = await vechicleSchema.find({'VechicleType':"close"});
-			return response;
+			return {
+				response: response,
+				count
+			};
 			
 		} catch(error){
 			return {
