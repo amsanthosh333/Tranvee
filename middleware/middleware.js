@@ -62,7 +62,8 @@ server.use("/vechicle", async (req, res, next) => {
 	if(!req.headers.authorization){
 		return res.send({
 			status: 'error',
-			msg: 'Invalid Token'
+			msg: 'authorization Token'
+			
 		})
 	}
 
