@@ -47,6 +47,7 @@ class vechicleController{
 	async fetchopenvechicle(){
 		try{
 			let response = await vechicleSchema.find({'VechicleType':"open"});
+			let count=Object.keys(response).length;
 			return {
 				response: response,
 				count
@@ -61,6 +62,7 @@ class vechicleController{
 	async fetchclosevechicle(){
 		try{
 			let response = await vechicleSchema.find({'VechicleType':"close"});
+			let count=Object.keys(response).length;
 			return {
 				response: response,
 				count
