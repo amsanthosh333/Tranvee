@@ -15,6 +15,16 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await vechicleController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.get('/fetchopenvechicle', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await vechicleController.fetchopenvechicle();
+	res.send(response);
+})
+router.get('/fetchclosevechicle', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await vechicleController.fetchclosevechicle();
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await vechicleController.delete(req.query.id);
 	res.send(response);

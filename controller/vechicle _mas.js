@@ -44,7 +44,30 @@ class vechicleController{
 			};
 		}
 	}
-
+	async fetchopenvechicle(){
+		try{
+			let response = await vechicleSchema.find({'VechicleType':"open"});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+	async fetchclosevechicle(){
+		try{
+			let response = await vechicleSchema.find({'VechicleType':"close"});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async delete(id){
 		try{
 			let response = await vechicleSchema.deleteOne({_id: id});
