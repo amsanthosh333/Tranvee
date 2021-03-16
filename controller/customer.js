@@ -40,7 +40,6 @@ class CustomerController {
             return {
                 status: "1",
                 msg: "Login Sucessfully",
-                token:user.token,
                 user
             };
 
