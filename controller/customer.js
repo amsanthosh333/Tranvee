@@ -40,7 +40,7 @@ class CustomerController {
             return {
                 status: "1",
                 msg: "Login Sucessfully",
-                token: token,
+                token:""+token,
                 user
             };
 
