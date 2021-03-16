@@ -67,7 +67,7 @@ server.use("/driver", async (req, res, next) => {
 	if(!req.headers.authorization){
 		return res.send({
 			status: 'error',
-			msg: 'Invalid Token'
+			msg: 'Invalid null Token'
 		})
 	}
 	await customerController.validateToken(res,req.headers.authorization);

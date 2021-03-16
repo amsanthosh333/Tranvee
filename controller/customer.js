@@ -114,7 +114,7 @@ class CustomerController {
         } catch(error){
             res.send({
                 status: 'error',
-                msg: 'Invalid nulltoken'
+                msg: 'Invalid token'
             });
         }
     }
