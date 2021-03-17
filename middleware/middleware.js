@@ -44,10 +44,9 @@ mongoose.connect(db, {
 
 server.use("/user", userRouter);
 // server.use("/customer", customerRouter);
-server.use("/customer", async (req, res, next) => {
-   
-	next();
-},customerRouter);
+server.use("/customer",customerRouter);
+
+
 server.use("/vechicle", async (req, res, next) => {
     console.log("eeeeeeee",""+req.headers.authorization);
 	if(!req.headers.authorization){
