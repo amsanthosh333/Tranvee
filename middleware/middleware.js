@@ -42,7 +42,20 @@ mongoose.connect(db, {
 	});
 	//locationdata
 
-server.use("/user", userRouter);
+server.use("/user", async (req, res, next) => {
+    console.log("eeeeeeee",""+req.headers.authorization);
+	if(!req.headers.authorization){
+		return res.send({
+			status: 'error',
+			msg: 'authorization Token'
+			
+		})
+	}
+
+	await customerController.validateToken(res,req.headers.authorization);
+
+	next();
+},userRouter);
 // server.use("/customer", customerRouter);
 server.use("/customer",customerRouter);
 
