@@ -65,6 +65,10 @@ const booktripSchema = new mongoose.Schema({
     EndotpTime : {
         type: String,
         required: false
+    },
+    Bookingstatus : {
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
