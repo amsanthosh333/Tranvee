@@ -44,6 +44,22 @@ class booktripController{
 			};
 		}
 	}
+	async fetchbookdata(Customer){
+		try{
+			let response = await booktripSchema.find({'Customer':Customer});
+			let count=Object.keys(response).length;
+			return {
+				response: response,
+				count
+			};
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 
 	async delete(id){
 		try{

@@ -15,6 +15,11 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await booktripController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.get('/fetchbookdata', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await booktripController.fetchbookdata(req.query.Customer);
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await booktripController.delete(req.query.id);
 	res.send(response);
