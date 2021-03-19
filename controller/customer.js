@@ -113,7 +113,7 @@ class CustomerController {
             
         } catch(error){
             res.send({
-                status: 'error',
+                status: '0',
                 msg: 'Invalid token'
             });
         }
