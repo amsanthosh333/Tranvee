@@ -1,29 +1,26 @@
 const mongoose = require("mongoose");
 
 const booktripSchema = new mongoose.Schema({
-    Date : {
-        type: String,
-        required: true
-    },
+  
     Customer : {
         type: mongoose.Schema.ObjectId,
         required: false
     },
     Pickuploc :{
         type: String,
-        required: true
+        required: false
     },
     Droploc : {
         type: String,
-        required: true
+        required: false
     },
     TotalKm : {
         type: String,
-        required: true
+        required: false
     },
     Vechicaltype : {
         type: String,
-        required: true
+        required: false
     },
     vechical : {
         type: mongoose.Schema.ObjectId,
@@ -31,19 +28,15 @@ const booktripSchema = new mongoose.Schema({
     },
     helper : {
         type: String,
-        required: true
+        required: false
     },
     Booktime : {
         type: String,
-        required: true
+        required: false
     },
     Bookdate : {
         type: String,
-        required: true
-    },
-    Time : {
-        type: String,
-        required: true
+        required: false
     },
     Driverid : {
         type: mongoose.Schema.ObjectId,
@@ -51,27 +44,27 @@ const booktripSchema = new mongoose.Schema({
     },
     Startotp : {
         type: String,
-        required: true
+        required: false
     },
     StartotpTime : {
         type: String,
-        required: true
+        required: false
     },
     StartTripTime : {
         type: String,
-        required: true
+        required: false
     },
     ReachDestinationTime : {
         type: String,
-        required: true
+        required: false
     },
     Endotp : {
         type: String,
-        required: true
+        required: false
     },
     EndotpTime : {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
