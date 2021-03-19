@@ -7,10 +7,10 @@ class booktripController{
 	async add(farm){
 		try{
 			let response = await booktripSchema.create(farm);
-			return { status: "success",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
+			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
-				status: "error",
+				status: "0",
 				error: errorHandler.parseMongoError(error)
 			};
 		}
