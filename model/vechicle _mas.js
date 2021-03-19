@@ -3,47 +3,47 @@ const mongoose = require("mongoose");
 const vachicleSchema = new mongoose.Schema({
     Name : {
         type: String,
-        required: true
+        required: false
     },
     VechicleType : {
         type: String,
-        required: true
+        required: false
     },
     Min_km :{
         type: String,
-        required: true
+        required: false
     },
     Min_price : {
         type: String,
-        required: true
+        required: false
     },
     Price_km : {
         type: String,
-        required: true
+        required: false
     },
     Waiting_min : {
         type: String,
-        required: true
+        required: false
     },
     Capacity : {
         type: String,
-        required: true
+        required: false
     },
     Width : {
         type: String,
-        required: true
+        required: false
     },
     Height : {
         type: String,
-        required: true
+        required: false
     },
     Length : {
         type: String,
-        required: true
+        required: false
     },
     Image : {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('vachicle',vachicleSchema);
