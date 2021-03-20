@@ -20,11 +20,11 @@ class driverController{
     }
 
     async login(responce){
-        let phone=responce.phone;
+        let Mobileno=responce.Mobileno;
         let password=responce.password;
         try{
             let user = await driverSchema.findOne({
-                phone: phone,
+                Mobileno: Mobileno,
                 password: password,
             });
 
