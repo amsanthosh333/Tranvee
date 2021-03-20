@@ -108,6 +108,10 @@ const driverSchema = new mongoose.Schema({
     Status : {
         type: String,
         required: false
+    },
+    token: {
+        type: String,
+        required: false,
     }
 })
 module.exports = new mongoose.model('driver',driverSchema);
