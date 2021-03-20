@@ -69,6 +69,10 @@ const booktripSchema = new mongoose.Schema({
     Bookingstatus : {
         type: String,
         required: false
+    },
+    Amount :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
