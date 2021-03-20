@@ -11,7 +11,7 @@ router.post('/login', async (req, res) => {
 });
 
 router.get('/login1', async (req, res) => {
-    res.send(await driverController.login1(req.query.phone,req.query.password));
+    res.send(await driverController.login1(req.query.Mobileno,req.query.password));
 });
 router.post('/add', async (req, res) => {
 	const response = await driverController.add(req.body);

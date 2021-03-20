@@ -58,7 +58,7 @@ class driverController{
        
         try{
             let user = await driverSchema.findOne({
-                phone: phone,
+                Mobileno: phone,
                 password: password,
             });
 
