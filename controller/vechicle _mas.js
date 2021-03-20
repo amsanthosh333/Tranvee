@@ -110,15 +110,7 @@ class vechicleController{
 				$match: {
 					VechicleType: VechicleType
 				}
-			},
-			{$lookup:
-					{
-					  from: "drivers",
-					  localField: "Vechicle",
-					  foreignField: "_id",
-					  as: "driversDetails"
-					}
-			   }				 
+			}				 
 				]);
 				return responce;
 		} catch (error) {
