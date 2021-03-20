@@ -3,43 +3,43 @@ const mongoose = require("mongoose");
 const driverSchema = new mongoose.Schema({
     Name : {
         type: String,
-        required: true
+        required: false
     },
     Mobileno : {
         type: String,
-        required: true
+        required: false
     },
     Address :{
         type: String,
-        required: true
+        required: false
     },
     Email : {
         type: String,
-        required: true
+        required: false
     },
     Blood_Group : {
         type: String,
-        required: true
+        required: false
     },
     Emg_Contactno : {
         type: String,
-        required: true
+        required: false
     },
     Aadhar_No : {
         type: String,
-        required: true
+        required: false
     },
     Licence_No : {
         type: String,
-        required: true
+        required: false
     },
     Dl_Exp_Date : {
         type: String,
-        required: true
+        required: false
     },
     Vechicle_Type : {
         type: String,
-        required: true
+        required: false
     },
     Vechicle : {
         type: mongoose.Schema.ObjectId,
@@ -47,63 +47,67 @@ const driverSchema = new mongoose.Schema({
     },
     VechicleNum : {
         type: String,
-        required: true
+        required: false
     },
     insuranceNumber : {
         type: String,
-        required: true
+        required: false
     },
     insuranceExpDate : {
         type: String,
-        required: true
+        required: false
     },
     SmokeTest : {
         type: String,
-        required: true
+        required: false
     },
     FcExpdate : {
         type: String,
-        required: true
+        required: false
     },
     Imageprofile : {
         type: String,
-        required: true
+        required: false
     },
     VechicleImage : {
         type: String,
-        required: true
+        required: false
     },
     Document1 : {
         type: String,
-        required: true
+        required: false
     },
     Document2 : {
         type: String,
-        required: true
+        required: false
     },
     Document3 : {
         type: String,
-        required: true
+        required: false
     },
     DepositAmount : {
         type: String,
-        required: true
+        required: false
     },
     PaymentDate : {
         type: String,
-        required: true
+        required: false
     },
     PaymentExpDate : {
         type: String,
-        required: true
+        required: false
     },
     Razorpayid : {
         type: String,
-        required: true
+        required: false
+    },
+    Password : {
+        type: String,
+        required: false
     },
     Status : {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('driver',driverSchema);
