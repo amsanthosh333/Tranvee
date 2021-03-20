@@ -102,5 +102,32 @@ class vechicleController{
 
     }
 
+
+	async aggregation(VechicleType) {
+		try {
+		let responce=await vechicleSchema.aggregate([
+			{
+				$match: {
+					VechicleType: VechicleType
+				}
+			},
+			{$lookup:
+					{
+					  from: "drivers",
+					  localField: "Vechicle",
+					  foreignField: "_id",
+					  as: "driversDetails"
+					}
+			   }				 
+				]);
+				return responce;
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 }
 module.exports = new vechicleController();
