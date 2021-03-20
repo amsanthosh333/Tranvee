@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const driverController = require('../controller/driver');
 
+
+router.post('/register', async (req, res) => {
+    res.send(await driverController.register(req.body));
+});
+
+router.post('/login', async (req, res) => {
+    res.send(await driverController.login(req.body));
+});
+
+router.get('/login1', async (req, res) => {
+    res.send(await driverController.login1(req.query.phone,req.query.password));
+});
 router.post('/add', async (req, res) => {
 	const response = await driverController.add(req.body);
 	res.send(response);

@@ -60,6 +60,11 @@ server.use("/user", async (req, res, next) => {
 server.use("/customer",customerRouter);
 
 
+
+
+server.use("/drivervechicle",vechicleRouter);
+server.use("/driverred",driverRouter);
+
 server.use("/vechicle", async (req, res, next) => {
     console.log("eeeeeeee",""+req.headers.authorization);
 	if(!req.headers.authorization){
