@@ -10,7 +10,23 @@ const booktripSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    Pickuploclat :{
+        type: String,
+        required: false
+    },
+    Pickuploclng :{
+        type: String,
+        required: false
+    },
     Droploc : {
+        type: String,
+        required: false
+    },
+    Droploclat :{
+        type: String,
+        required: false
+    },
+    Droploclng :{
         type: String,
         required: false
     },
