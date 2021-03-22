@@ -87,6 +87,38 @@ class booktripController{
         }
 
     }
-
+	async aggregation() {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus: "Pending"
+				}
+			},{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }					 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 }
 module.exports = new booktripController();
