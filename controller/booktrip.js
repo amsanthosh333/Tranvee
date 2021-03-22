@@ -1,6 +1,7 @@
 const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
-
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class booktripController{
 
 
@@ -120,5 +121,46 @@ class booktripController{
 			};
 		}
     }
+
+
+
+
+
+	async aggregation1(customerid,bookingstatus) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus: ""+bookingstatus,
+					Customer:ObjectId(donateid)
+				}
+			},{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }					 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
+
 }
 module.exports = new booktripController();
