@@ -36,8 +36,9 @@ class booktripController{
 	async fetchdata(id){
 		try{
 			let response = await booktripSchema.find({'_id':id});
-			return response;
-			
+			return {
+				response: response,
+			};
 		} catch(error){
 			return {
 				status: "error",
