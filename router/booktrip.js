@@ -15,6 +15,9 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await booktripController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.post('/fetchbodydata', async (req, res) => {
+    res.send(await booktripController.fetchbodydata(req.body));
+});
 router.get('/fetchbookdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await booktripController.fetchbookdata(req.query.Customer);

@@ -36,9 +36,25 @@ class booktripController{
 	async fetchdata(id){
 		try{
 			let response = await booktripSchema.find({'_id':id});
+			return response;
+			
+		} catch(error){
 			return {
-				response: response,
+				status: "error",
+				error: errorHandler.parseMongoError(error)
 			};
+		}
+	}
+
+
+	async fetchbodydata(body){
+		let id=body.id;
+		try{
+			let response = await booktripSchema.find({'_id':id});
+			return {
+				response: response
+			};
+			
 		} catch(error){
 			return {
 				status: "error",
