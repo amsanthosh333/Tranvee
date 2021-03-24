@@ -74,11 +74,7 @@ const booktripSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    Endotp : {
-        type: String,
-        required: false
-    },
-    EndotpTime : {
+    Endtriptime : {
         type: String,
         required: false
     },
