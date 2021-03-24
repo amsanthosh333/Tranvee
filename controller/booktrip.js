@@ -147,6 +147,46 @@ class booktripController{
     }
 
 
+	async accaggregation() {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus: "Accepted"
+				}
+			},{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   }						 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 
 

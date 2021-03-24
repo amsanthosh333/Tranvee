@@ -37,6 +37,10 @@ router.get('/aggregation', async (req, res) =>{
 	let response = await booktripController.aggregation();
 	res.send(response);	
 })
+router.get('/accaggregation', async (req, res) =>{
+	let response = await booktripController.accaggregation();
+	res.send(response);	
+})
 
 router.get('/fetchbookingstatus', async (req, res) =>{
 	let response = await booktripController.aggregation(req.query.Customer,req.query.Bookingstatus);
