@@ -126,7 +126,14 @@ class booktripController{
 			  foreignField: "_id",
 			  as: "vechicalDetails"
 			}
-	   }					 
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   }						 
 				]);
 				return {
 					response: responce
@@ -152,20 +159,27 @@ class booktripController{
 					Customer:ObjectId(customerid)
 				}
 			},{$lookup:
-				{
-				  from: "customers",
-				  localField: "Customer",
-				  foreignField: "_id",
-				  as: "CustomerDetails"
-				}
-		   },{$lookup:
 			{
-			  from: "vachicles",
-			  localField: "vechical",
+			  from: "customers",
+			  localField: "Customer",
 			  foreignField: "_id",
-			  as: "vechicalDetails"
+			  as: "CustomerDetails"
 			}
-	   }					 
+	   },{$lookup:
+		{
+		  from: "vachicles",
+		  localField: "vechical",
+		  foreignField: "_id",
+		  as: "vechicalDetails"
+		}
+   },{$lookup:
+	{
+	  from: "drivers",
+	  localField: "Driverid",
+	  foreignField: "_id",
+	  as: "DriverDetails"
+	}
+}						 
 				]);
 				return {
 					response: responce
