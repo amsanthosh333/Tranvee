@@ -236,7 +236,7 @@ class booktripController{
 			{
 				$match: {				
 					Customer:ObjectId(customerid),
-					Bookingstatus:"Accepted"
+					Bookingstatus:bookingstatus
 				}
 			},{$lookup:
 			{
