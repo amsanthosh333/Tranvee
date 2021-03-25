@@ -47,7 +47,7 @@ router.get('/cloaggregation', async (req, res) =>{
 })
 
 router.get('/fetchbookingstatus', async (req, res) =>{
-	let response = await booktripController.aggregation(req.query.Customer,req.query.Bookingstatus);
+	let response = await booktripController.aggregation1(req.query.Customer,req.query.Bookingstatus);
 	res.send(response);	
 })
 module.exports = router;
