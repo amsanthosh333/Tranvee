@@ -231,7 +231,7 @@ class booktripController{
 
 
 	async aggregation1(customerid,bookingstatus) {
-		console.log("bookingstatus",""+bookingstatus);
+		console.log("bookingstatus",bookingstatus);
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
