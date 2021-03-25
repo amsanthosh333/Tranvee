@@ -235,7 +235,6 @@ class booktripController{
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					Bookingstatus:bookingstatus,
 					Customer:ObjectId(customerid)
 				}
 			},{$lookup:
