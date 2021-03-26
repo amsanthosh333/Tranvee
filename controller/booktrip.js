@@ -147,12 +147,13 @@ class booktripController{
     }
 
 
-	async accaggregation() {
+	async accaggregation(Driverid,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					Bookingstatus: "Accepted"
+					Driverid:ObjectId(Driverid),
+					Bookingstatus:Bookingstatus
 				}
 			},{$lookup:
 				{
