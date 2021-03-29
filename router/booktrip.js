@@ -1,8 +1,15 @@
 const router = require('express').Router();
 const booktripController = require('../controller/booktrip');
-
+const notification_options = {
+    priority: "high",
+    timeToLive: 60 * 60 * 24
+  };
 router.post('/add', async (req, res) => {
 	const response = await booktripController.add(req.body);
+	res.send(response);
+})
+router.post('/firebase/notification', async (req, res) => {
+	const response = await booktripController.notification(req.body);
 	res.send(response);
 })
 router.get('/', async (req, res) => {

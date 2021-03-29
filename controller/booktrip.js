@@ -2,6 +2,12 @@ const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const admin = require('./firebase-config')
+
+const notification_options = {
+    priority: "high",
+    timeToLive: 60 * 60 * 24
+  };
 class booktripController{
 
 
@@ -16,7 +22,21 @@ class booktripController{
 			};
 		}
 	}
+	async notification(farm){
+		const  registrationToken = farm.registrationToken
+		const message = farm.message
+		const options =  notification_options
+		
+		  admin.messaging().sendToDevice(registrationToken, message, options)
+		  .then( response => {
 	
+		   res.status(200).send("Notification sent successfully"+response)
+			
+		  })
+		  .catch( error => {
+			  console.log(error);
+		  });
+	}
 	async fetch(){
 		try{
 			let response = await booktripSchema.find({});
