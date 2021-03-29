@@ -24,6 +24,10 @@ const vachicleSchema = new mongoose.Schema({
     Waiting_min : {
         type: String,
         required: false
+    },  
+    min_waiting_time : {
+        type: String,
+        required: false
     },
     Capacity : {
         type: String,
