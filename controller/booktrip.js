@@ -2,7 +2,7 @@ const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
-const admin = require('./firebase-config')
+const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 const notification_options = {
     priority: "high",
