@@ -117,7 +117,7 @@ class booktripController{
 	async update(id, body) {
 
         try {
-            let response = await booktripSchema.updateOne({_id: id}, body);
+            let response = await booktripSchema.update({_id: id}, body);
             return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
@@ -126,6 +126,17 @@ class booktripController{
 
     }
 
+	async amount_update(id, body) {
+
+        try {
+            let response = await booktripSchema.updateOne({_id: id}, body);
+            return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
+
+        } catch (error) {
+            return { status: "error", error: error };
+        }
+
+    }
 	async aggregation() {
 		try {
 		let responce=await booktripSchema.aggregate([
