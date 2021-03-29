@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 server.use(bodyParser.json());
 const cors = require('cors');
 server.use(cors());
-const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
+
 const customerController = require('./../controller/customer');
 //locationdata
 
@@ -142,11 +142,4 @@ server.use("/city", async (req, res, next) => {
 	await customerController.validateToken(res,req.headers.authorization);
 	next();
 },cityRouter);
-
-
-
-
-
-
-
 module.exports= server;
