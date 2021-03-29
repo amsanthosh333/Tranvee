@@ -83,7 +83,7 @@ router.put('/amount_update', async (req, res) => {
 	let member={
 		"Endtriptime":req.body.Endtriptime,
 		"Bookingstatus":"Closed",
-		"Amount": sum,
+		"Amount":sum,
 		 }
 
 	
