@@ -79,7 +79,8 @@ router.put('/amount_update', async (req, res) => {
 	const sum = estimate + realamount ;
 
 	console.log("realamount",sum);
-
+	console.log("Endtriptime",req.body.Endtriptime);
+	console.log("Bookingstatus",req.body.Bookingstatus);
 	let member={
 		"Endtriptime":req.body.Endtriptime,
 		"Bookingstatus":"Closed",
@@ -87,7 +88,7 @@ router.put('/amount_update', async (req, res) => {
 		 }
 
 	
-	const response = await booktripController.amount_update(req.query.id, member);
+	const response = await booktripController.update(req.query.id, member);
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
