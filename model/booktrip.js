@@ -82,6 +82,10 @@ const booktripSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    Endotp: {
+        type: String,
+        required: false
+    },
     Bookingstatus : {
         type: String,
         required: false
