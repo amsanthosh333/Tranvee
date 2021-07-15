@@ -23,6 +23,7 @@ class CustomerController {
     async login(responce){
         let phone=responce.phone;
         let password=responce.password;
+        let token=responce.token;
         try{
             let user = await customerSchema.findOne({
                 phone: phone,
@@ -32,7 +33,7 @@ class CustomerController {
             if(!user){
                 throw new Error('invalid creds');
             }
-            let token = this.generateToken();
+            // let token = this.generateToken();
 
             this.saveToken(user._id, token);
 
