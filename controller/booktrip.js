@@ -9,13 +9,13 @@ const notification_options = {
     timeToLive: 60 * 60 * 24
   };
 
-var admin = require("firebase-admin");
+// var admin = require("firebase-admin");
 
-var serviceAccount = require("path/to/serviceAccountKey.json");
+// var serviceAccount = require("path/to/serviceAccountKey.json");
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
+// admin.initializeApp({
+//   credential: admin.credential.cert(serviceAccount)
+// });
 
 class booktripController{
 
@@ -31,38 +31,38 @@ class booktripController{
 			};
 		}
 	}
-	async notification(farm){
-		const  registrationToken = farm.registrationToken
-		const message = farm.message
-		const options =  notification_options
+	// async notification(farm){
+	// 	const  registrationToken = farm.registrationToken
+	// 	const message = farm.message
+	// 	const options =  notification_options
 		
-		  admin.messaging().sendToDevice(registrationToken, message, options)
-		  .then( response => {
+	// 	  admin.messaging().sendToDevice(registrationToken, message, options)
+	// 	  .then( response => {
 	
-		   res.status(200).send("Notification sent successfully"+response)
+	// 	   res.status(200).send("Notification sent successfully"+response)
 			
-		  })
-		  .catch( error => {
-			  console.log(error);
-		  });
-	}
-	async commonnotification(){
-		var topic = 'general';
-         var message = {
-           notification: {
-             title: 'Message from node',
-             body: 'hey there'
-           },
-           topic: topic
-         };
-         admin.messaging().send(message)
-           .then((response) => {
-             console.log('Successfully sent message:', response);
-           })
-           .catch((error) => {
-             console.log('Error sending message:', error);
-         });
-	}
+	// 	  })
+	// 	  .catch( error => {
+	// 		  console.log(error);
+	// 	  });
+	// }
+	// async commonnotification(){
+	// 	var topic = 'general';
+    //      var message = {
+    //        notification: {
+    //          title: 'Message from node',
+    //          body: 'hey there'
+    //        },
+    //        topic: topic
+    //      };
+    //      admin.messaging().send(message)
+    //        .then((response) => {
+    //          console.log('Successfully sent message:', response);
+    //        })
+    //        .catch((error) => {
+    //          console.log('Error sending message:', error);
+    //      });
+	// }
 	async fetch(){
 		try{
 			let response = await booktripSchema.find({});
