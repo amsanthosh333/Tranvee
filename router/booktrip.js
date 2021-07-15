@@ -11,10 +11,10 @@ router.post('/add', async (req, res) => {
 	const response = await booktripController.add(req.body);
 	res.send(response);
 })
-// router.post('/firebase/notification', async (req, res) => {
-// 	const response = await booktripController.notification(req.body);
-// 	res.send(response);
-// })
+router.post('/firebase/notification', async (req, res) => {
+	const response = await booktripController.notification(req.body);
+	res.send(response);
+})
 // router.post('/firebase/common/notification', async (req, res) => {
 // 	const response = await booktripController.commonnotification();
 // 	res.send(response);

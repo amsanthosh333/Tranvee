@@ -2,7 +2,7 @@ const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
-// const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
+ const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 const notification_options = {
     priority: "high",
@@ -31,21 +31,21 @@ class booktripController{
 			};
 		}
 	}
-	// async notification(farm){
-	// 	const  registrationToken = farm.registrationToken
-	// 	const message = farm.message
-	// 	const options =  notification_options
+	async notification(farm){
+		const  registrationToken = farm.registrationToken
+		const message = farm.message
+		const options =  notification_options
 		
-	// 	  admin.messaging().sendToDevice(registrationToken, message, options)
-	// 	  .then( response => {
+		  admin.messaging().sendToDevice(registrationToken, message, options)
+		  .then( response => {
 	
-	// 	   res.status(200).send("Notification sent successfully"+response)
+		   res.status(200).send("Notification sent successfully"+response)
 			
-	// 	  })
-	// 	  .catch( error => {
-	// 		  console.log(error);
-	// 	  });
-	// }
+		  })
+		  .catch( error => {
+			  console.log(error);
+		  });
+	}
 	// async commonnotification(){
 	// 	var topic = 'general';
     //      var message = {
