@@ -23,7 +23,7 @@ class CustomerController {
     async login(responce){
         let phone=responce.phone;
         let password=responce.password;
-        const token=responce.token;
+        let token=responce.token;
         try{
             let user = await customerSchema.findOne({
                 phone: phone,
