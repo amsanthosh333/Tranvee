@@ -2,12 +2,21 @@ const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
-const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
+// const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 const notification_options = {
     priority: "high",
     timeToLive: 60 * 60 * 24
   };
+
+var admin = require("firebase-admin");
+
+var serviceAccount = require("path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
 class booktripController{
 
 
@@ -36,6 +45,23 @@ class booktripController{
 		  .catch( error => {
 			  console.log(error);
 		  });
+	}
+	async commonnotification(){
+		var topic = 'general';
+         var message = {
+           notification: {
+             title: 'Message from node',
+             body: 'hey there'
+           },
+           topic: topic
+         };
+         admin.messaging().send(message)
+           .then((response) => {
+             console.log('Successfully sent message:', response);
+           })
+           .catch((error) => {
+             console.log('Error sending message:', error);
+         });
 	}
 	async fetch(){
 		try{

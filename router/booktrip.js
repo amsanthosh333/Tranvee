@@ -15,6 +15,10 @@ router.post('/firebase/notification', async (req, res) => {
 	const response = await booktripController.notification(req.body);
 	res.send(response);
 })
+router.post('/firebase/common/notification', async (req, res) => {
+	const response = await booktripController.commonnotification();
+	res.send(response);
+})
 router.get('/', async (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await booktripController.fetch();
