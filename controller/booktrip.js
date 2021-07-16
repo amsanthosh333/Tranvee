@@ -27,21 +27,22 @@ class booktripController{
 			};
 		}
 	}
-	// async notification(farm){
-	// 	const  registrationToken = farm.registrationToken
-	// 	const message = farm.message
-	// 	const options =  notification_options
-		
-	// 	  admin.messaging().sendToDevice(registrationToken, message, options)
-	// 	  .then( response => {
-	
-	// 	   res.status(200).send("Notification sent successfully"+response)
-			
-	// 	  })
-	// 	  .catch( error => {
-	// 		  console.log(error);
-	// 	  });
-	// }
+	async notification(){
+		const message = { 
+			notification: {
+				title: 'Push notifications are great!',
+				body: 'They could be better if you used SendMan :-)'
+			}
+		};
+		admin.messaging().send(message)
+		.then((response) => {
+		  // Response is a message ID string.
+		  console.log('Successfully sent message:', response);
+		})
+		.catch((error) => {
+		  console.log('Error sending message:', error);
+	  });
+	}
 	async commonnotification(){
 		const registrationTokens = [
 			'dS6i6JwcTDecFyijxH8HHE:APA91bGb5BEMqhCxYG1MUKUhVfQ7MDeAbJf6RDVQnv9lOKL3SWNhT9NnTKc3y5_3XDTrRfohaEdT9FjgWObYKK-nJ7QgS_0Y10q7oIHHY4GpmNwtbDdQtZrqDHEXhIV3cejrrGldxyMD',
