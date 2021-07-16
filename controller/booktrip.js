@@ -11,7 +11,7 @@ const notification_options = {
 
   var admin = require("firebase-admin");
 
-  var serviceAccount = require("path/to/serviceAccountKey.json");
+  var serviceAccount = require("../kargos-firebase-adminsdk-496kc-87885085c5.json");
   
   admin.initializeApp({
 	credential: admin.credential.cert(serviceAccount)
