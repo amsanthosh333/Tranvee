@@ -5,14 +5,14 @@ const ObjectId = mongoose.Types.ObjectId;
 //  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 
-  const admin = require('./firebase-config')
+  const admin = require('../firebase-config')
 
   const notification_options = {
     priority: "high",
     timeToLive: 60 * 60 * 24
   };
 
-  
+
 class booktripController{
 
 
