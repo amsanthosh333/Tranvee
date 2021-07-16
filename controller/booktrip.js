@@ -4,20 +4,15 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 //  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
-const notification_options = {
+
+  const admin = require('./firebase-config')
+
+  const notification_options = {
     priority: "high",
     timeToLive: 60 * 60 * 24
   };
 
-  var admin = require("firebase-admin");
-
-  var serviceAccount = require("../kargos-firebase-adminsdk-496kc-87885085c5.json");
   
-  admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	databaseURL: "https://kargos.firebaseio.com"
-  });
-
 class booktripController{
 
 
