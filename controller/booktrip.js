@@ -2,20 +2,20 @@ const booktripSchema = require('../model/booktrip');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
- const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
+//  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 const notification_options = {
     priority: "high",
     timeToLive: 60 * 60 * 24
   };
 
-// var admin = require("firebase-admin");
+  var admin = require("firebase-admin");
 
-// var serviceAccount = require("path/to/serviceAccountKey.json");
-
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount)
-// });
+  var serviceAccount = require("path/to/serviceAccountKey.json");
+  
+  admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount)
+  });
 
 class booktripController{
 
@@ -31,38 +31,39 @@ class booktripController{
 			};
 		}
 	}
-	async notification(farm){
-		const  registrationToken = farm.registrationToken
-		const message = farm.message
-		const options =  notification_options
+	// async notification(farm){
+	// 	const  registrationToken = farm.registrationToken
+	// 	const message = farm.message
+	// 	const options =  notification_options
 		
-		  admin.messaging().sendToDevice(registrationToken, message, options)
-		  .then( response => {
+	// 	  admin.messaging().sendToDevice(registrationToken, message, options)
+	// 	  .then( response => {
 	
-		   res.status(200).send("Notification sent successfully"+response)
+	// 	   res.status(200).send("Notification sent successfully"+response)
 			
-		  })
-		  .catch( error => {
-			  console.log(error);
-		  });
-	}
-	// async commonnotification(){
-	// 	var topic = 'general';
-    //      var message = {
-    //        notification: {
-    //          title: 'Message from node',
-    //          body: 'hey there'
-    //        },
-    //        topic: topic
-    //      };
-    //      admin.messaging().send(message)
-    //        .then((response) => {
-    //          console.log('Successfully sent message:', response);
-    //        })
-    //        .catch((error) => {
-    //          console.log('Error sending message:', error);
-    //      });
+	// 	  })
+	// 	  .catch( error => {
+	// 		  console.log(error);
+	// 	  });
 	// }
+	async commonnotification(){
+		const registrationTokens = [
+			'dS6i6JwcTDecFyijxH8HHE:APA91bGb5BEMqhCxYG1MUKUhVfQ7MDeAbJf6RDVQnv9lOKL3SWNhT9NnTKc3y5_3XDTrRfohaEdT9FjgWObYKK-nJ7QgS_0Y10q7oIHHY4GpmNwtbDdQtZrqDHEXhIV3cejrrGldxyMD',
+		  ];
+		  const message = { 
+			  notification: {
+				  title: 'Push notifications are great!',
+				  body: 'They could be better if you used SendMan :-)'
+			  }
+		  };
+		  console.log(`Attempting to send the notification to ${registrationTokens.length} devices.`);
+		  try {
+			  const { failureCount, successCount } = await admin.messaging().sendToDevice(registrationToken, message, { priority: 'high' });
+			  console.log(`Successfully sent the notification to ${successCount} devices (${failureCount} failed).`);    
+		  } catch (err) {
+			  console.log('An error occurred while connecting to Firebase');
+		  }
+	}
 	async fetch(){
 		try{
 			let response = await booktripSchema.find({});
