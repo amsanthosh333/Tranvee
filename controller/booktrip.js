@@ -50,6 +50,7 @@ class booktripController{
 	async commonnotification(){
 		const registrationTokens = [
 			'dS6i6JwcTDecFyijxH8HHE:APA91bGb5BEMqhCxYG1MUKUhVfQ7MDeAbJf6RDVQnv9lOKL3SWNhT9NnTKc3y5_3XDTrRfohaEdT9FjgWObYKK-nJ7QgS_0Y10q7oIHHY4GpmNwtbDdQtZrqDHEXhIV3cejrrGldxyMD',
+			'cyDaH0qYQJui6kbBvwexTg:APA91bE4mF0BQmkuJEUcQmQSJWNK_W0HKD1MdCFdUMlaTPmQqE1AM2ueXG0Wqtyc1mLcNzFBIiHbyZZCe_8LKOvbY7HiuxlthbkeiOAN9AaFmhO3Qs90i9Eou2xFyEoRLtBr5tlbYVfC'
 		  ];
 		  const message = { 
 			  notification: {
