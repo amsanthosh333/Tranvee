@@ -232,7 +232,7 @@ class booktripController{
     }
 
 	async amount_update(id, body) {
-		
+
 		let userdata = await booktripSchema.find({'_id':id});
 		console.log('userdata:', userdata[0].Customer);
 		let custresponse = await customerSchema.find({'_id': userdata[0].Customer});
@@ -240,6 +240,8 @@ class booktripController{
 		let token=custresponse[0].token;
 
         let messagestatus=body.Bookingstatus;
+
+		let amount =body.Amount;
 
 
 		let driverdata = await driverSchema.find({'_id':body.Driverid});
@@ -255,7 +257,7 @@ class booktripController{
 			const message = { 
 				notification: {
 					title: "Your Order Status",
-					body: 'Your order Has been'+messagestatus+'by'+drivername
+					body: 'Your order Has been'+messagestatus+'by'+drivername+'amount'+amount
 				},
 				token:token
 			};
