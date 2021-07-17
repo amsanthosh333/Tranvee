@@ -57,6 +57,8 @@ router.put('/amount_update', async (req, res) => {
 	let StartTripTime=detailswaitingcalculation[0].StartTripTime;
 	let Endtriptime=detailswaitingcalculation[0].Endtriptime;
 	let ReachDestinationTime=detailswaitingcalculation[0].ReachDestinationTime;
+	let driver=detailswaitingcalculation[0].Driverid;
+
 	let estimate=parseInt(detailswaitingcalculation[0].Amount);
 
 	     const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime))/1000;
@@ -85,6 +87,7 @@ router.put('/amount_update', async (req, res) => {
 	let member={
 		"Endtriptime":req.body.Endtriptime,
 		"Bookingstatus":"Closed",
+		"Driverid":""+driver,
 		"Amount":sum,
 		 }
 		 console.log("realamount",member);
