@@ -206,8 +206,8 @@ class booktripController{
         try {
 			const message = { 
 				notification: {
-					title: "Your Order Status",
-					body: 'Your order Has been'+state+'by'+drivername
+					title: "Your Trip Status",
+					body: 'Your Trip Has been'+state+'by'+drivername
 				},
 				token:token
 			};
@@ -256,8 +256,8 @@ class booktripController{
         try {
 			const message = { 
 				notification: {
-					title: "Your Order Status",
-					body: 'Your order Has been'+messagestatus+'by'+drivername+'amount'+amount
+					title: "Your Trip Status",
+					body: 'Your Trip Has been'+messagestatus+'by'+drivername+'amount'+amount
 				},
 				token:token
 			};
