@@ -1,5 +1,6 @@
 const booktripSchema = require('../model/booktrip');
 const customerSchema = require('../model/customer');
+const driverSchema = require('../model/driver');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
@@ -35,7 +36,7 @@ class booktripController{
 		var topic = 'general';
 		var message = {
 		  notification: {
-			title: 'New Order From Customer',
+			title: 'New Trip From Customer',
 			body: 'Are You Accept the Order??'
 		  },
 		  topic: topic
@@ -185,18 +186,28 @@ class booktripController{
 
 	async update(id, body) {
 		let userdata = await booktripSchema.find({'_id':id});
-
+		console.log('userdata:', userdata[0].Customer);
 		let custresponse = await customerSchema.find({'_id': userdata[0].Customer});
-
+		console.log('token:', custresponse[0].token);
 		let token=custresponse[0].token;
 
         let messagestatus=body.Bookingstatus;
-		
+
+
+		let driverdata = await driverSchema.find({'_id':body.Driverid});
+
+
+		let drivername=driverdata[0].Name;
+
+
+
+
+		console.log('messagestatus:',messagestatus);
         try {
 			const message = { 
 				notification: {
-					title: messagestatus,
-					body: 'Your order Has been'+message
+					title: "Your Order"+drivername+""+messagestatus,
+					body: 'Your order Has been'+messagestatus
 				},
 				token:token
 			};
