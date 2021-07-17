@@ -41,7 +41,7 @@ router.delete('/delete', async (req, res) => {
 	res.send(response);
 })
 router.put('/update', async (req, res) => {
-	const response = await booktripController.update(req.query.id, req.body);
+	const response = await booktripController.update(req.query.id,req.query.stat,req.body);
 	res.send(response);
 })
 router.put('/amount_update', async (req, res) => {

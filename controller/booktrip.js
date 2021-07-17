@@ -184,7 +184,7 @@ class booktripController{
 		}
 	}
 
-	async update(id, body) {
+	async update(id,state,body) {
 		let userdata = await booktripSchema.find({'_id':id});
 		console.log('userdata:', userdata[0].Customer);
 		let custresponse = await customerSchema.find({'_id': userdata[0].Customer});
@@ -202,12 +202,12 @@ class booktripController{
 
 
 
-		console.log('messagestatus:',messagestatus);
+		console.log('messagestatus:',state);
         try {
 			const message = { 
 				notification: {
 					title: "Your Order Status",
-					body: 'Your order Has been'+messagestatus+'by'+drivername
+					body: 'Your order Has been'+state+'by'+drivername
 				},
 				token:token
 			};
