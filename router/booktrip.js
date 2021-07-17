@@ -3,10 +3,7 @@ const booktripController = require('../controller/booktrip');
 const booktripSchema = require('../model/booktrip');
 const vechicleSchema = require('../model/vechicle _mas');
 
-const notification_options = {
-    priority: "high",
-    timeToLive: 60 * 60 * 24
-  };
+
 router.post('/add', async (req, res) => {
 	const response = await booktripController.add(req.body);
 	res.send(response);
