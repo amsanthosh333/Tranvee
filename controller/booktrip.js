@@ -137,21 +137,7 @@ class booktripController{
 	}
 
 
-	// async fetchbodydata(body){
-	// 	let id=body.id;
-	// 	try{
-	// 		let response = await booktripSchema.find({'_id':id});
-	// 		return {
-	// 			response: response
-	// 		};
-			
-	// 	} catch(error){
-	// 		return {
-	// 			status: "error",
-	// 			error: errorHandler.parseMongoError(error)
-	// 		};
-	// 	}
-	// }
+	
 	async fetchbookdata(Customer){
 		try{
 			let response = await booktripSchema.find({'Customer':Customer});
