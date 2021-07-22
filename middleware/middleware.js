@@ -51,7 +51,7 @@ server.use("/drivervechicle",vechicleRouter);
 server.use("/driverreg",driverRouter);
 server.use("/booking",booktripRouter);
 
-
+server.use("/users",userRouter);
 
 
 //customerapi
