@@ -50,10 +50,11 @@ mongoose.connect(db, {
 server.use("/drivervechicle",vechicleRouter);
 server.use("/driverreg",driverRouter);
 server.use("/booking",booktripRouter);
-
+server.use("/user",userRouter);
 server.use("/users",userRouter);
-
-
+server.use("/goods",goodstypeRouter);
+server.use("/goods",goodstypeRouter);
+server.use("/vechicle",vechicleRouter);
 //customerapi
 server.use("/customer",customerRouter);
 server.use("/user", async (req, res, next) => {
