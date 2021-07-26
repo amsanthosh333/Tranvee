@@ -75,13 +75,16 @@ router.put('/amount_update', async (req, res) => {
 	let min_waiting_time=vechicleSchemacalculation[0].min_waiting_time;
 
 	let calculate=totalmin-Waiting_min;
-
+	console.log("min_waiting_time",min_waiting_time);
 	console.log("calculate",calculate);
-	const realamount=calculate*min_waiting_time;
+	console.log("estimate",estimate);
+	let realamount=calculate*min_waiting_time;
 
-	const sum = estimate + realamount ;
+	
 
-	console.log("realamount",sum);
+	let sum = estimate + realamount ;
+
+	console.log("realamount",realamount);
 	console.log("Endtriptime",req.body.Endtriptime);
 	console.log("Bookingstatus",req.body.Bookingstatus);
 	let member={
