@@ -11,6 +11,7 @@ const customerController = require('./../controller/customer');
 //locationdata
 
 const userRouter = require('./../router/user');
+const vechicalcostRouter = require('./../router/vechicalcost');
 const customerRouter = require('./../router/customer');
 const vechicleRouter = require('./../router/vechicle _mas');
 const driverRouter = require('./../router/driver');
@@ -51,9 +52,10 @@ server.use("/drivervechicle",vechicleRouter);
 server.use("/driverreg",driverRouter);
 server.use("/booking",booktripRouter);
 server.use("/user",userRouter);
+server.use("/vechicalvicecost",userRouter);
 server.use("/users",userRouter);
 server.use("/goods",goodstypeRouter);
-server.use("/goods",goodstypeRouter);
+server.use("/vechicalcost",vechicalcostRouter);
 server.use("/vechicle",vechicleRouter);
 //customerapi
 server.use("/customer",customerRouter);
