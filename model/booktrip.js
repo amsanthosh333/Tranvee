@@ -90,6 +90,10 @@ const booktripSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    Goods : {
+        type: String,
+        required: false
+    },
     Amount :{
         type: String,
         required: false
