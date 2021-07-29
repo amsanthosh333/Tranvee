@@ -33,8 +33,10 @@ class booktripController{
 	async add(farm){
 
 		console.log("totalkm",""+farm.TotalKm);
+
+		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+farm.vechical);
-		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:farm.TotalKm},Endkm:{$gte:farm.TotalKm}});
+		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
        console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
 
 		let booktrip={
