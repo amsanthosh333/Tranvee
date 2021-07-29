@@ -60,7 +60,7 @@ server.use("/vechicle",vechicleRouter);
 //customerapi
 server.use("/customer",customerRouter);
 server.use("/user", async (req, res, next) => {
-    console.log("eeeeeeee",""+req.headers.authorization);
+    console.log("eeeeeeeec",""+req.headers.authorization);
 	if(!req.headers.authorization){
 		return res.send({
 			status: 'error',
