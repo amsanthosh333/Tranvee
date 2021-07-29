@@ -2,11 +2,11 @@ const mongoose = require("mongoose");
 
 const vechicalcostSchema = new mongoose.Schema({
     Startkm : {
-        type: String,
+        type: Number,
         required: true
     },
     Endkm : {
-        type: String,
+        type: Number,
         required: true
     },
     amount : {
