@@ -91,7 +91,7 @@ const booktripSchema = new mongoose.Schema({
         required: false
     },
     Goods : {
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: false
     },
     Amount :{
