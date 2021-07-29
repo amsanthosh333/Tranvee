@@ -31,7 +31,7 @@ const booktripSchema = new mongoose.Schema({
         required: false
     },
     TotalKm : {
-        type: String,
+        type: Number,
         required: false
     },
     Vechicaltype : {

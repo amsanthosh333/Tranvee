@@ -1,6 +1,7 @@
 const booktripSchema = require('../model/booktrip');
 const customerSchema = require('../model/customer');
 const driverSchema = require('../model/driver');
+const vechicalcostSchema = require('../model/vechicalcost');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
@@ -30,8 +31,36 @@ class booktripController{
 
 
 	async add(farm){
+
+		console.log("totalkm",""+farm.TotalKm);
+		console.log("totalkm",""+farm.vechical);
+		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:farm.TotalKm},Endkm:{$gte:farm.TotalKm}});
+       console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
+
+		let booktrip={
+			"Customer":""+farm.Customer,
+			"Pickuploc":""+farm.Pickuploc,
+			"Droploc":""+farm.Droploc,
+			"TotalKm":""+farm.TotalKm,
+			"Vechicaltype":""+farm.Vechicaltype,
+			"vechical":""+farm.vechical,
+			"Booktime":""+farm.Booktime,
+			"Bookdate":""+farm.Bookdate,
+			"Amount":""+vechicalcostvicee[0].amount,
+			"Pickuploclat":""+farm.Pickuploclat,
+			"Pickuploclng":""+farm.Pickuploclng,
+			"Droploclat":""+farm.Droploclat,
+			"Droploclng":""+farm.Droploclng,
+			"Goods":""+farm.Goods,
+			"Bookingstatus":""+farm.Bookingstatus
+			 }
+
+
+
+
+
 		try{
-			let response = await booktripSchema.create(farm);
+			let response = await booktripSchema.create(booktrip);
 			
 		var topic = 'general';
 		var message = {
