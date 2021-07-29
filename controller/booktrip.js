@@ -35,7 +35,7 @@ class booktripController{
 		console.log("totalkm",""+farm.TotalKm);
 
 		let totalkm=farm.TotalKm*2
-		console.log("totalkm",""+farm.vechical);
+		console.log("totalkm",""+totalkm);
 		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
        console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
 
