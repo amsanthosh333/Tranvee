@@ -374,7 +374,14 @@ class booktripController{
 		  foreignField: "_id",
 		  as: "DriverDetails"
 		}
-   }						 
+   },{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+}								 
 				]);
 				return {
 					response: responce
