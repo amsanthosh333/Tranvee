@@ -68,7 +68,7 @@ class booktripController{
 		var message = {
 		  notification: {
 			title: 'New Trip From Customer',
-			body: 'Are You Accept the Order??'
+			body: '*New Trip Created Do you accept this Trip?*'
 		  },
 		  topic: topic
 		};
@@ -123,7 +123,7 @@ class booktripController{
 		var message = {
 		  notification: {
 			title: 'New Order From Customer',
-			body: 'Are You Accept the Order??'
+			body: '*New Trip Created Do you accept this Trip?*'
 		  },
 		  topic: topic
 		};
@@ -224,7 +224,7 @@ class booktripController{
 			const message = { 
 				notification: {
 					title: "Your Trip Status",
-					body: 'Your Trip Has been'+state+'by'+drivername
+					body: " "+state+""+'by'+" "+drivername
 				},
 				token:token
 			};
@@ -274,7 +274,7 @@ class booktripController{
 			const message = { 
 				notification: {
 					title: "Your Trip Status",
-					body: 'Your Trip Has been'+messagestatus+'by'+drivername+'amount'+amount
+					body: 'Your Trip Completed Successfully.Total Amount :'+amount
 				},
 				token:token
 			};
