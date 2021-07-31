@@ -224,7 +224,7 @@ class booktripController{
 			const message = { 
 				notification: {
 					title: "Your Trip Status",
-					body: " "+state+""+'by'+" "+drivername
+					body: " "+state+" "+'by'+" "+drivername
 				},
 				token:token
 			};
