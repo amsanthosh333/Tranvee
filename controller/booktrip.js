@@ -38,8 +38,11 @@ class booktripController{
 		console.log("totalkm",""+totalkm);
 		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
        console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
-
+9
 	   let totalamount=totalkm*vechicalcostvicee[0].amount;
+	   console.log("totalamount",""+totalamount);
+
+
 
 		let booktrip={
 			"Customer":""+farm.Customer,
