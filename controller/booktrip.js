@@ -120,12 +120,7 @@ class booktripController{
 	   console.log("totalamount",""+totalamount);
 
 		return { status: "1", result: totalamount, message: "Added Successfully" };
-		} catch(error){
-			return {
-				status: "0",
-				error: errorHandler.parseMongoError(error)
-			};
-		}
+	
 	}
 	async notification(){
 		// const registrationTokens = [
