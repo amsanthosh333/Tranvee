@@ -119,7 +119,7 @@ class booktripController{
 	   let totalamount=totalkm*vechicalcostvicee[0].amount;
 	   console.log("totalamount",""+totalamount);
 
-		return { status: "1", result: totalamount, message: "Added Successfully" };
+		return { status: "1", amount: totalamount, message: "Added Successfully" };
 	
 	}
 	async notification(){
