@@ -37,7 +37,12 @@ class booktripController{
 		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+totalkm);
 		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
-       console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
+      
+		
+		let count=Object.keys(vechicalcostvicee).length;
+		console.log("count",""+count);
+		
+		console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
 9
 	   let totalamount=totalkm*vechicalcostvicee[0].amount;
 	   console.log("totalamount",""+totalamount);
@@ -89,6 +94,32 @@ class booktripController{
 
 
 			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
+		} catch(error){
+			return {
+				status: "0",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
+	async amountcalc(farm){
+
+		console.log("totalkm",""+farm.TotalKm);
+
+		let totalkm=farm.TotalKm*2
+		console.log("totalkm",""+totalkm);
+		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
+      
+		
+		let count=Object.keys(vechicalcostvicee).length;
+		console.log("count",""+count);
+		
+		console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
+9
+	   let totalamount=totalkm*vechicalcostvicee[0].amount;
+	   console.log("totalamount",""+totalamount);
+
+		return { status: "1", result: totalamount, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "0",

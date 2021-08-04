@@ -8,6 +8,11 @@ router.post('/add', async (req, res) => {
 	const response = await booktripController.add(req.body);
 	res.send(response);
 })
+
+router.post('/amount', async (req, res) => {
+	const response = await booktripController.amountcalc(req.body);
+	res.send(response);
+})
 router.post('/firebase/notification', async (req, res) => {
 	const response = await booktripController.notification();
 	res.send(response);
