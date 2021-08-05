@@ -39,13 +39,13 @@ class booktripController{
 		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+totalkm);
 		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
-		 console.log("totalamount1",""+vechimin.Min_km);
+		 console.log("totalamount1",""+vechimin[0].Min_km);
 		if(totalkm > vechimin.Min_km){
 			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
 			totalamount=totalkm*vechicalcostvicee[0].amount;
 			console.log("totalamount1",""+totalamount);
 		}else{
-			let vechicalcostvicee=vechimin.Min_price;
+			let vechicalcostvicee=vechimin[0].Min_price;
 			totalamount=vechicalcostvicee;
 			console.log("totalamount2",""+totalamount);
 		}
@@ -115,20 +115,22 @@ class booktripController{
 
 	async amountcalc(farm){
 
+		
 		console.log("totalkm",""+farm.TotalKm);
-
+		let totalamount;
 		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+totalkm);
-		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
-      
-		
-		let count=Object.keys(vechicalcostvicee).length;
-		console.log("count",""+count);
-		
-		console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
-9
-	   let totalamount=totalkm*vechicalcostvicee[0].amount;
-	   console.log("totalamount",""+totalamount);
+		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
+		 console.log("totalamount1",""+vechimin[0].Min_km);
+		if(totalkm > vechimin.Min_km){
+			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
+			totalamount=totalkm*vechicalcostvicee[0].amount;
+			console.log("totalamount1",""+totalamount);
+		}else{
+			let vechicalcostvicee=vechimin[0].Min_price;
+			totalamount=vechicalcostvicee;
+			console.log("totalamount2",""+totalamount);
+		}
 
 		return { status: "1", amount: totalamount, message: "Added Successfully" };
 	
