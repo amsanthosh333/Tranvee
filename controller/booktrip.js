@@ -45,7 +45,7 @@ class booktripController{
 			totalamount=totalkm*vechicalcostvicee[0].amount;
 		}else{
 			let vechicalcostvicee=vechimin.Min_price;
-			totalamount=totalkm*vechicalcostvicee;
+			totalamount=vechicalcostvicee;
 		}
 
       
