@@ -194,21 +194,21 @@ class CustomerController {
 
                        let phoneno=body.phone;
                        var digits = '0123456789';
-                       var otpLength = 4;
+                       var otpLength = 5;
                        var otp = '';
               for(let i=1; i<=otpLength; i++)   
              {
-                 var index = Math.floor(Math.random()*(digits.length));
+              var index = Math.floor(Math.random()*(digits.length));
                otp = otp + digits[index];
               }
         http.createServer(function (req, res) {  
             const queryString = new URL('https://2factor.in/API/V1/7eb26f75-8085-11eb-a9bc-0200cd936042/SMS/+91'+phoneno+'/'+otp);              
         });  
-        let body={
+        let bodystr={
 			"password":""+otp
 			 }
         try {
-            let response = await customerSchema.update({_id: id}, body);
+            let response = await customerSchema.update({_id: id}, bodystr);
             return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
