@@ -2,6 +2,8 @@ const booktripSchema = require('../model/booktrip');
 const customerSchema = require('../model/customer');
 const driverSchema = require('../model/driver');
 const vechicalcostSchema = require('../model/vechicalcost');
+const vechicleSchema = require('../model/vechicle _mas');
+
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
@@ -33,19 +35,26 @@ class booktripController{
 	async add(farm){
 
 		console.log("totalkm",""+farm.TotalKm);
-
+		let totalamount;
 		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+totalkm);
-		let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
+		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
+
+		if(totalkm > vechimin.Min_km){
+			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
+			totalamount=totalkm*vechicalcostvicee[0].amount;
+		}else{
+			let vechicalcostvicee=vechimin.Min_price;
+			totalamount=totalkm*vechicalcostvicee;
+		}
+
       
 		
-		let count=Object.keys(vechicalcostvicee).length;
-		console.log("count",""+count);
-		
-		console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
-9
-	   let totalamount=totalkm*vechicalcostvicee[0].amount;
-	   console.log("totalamount",""+totalamount);
+		// let count=Object.keys(vechicalcostvicee).length;
+		// console.log("count",""+count);
+		// console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
+	  
+	    console.log("totalamount",""+totalamount);
 
 
 
