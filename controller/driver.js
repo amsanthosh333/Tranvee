@@ -1,6 +1,7 @@
 const driverSchema = require('../model/driver');
 const errorHandler = require('../utils/error.handler');
-
+var request = require('request');
+const { URL } = require('url');  
 class driverController{
 
 
@@ -189,14 +190,16 @@ class driverController{
 
     }
 
-    async passwordreset(id, body) {
+    async passwordreset(body) {
 
         let phoneno=body.Mobileno;
 
 
         let user = await driverSchema.findOne({
-            Mobileno: phoneno,
+            Mobileno: body.Mobileno,
         });
+
+        console.log("user",""+user._id);
         var digits = '0123456789';
         var otpLength = 5;
         var otp = '';
