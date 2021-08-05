@@ -34,4 +34,8 @@ router.put('/update', async (req, res) => {
 	const response = await customerController.update(req.query.id, req.body);
 	res.send(response);
 })
+router.put('/passwordreset', async (req, res) => {
+	const response = await customerController.passwordreset(req.query.id, req.body);
+	res.send(response);
+})
 module.exports = router;

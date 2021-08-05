@@ -1,6 +1,8 @@
 const customerSchema = require('../model/customer');
 const errorHandler = require('../utils/error.handler');
-
+var http = require('http');  
+const { URL } = require('url');  
+  
 
 class CustomerController {
 
@@ -178,6 +180,33 @@ class CustomerController {
 
 	async update(id, body) {
 
+        try {
+            let response = await customerSchema.update({_id: id}, body);
+            return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
+
+        } catch (error) {
+            return { status: "error", error: error };
+        }
+
+    }
+
+    async passwordreset(id, body) {
+
+                       let phoneno=body.phoneno;
+                       var digits = '0123456789';
+                       var otpLength = 4;
+                       var otp = '';
+              for(let i=1; i<=otpLength; i++)   
+             {
+                 var index = Math.floor(Math.random()*(digits.length));
+               otp = otp + digits[index];
+              }
+        http.createServer(function (req, res) {  
+            const queryString = new URL('https://2factor.in/API/V1/7eb26f75-8085-11eb-a9bc-0200cd936042/SMS/+91'+phoneno+'/'+otp);              
+        });  
+        let body={
+			"password":""+otp
+			 }
         try {
             let response = await customerSchema.update({_id: id}, body);
             return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
