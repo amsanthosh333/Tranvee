@@ -2,7 +2,7 @@ const customerSchema = require('../model/customer');
 const errorHandler = require('../utils/error.handler');
 var http = require('http');  
 const { URL } = require('url');  
-  
+var request = require('request');
 
 class CustomerController {
 
@@ -201,9 +201,25 @@ class CustomerController {
               var index = Math.floor(Math.random()*(digits.length));
                otp = otp + digits[index];
               }
-        http.createServer(function (req, res) {  
-            const queryString = new URL('https://2factor.in/API/V1/7eb26f75-8085-11eb-a9bc-0200cd936042/SMS/+91'+phoneno+'/'+otp);              
-        });  
+
+
+              const myURL = new URL(`https://2factor.in/API/V1/7eb26f75-8085-11eb-a9bc-0200cd936042/SMS/+91${phoneno}/${otp}`);
+
+              var options = {
+                'method': 'GET',
+                'url': myURL,
+                'headers': {
+                }
+              };
+              request(options, function (error, response) {
+                if (error) throw new Error(error);
+                console.log(response.body);
+              });
+
+            //   let payload = JSON.parse(myURL.href)
+              console.log(myURL.href);
+
+       
         let bodystr={
 			"password":""+otp
 			 }
