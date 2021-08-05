@@ -192,7 +192,7 @@ class CustomerController {
 
     async passwordreset(id, body) {
 
-                       let phoneno=body.phoneno;
+                       let phoneno=body.phone;
                        var digits = '0123456789';
                        var otpLength = 4;
                        var otp = '';
