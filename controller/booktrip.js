@@ -40,7 +40,7 @@ class booktripController{
 		console.log("totalkm",""+totalkm);
 		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
 		 console.log("totalamount1",""+vechimin[0].Min_km);
-		if(totalkm > vechimin.Min_km){
+		if(totalkm > vechimin[0].Min_km){
 			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
 			totalamount=totalkm*vechicalcostvicee[0].amount;
 			console.log("totalamount1",""+totalamount);
@@ -122,7 +122,7 @@ class booktripController{
 		console.log("totalkm",""+totalkm);
 		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
 		 console.log("totalamount1",""+vechimin[0].Min_km);
-		if(totalkm > vechimin.Min_km){
+		if(totalkm > vechimin[0].Min_km){
 			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
 			totalamount=totalkm*vechicalcostvicee[0].amount;
 			console.log("totalamount1",""+totalamount);
