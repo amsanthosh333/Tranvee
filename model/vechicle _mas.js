@@ -10,11 +10,11 @@ const vachicleSchema = new mongoose.Schema({
         required: false
     },
     Min_km :{
-        type: String,
+        type: Number,
         required: false
     },
     Min_price : {
-        type: String,
+        type: Number,
         required: false
     },
     Price_km : {
