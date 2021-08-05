@@ -199,6 +199,8 @@ class CustomerController {
                        let user = await customerSchema.findOne({
                         phone: phoneno,
                         });
+                        console.log(user._id);
+
                        var digits = '0123456789';
                        var otpLength = 5;
                        var otp = '';
@@ -230,7 +232,7 @@ class CustomerController {
 			"password":""+otp
 			 }
         try {
-            let response = await customerSchema.update({_id: user[0]._id}, bodystr);
+            let response = await customerSchema.update({_id: user._id}, bodystr);
             return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {

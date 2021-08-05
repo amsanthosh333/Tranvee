@@ -192,6 +192,11 @@ class driverController{
     async passwordreset(id, body) {
 
         let phoneno=body.Mobileno;
+
+
+        let user = await driverSchema.findOne({
+            Mobileno: phoneno,
+        });
         var digits = '0123456789';
         var otpLength = 5;
         var otp = '';
@@ -223,7 +228,7 @@ let bodystr={
 "password":""+otp
 }
 try {
-let response = await driverSchema.update({_id: id}, bodystr);
+let response = await driverSchema.update({_id: user._id}, bodystr);
 return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
 
 } catch (error) {
