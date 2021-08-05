@@ -191,7 +191,7 @@ class driverController{
 
     async passwordreset(id, body) {
 
-        let phoneno=body.phone;
+        let phoneno=body.Mobileno;
         var digits = '0123456789';
         var otpLength = 5;
         var otp = '';
