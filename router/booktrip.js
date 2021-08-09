@@ -64,7 +64,7 @@ router.put('/amount_update', async (req, res) => {
 	let ReachDestinationTime=detailswaitingcalculation[0].ReachDestinationTime;
 	let driver=detailswaitingcalculation[0].Driverid;
 
-	let estimate=parseInt(detailswaitingcalculation[0].Amount);
+    	let estimate=parseInt(detailswaitingcalculation[0].Amount);
 
 	     const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime))/1000;
 	     const firstminminutes = Math.floor(diffInMilliseconds / 60) % 60;
@@ -74,31 +74,42 @@ router.put('/amount_update', async (req, res) => {
 	     console.log("minutes",secondminminutes);
          let totalmin=firstminminutes+secondminminutes;
 		 console.log("totalminutes",totalmin);
-	   let vechicleSchemacalculation = await vechicleSchema.find({'_id':vechicalid});
+	     let vechicleSchemacalculation = await vechicleSchema.find({'_id':vechicalid});
+
+
+
 
 	let Waiting_min=vechicleSchemacalculation[0].Waiting_min;
-	let min_waiting_time=vechicleSchemacalculation[0].min_waiting_time;
 
-	let calculate=totalmin-Waiting_min;
+	let calculate;
+	let min_waiting_time;
+	let realamount;
+	let sum;
+	
+	if(totalmin>Waiting_min){
+		calculate=totalmin-Waiting_min;
+		min_waiting_time=vechicleSchemacalculation[0].min_waiting_time;
+		realamount=calculate*min_waiting_time;
+	    sum = estimate + realamount ;
+	}else{
+		sum = estimate;
+	}
+
+
+
 	console.log("min_waiting_time",min_waiting_time);
 	console.log("calculate",calculate);
-	console.log("estimate",estimate);
-	let realamount=calculate*min_waiting_time;
-
-	
-
-	let sum = estimate + realamount ;
-
 	console.log("realamount",realamount);
-	console.log("Endtriptime",req.body.Endtriptime);
-	console.log("Bookingstatus",req.body.Bookingstatus);
+	console.log("sum",sum);
+	// console.log("Endtriptime",req.body.Endtriptime);
+	// console.log("Bookingstatus",req.body.Bookingstatus);
 	let member={
 		"Endtriptime":req.body.Endtriptime,
 		"Bookingstatus":"Closed",
 		"Driverid":""+driver,
 		"Amount":sum,
 		 }
-		 console.log("realamount",member);
+		//  console.log("realamount",member);
 	const response = await booktripController.amount_update(req.query._id,member);
 	res.send(response);
 })
