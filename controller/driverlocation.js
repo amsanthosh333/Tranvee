@@ -8,17 +8,19 @@ class driverlocationController{
 		try{
 			let response;
 			let driverid=farm.Driverid;
+         console.log("driverid",""+driverid);
 
-			let User= await driverlocationSchema.find({'Driverid':driverid});
+           let user = await driverlocationSchema.findOne({
+           	Driverid: driverid
+           });
 
-			if(!User){
+			if(!user){
 				response = await driverlocationSchema.create(farm);
             }else{
-				response = await driverlocationSchema.update({_id: User.id}, farm);
+				console.log("User",""+user._id);
+				response = await driverlocationSchema.update({_id: user._id}, farm);
 			}
 
-
-			
 			return { status: "success",   msg:"driverlocation Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
@@ -44,9 +46,9 @@ class driverlocationController{
 		}
 	}
 
-	async fetchdata(id){
+	async fetchdata(Driverid){
 		try{
-			let response = await driverlocationSchema.find({'_id':id});
+			let response = await driverlocationSchema.find({'Driverid':Driverid});
 			return response;
 			
 		} catch(error){
