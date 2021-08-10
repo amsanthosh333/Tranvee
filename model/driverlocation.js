@@ -1,11 +1,15 @@
 const mongoose = require("mongoose");
 
 const driverlocationSchema = new mongoose.Schema({
-    Cityname : {
+    Driverid : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
+    lat : {
         type: String,
         required: true
     },
-    Status : {
+    lng : {
         type: String,
         required: true
     }
