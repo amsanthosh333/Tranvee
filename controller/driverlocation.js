@@ -6,7 +6,19 @@ class driverlocationController{
 
 	async add(farm){
 		try{
-			let response = await driverlocationSchema.create(farm);
+			let response;
+			let driverid=farm.Driverid;
+
+			let User= await driverlocationSchema.find({'Driverid':driverid});
+
+			if(!User){
+				response = await driverlocationSchema.create(farm);
+            }else{
+				response = await driverlocationSchema.update({_id: User.id}, farm);
+			}
+
+
+			
 			return { status: "success",   msg:"driverlocation Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
