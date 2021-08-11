@@ -12,6 +12,10 @@ const driverlocationSchema = new mongoose.Schema({
     lng : {
         type: String,
         required: true
+    },
+    lastupdate : {
+        type: String,
+        required: true
     }
 })
 module.exports = new mongoose.model('driverlocation',driverlocationSchema);
