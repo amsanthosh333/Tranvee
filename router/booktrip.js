@@ -60,12 +60,13 @@ router.put('/amount_update', async (req, res) => {
 	let vechicalid=detailswaitingcalculation[0].vechical;
 	let StartotpTime=detailswaitingcalculation[0].StartotpTime;
 	let StartTripTime=detailswaitingcalculation[0].StartTripTime;
-	let Endtriptime=detailswaitingcalculation[0].Endtriptime;
+	let Endtriptime=req.body.Endtriptime;
 	let ReachDestinationTime=detailswaitingcalculation[0].ReachDestinationTime;
 	let driver=detailswaitingcalculation[0].Driverid;
 
     	let estimate=parseInt(detailswaitingcalculation[0].Amount);
-
+		console.log("ReachDestinationTime",ReachDestinationTime);
+		console.log("Endtriptime",Endtriptime);
 	     const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime))/1000;
 	     const firstminminutes = Math.floor(diffInMilliseconds / 60) % 60;
 		 console.log("minutes",firstminminutes);
