@@ -69,7 +69,7 @@ router.put('/amount_update', async (req, res) => {
 	     const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime))/1000;
 	     const firstminminutes = Math.floor(diffInMilliseconds / 60) % 60;
 		 console.log("minutes",firstminminutes);
-		 const diffInMilliseconds1 = Math.abs(new Date(Endtriptime) - new Date(ReachDestinationTime))/1000;
+		 const diffInMilliseconds1 = Math.abs(new Date(ReachDestinationTime) - new Date(Endtriptime))/1000;
 	     const secondminminutes = Math.floor(diffInMilliseconds1 / 60) % 60;
 	     console.log("minutes",secondminminutes);
          let totalmin=firstminminutes+secondminminutes;

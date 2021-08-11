@@ -303,7 +303,7 @@ class booktripController{
         let messagestatus=body.Bookingstatus;
 
 		let amount =body.Amount;
-
+		console.log('amount:', amount);
 
 		let driverdata = await driverSchema.find({'_id':body.Driverid});
 
