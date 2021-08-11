@@ -9,7 +9,11 @@ class driverlocationController{
 			let response;
 			let driverid=farm.Driverid;
          console.log("driverid",""+driverid);
-	     	 farm.lastupdate=new Date().getTime();
+
+		 var dateTime = require('node-datetime');
+         var dt = dateTime.create();
+        farm.lastupdate= dt.format('Y-m-d H:M:S');
+	     	 
            let user = await driverlocationSchema.findOne({
            	Driverid: driverid
            });
