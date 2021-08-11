@@ -9,7 +9,7 @@ class driverlocationController{
 			let response;
 			let driverid=farm.Driverid;
          console.log("driverid",""+driverid);
-
+	     	 farm.lastupdate=new Date().getTime();
            let user = await driverlocationSchema.findOne({
            	Driverid: driverid
            });
