@@ -31,7 +31,8 @@ class driverlocationController{
 		 
 		 // current seconds
 		 let seconds = date_ob.getSeconds();
-        farm.lastupdate=year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+
+        farm.lastupdate=date_ob.toTimeString();
 	     	 
            let user = await driverlocationSchema.findOne({
            	Driverid: driverid
