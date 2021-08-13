@@ -491,9 +491,11 @@ class booktripController{
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					Bookingstatus: "Closed"
+					Bookingstatus: "Closed",
+					sort: { _id : -1 }
 				}
-			},{$lookup:
+			},
+			{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
@@ -514,7 +516,7 @@ class booktripController{
 		  foreignField: "_id",
 		  as: "DriverDetails"
 		}
-   }						 
+   }					 
 				]);
 				return {
 					response: responce
