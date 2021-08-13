@@ -291,6 +291,54 @@ class booktripController{
         }
 
     }
+	async acceptupdate(id,state,body) {
+
+		let response;
+
+		let bookdriver = await booktripSchema.findOne({
+			_id: id,
+			Bookingstatus: "Pending",
+		});
+
+		if(!bookdriver){
+			throw new Error('Already Another Driver Accept the Request');
+		}
+
+		let userdata = await booktripSchema.find({'_id':id});
+		console.log('userdata:', userdata[0].Customer);
+		let custresponse = await customerSchema.find({'_id': userdata[0].Customer});
+		console.log('token:', custresponse[0].token);
+		let token=custresponse[0].token;
+		let messagestatus=body.Bookingstatus;
+		let driverdata = await driverSchema.find({'_id':body.Driverid});
+		let drivername=driverdata[0].Name;
+		console.log('messagestatus:',state);
+		try {
+			const message = { 
+				notification: {
+					title: "Your Trip Status",
+					body: " "+state+" "+'by'+" "+drivername
+				},
+				token:token
+			};
+		  admin.messaging().send(message)
+		  .then((response) => {
+			console.log('Successfully sent message:', response);
+		  })
+		  .catch((error) => {
+			console.log('Error sending message:', error);
+		});
+
+		 response = await booktripSchema.update({_id: id}, body);
+
+
+        return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
+
+        } catch (error) {
+            return { status: "error", error: error };
+        }
+
+    }
 
 	async amount_update(id, body) {
 
