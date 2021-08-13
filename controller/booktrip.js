@@ -541,7 +541,9 @@ class booktripController{
 					Customer:ObjectId(customerid),
 					Bookingstatus:bookingstatus
 				}
-			},{$lookup:
+			},
+			{ $sort : { _id : -1 } },
+			{$lookup:
 			{
 			  from: "customers",
 			  localField: "Customer",
