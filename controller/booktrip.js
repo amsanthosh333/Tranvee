@@ -445,7 +445,9 @@ class booktripController{
 					Driverid:ObjectId(Driverid),
 					Bookingstatus:Bookingstatus
 				}
-			},{$lookup:
+			},
+			{ $sort : { _id : -1 } },
+			{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
@@ -494,7 +496,7 @@ class booktripController{
 					Bookingstatus: "Closed"
 				}
 			}, 
-			{ $sort : { _id : 1 } },
+			{ $sort : { _id : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
