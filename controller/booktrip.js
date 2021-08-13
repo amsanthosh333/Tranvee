@@ -491,10 +491,10 @@ class booktripController{
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					Bookingstatus: "Closed",
-					sort: { _id : -1 }
+					Bookingstatus: "Closed"
 				}
-			},
+			}, 
+			{ $sort : { _id : 1 } },
 			{$lookup:
 				{
 				  from: "customers",
