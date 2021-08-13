@@ -128,7 +128,7 @@ router.get('/accaggregation', async (req, res) =>{
 	res.send(response);	
 })
 router.get('/cloaggregation', async (req, res) =>{
-	let response = await booktripController.cloaggregation();
+	let response = await booktripController.cloaggregation(req.query.Driverid,req.query.Bookingstatus);
 	res.send(response);	
 })
 

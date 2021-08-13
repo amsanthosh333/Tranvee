@@ -446,7 +446,6 @@ class booktripController{
 					Bookingstatus:Bookingstatus
 				}
 			},
-			{ $sort : { _id : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
@@ -488,14 +487,15 @@ class booktripController{
 		}
     }
 
-	async cloaggregation() {
+	async cloaggregation(Driverid,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					Bookingstatus: "Closed"
+					Driverid:ObjectId(Driverid),
+					Bookingstatus:Bookingstatus
 				}
-			}, 
+			},
 			{ $sort : { _id : -1 } },
 			{$lookup:
 				{
