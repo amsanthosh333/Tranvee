@@ -2,6 +2,8 @@ const driverSchema = require('../model/driver');
 const errorHandler = require('../utils/error.handler');
 var request = require('request');
 const { URL } = require('url');  
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class driverController{
 
 
@@ -169,7 +171,7 @@ class driverController{
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					_id: id
+					_id:ObjectId(id),
 				}
 			},{$lookup:
 			{
