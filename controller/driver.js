@@ -169,14 +169,11 @@ class driverController{
     async aggregation(id) {
 		try {
 		let responce=await booktripSchema.aggregate([
-			{$lookup:
 			{
-			  from: "vachicles",
-			  localField: "Vechicle",
-			  foreignField: "_id",
-			  as: "vechicalDetails"
-			}
-	   }		 
+				$match: {
+					_id:id
+				}
+			} 
 				]);
 				return {
 					response: responce
