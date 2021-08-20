@@ -163,6 +163,34 @@ class driverController{
 		}
 	}
 
+
+    async aggregation(id) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					_id: id
+				}
+			},{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "Vechicle",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }		 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 	async delete(id){
 		try{
 			let response = await driverSchema.deleteOne({_id: id});

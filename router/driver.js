@@ -27,6 +27,11 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await driverController.fetchdata(req.query.id);
 	res.send(response);
 });
+router.get('/fetchdata1', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await driverController.aggregation(req.query.id);
+	res.send(response);
+});
 router.delete('/delete', async (req, res) => {
 	const response = await driverController.delete(req.query.id);
 	res.send(response);
