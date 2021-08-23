@@ -291,6 +291,54 @@ class booktripController{
         }
 
     }
+
+
+	async cancelupdate(id,state,body) {
+		let userdata = await booktripSchema.find({'_id':id});
+		console.log('userdata:', userdata[0].Customer);
+		let custresponse = await customerSchema.find({'_id': userdata[0].Customer});
+		console.log('token:', custresponse[0].token);
+		let token=custresponse[0].token;
+
+        let messagestatus=body.Bookingstatus;
+
+
+		let driverdata = await driverSchema.find({'_id':userdata[0].Driverid});
+
+
+		let drivername=driverdata[0].Name;
+
+
+
+
+		console.log('messagestatus:',state);
+        try {
+			const message = { 
+				notification: {
+					title: "Your Trip Status",
+					body: " "+state+" "+'by'+" "+drivername
+				},
+				token:token
+			};
+  
+  
+		  admin.messaging().send(message)
+		  .then((response) => {
+			console.log('Successfully sent message:', response);
+		  })
+		  .catch((error) => {
+			console.log('Error sending message:', error);
+		});
+
+
+            let response = await booktripSchema.update({_id: id}, body);
+            return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
+
+        } catch (error) {
+            return { status: "error", error: error };
+        }
+
+    }
 	async acceptupdate(id,state,body) {
 
 		let response;
