@@ -303,20 +303,12 @@ class booktripController{
         let messagestatus=body.Bookingstatus;
 
 
-		let driverdata = await driverSchema.find({'_id':userdata[0].Driverid});
-
-
-		let drivername=driverdata[0].Name;
-
-
-
-
 		console.log('messagestatus:',state);
         try {
 			const message = { 
 				notification: {
 					title: "Your Trip Status",
-					body: " "+state+" "+'by'+" "+drivername
+					body: ""+state
 				},
 				token:token
 			};
