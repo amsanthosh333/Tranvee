@@ -97,6 +97,10 @@ const booktripSchema = new mongoose.Schema({
     Amount :{
         type: String,
         required: false
+    },
+    Reson :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
