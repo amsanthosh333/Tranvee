@@ -435,7 +435,8 @@ class booktripController{
 
 		body.Closedate=date;
 
-		console.log('messagestatus:',messagestatus);
+		console.log('messagestatus:',body);
+		
         try {
 			const message = { 
 				notification: {
