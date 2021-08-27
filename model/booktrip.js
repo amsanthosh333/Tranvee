@@ -98,6 +98,10 @@ const booktripSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    Closedate :{
+        type: String,
+        required: false
+    },
     Reson :{
         type: String,
         required: false
