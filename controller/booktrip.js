@@ -313,7 +313,7 @@ class booktripController{
 
 		let minutes = date_ob.getMinutes();
 
-		let seconds = date_ob.getSecond
+		let seconds = date_ob.getSecond();
 		   
 		
 		let date = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
@@ -430,7 +430,7 @@ class booktripController{
 
 		let minutes = date_ob.getMinutes();
 
-		let seconds = date_ob.getSecond
+		let seconds = date_ob.getSecond();
 		   
 		
 		let date = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
