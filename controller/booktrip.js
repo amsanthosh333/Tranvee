@@ -601,7 +601,7 @@ class booktripController{
 					Bookingstatus:bookingstatus
 				}
 			},
-			{ $sort : { Closedate : -1 } },
+			{ $sort : { Endtriptime : -1 } },
 			{$lookup:
 			{
 			  from: "customers",
