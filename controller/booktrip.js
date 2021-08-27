@@ -566,7 +566,7 @@ class booktripController{
 					Bookingstatus:Bookingstatus
 				}
 			},
-			{ $sort : { _id : -1 } },
+			{ $sort : { Closedate : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
@@ -612,7 +612,7 @@ class booktripController{
 					Bookingstatus:bookingstatus
 				}
 			},
-			{ $sort : { _id : -1 } },
+			{ $sort : { Closedate : -1 } },
 			{$lookup:
 			{
 			  from: "customers",
