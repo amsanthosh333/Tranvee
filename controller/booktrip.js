@@ -343,7 +343,7 @@ class booktripController{
 
 
             let response = await booktripSchema.update({_id: id}, body);
-            return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Booktrip Cancelled successfully",result: response, message: "Cancelled Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
