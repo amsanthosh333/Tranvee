@@ -229,7 +229,30 @@ class booktripController{
 			};
 		}
 	}
-
+	async count(){
+		try{
+			let response = await booktripSchema.find({'Bookingstatus': "Pending"});
+			let Pendingcount=Object.keys(response).length;
+			let response1 = await booktripSchema.find({'Bookingstatus': "Accepted"});
+			let Acceptcount=Object.keys(response1).length;
+			let response2 = await booktripSchema.find({'Bookingstatus': "Closed"});
+			let Completedcount=Object.keys(response2).length;
+			let response3 = await booktripSchema.find({'Bookingstatus': "Cancel"});
+			let Cancelcount=Object.keys(response3).length;
+			return {
+				Pendingcount:Pendingcount,
+				Acceptcount:Acceptcount,
+				Completedcount:Completedcount,
+				Cancelcount:Cancelcount
+			};
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
 	async delete(id){
 		try{
 			let response = await booktripSchema.deleteOne({_id: id});

@@ -142,4 +142,9 @@ router.get('/fetchbookingstatus', async (req, res) =>{
 	let response = await booktripController.aggregation1(req.query.Customer,req.query.Bookingstatus);
 	res.send(response);	
 })
+
+router.get('/bookingcount', async (req, res) =>{
+	let response = await booktripController.count();
+	res.send(response);	
+})
 module.exports = router;
