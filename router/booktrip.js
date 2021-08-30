@@ -40,7 +40,6 @@ router.get('/fetchbookdata', async (req, res) => {
 	res.send(response);
 })
 
-
 router.delete('/delete', async (req, res) => {
 	const response = await booktripController.delete(req.query.id);
 	res.send(response);

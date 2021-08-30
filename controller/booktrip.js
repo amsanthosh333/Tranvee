@@ -322,10 +322,10 @@ class booktripController{
 
 		let minutes = date_ob.getMinutes();
 
-		let seconds = date_ob.getSecond();
+	
 		   
 		
-		let date = year + "-" + month + "-" + day + " " + hours + ":" + minutes + ":" + seconds;
+		let date = year + "-" + month + "-" + day + " " + hours + ":" + minutes;
 		
 		console.log(date);
 		
