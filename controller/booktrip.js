@@ -291,7 +291,16 @@ class booktripController{
         }
 
     }
+	async cusupdate(id, body) {
+        try {
+            let response = await booktripSchema.update({_id: id}, body);
+            return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
 
+        } catch (error) {
+            return { status: "error", error: error };
+        }
+
+    }
 
 	async cancelupdate(id,state,body) {
 		let userdata = await booktripSchema.find({'_id':id});

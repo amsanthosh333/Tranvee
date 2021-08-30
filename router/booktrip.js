@@ -49,6 +49,10 @@ router.put('/update', async (req, res) => {
 	const response = await booktripController.update(req.query.id,req.query.stat,req.body);
 	res.send(response);
 })
+router.put('/cusupdate', async (req, res) => {
+	const response = await booktripController.cusupdate(req.query.id, req.body);
+	res.send(response);
+})
 router.put('/cancelupdate', async (req, res) => {
 	const response = await booktripController.cancelupdate(req.query.id,req.query.stat,req.body);
 	res.send(response);
