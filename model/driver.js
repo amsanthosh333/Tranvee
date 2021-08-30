@@ -49,6 +49,10 @@ const driverSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    VechicleId : {
+        type: String,
+        required: false
+    },
     insuranceNumber : {
         type: String,
         required: false
