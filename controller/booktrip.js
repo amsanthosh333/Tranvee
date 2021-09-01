@@ -280,11 +280,7 @@ class booktripController{
 
 		let driverdata = await driverSchema.find({'_id':body.Driverid});
 
-
 		let drivername=driverdata[0].Name;
-
-
-
 
 		console.log('messagestatus:',state);
         try {
@@ -344,9 +340,6 @@ class booktripController{
 		let hours = date_ob.getHours();
 
 		let minutes = date_ob.getMinutes();
-
-	
-		   
 		
 		let date = year + "-" + month + "-" + day + " " + hours + ":" + minutes;
 		
@@ -446,10 +439,7 @@ class booktripController{
 
 		let driverdata = await driverSchema.find({'_id':body.Driverid});
 
-
 		let drivername=driverdata[0].Name;
-
-   
 
 		console.log('messagestatus:',body);
 
@@ -527,6 +517,54 @@ class booktripController{
 		}
     }
 
+	async acceptedaggregation(Bookingstatus) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus:Bookingstatus
+				}
+			},
+			{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   },{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+}								 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 
 	async accaggregation(Driverid,Bookingstatus) {
 		try {
