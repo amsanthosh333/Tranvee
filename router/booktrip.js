@@ -2,8 +2,9 @@ const router = require('express').Router();
 const booktripController = require('../controller/booktrip');
 const booktripSchema = require('../model/booktrip');
 const vechicleSchema = require('../model/vechicle _mas');
+const historySchema = require('../model/history');
 
-
+const historyController = require('../controller/history');
 router.post('/add', async (req, res) => {
 	const response = await booktripController.add(req.body);
 	res.send(response);
@@ -62,7 +63,7 @@ router.put('/driveracceptupdate', async (req, res) => {
 })
 router.put('/amount_update', async (req, res) => {
 
-
+	let historytrip;
 	// console.log("minutes",req.query._id);
 
 
@@ -103,6 +104,9 @@ router.put('/amount_update', async (req, res) => {
 		min_waiting_time=vechicleSchemacalculation[0].min_waiting_time;
 		realamount=calculate*min_waiting_time;
 	    sum = estimate + realamount ;
+
+		historytrip.WaitingTime=calculate;
+		historytrip.WaitingTimeCharges=realamount;
 	}else{
 		sum = estimate;
 	}
@@ -121,8 +125,12 @@ router.put('/amount_update', async (req, res) => {
 		"Driverid":""+driver,
 		"Amount":sum,
 		 }
+
 		//  console.log("realamount",member);
 	const response = await booktripController.amount_update(req.query._id,member);
+
+	let historyres = await historyController.update(req.query._id,historytrip);
+
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{

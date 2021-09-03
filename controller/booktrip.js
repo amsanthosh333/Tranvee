@@ -3,7 +3,7 @@ const customerSchema = require('../model/customer');
 const driverSchema = require('../model/driver');
 const vechicalcostSchema = require('../model/vechicalcost');
 const vechicleSchema = require('../model/vechicle _mas');
-
+const historySchema = require('../model/history');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
@@ -33,21 +33,26 @@ class booktripController{
 
 
 	async add(farm){
-
+		let historytrip;
 		console.log("totalkm",""+farm.TotalKm);
 		let totalamount;
 		let totalkm=farm.TotalKm*2
 		console.log("totalkm",""+totalkm);
+
+		historytrip.totalkm=""+totalkm;
 		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
 		 console.log("totalamount1",""+vechimin[0].Min_km);
 		if(totalkm > vechimin[0].Min_km){
 			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
 			totalamount=totalkm*vechicalcostvicee[0].amount;
 			console.log("totalamount1",""+totalamount);
+			historytrip.RateperKm=""+vechicalcostvicee[0].amount;
+			historytrip.KmCharges=""+totalamount;
 		}else{
 			let vechicalcostvicee=vechimin[0].Min_price;
 			totalamount=vechicalcostvicee;
 			console.log("totalamount2",""+totalamount);
+			historytrip.FixedCharges=""+vechicalcostvicee;
 		}
 
       
@@ -102,7 +107,10 @@ class booktripController{
 		  console.log('Error sending message:', error);
 	  });
 
+	
+		 historytrip.tripid=""+response[0]._id;
 
+	    let historyres = await historySchema.create(historytrip);
 
 			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
