@@ -12,6 +12,7 @@ const customerController = require('./../controller/customer');
 
 const userRouter = require('./../router/user');
 const vechicalcostRouter = require('./../router/vechicalcost');
+const histryRouter = require('./../router/history');
 const customerRouter = require('./../router/customer');
 const vechicleRouter = require('./../router/vechicle _mas');
 const driverRouter = require('./../router/driver');
@@ -56,6 +57,7 @@ server.use("/vechicalvicecost",userRouter);
 server.use("/users",userRouter);
 server.use("/goods",goodstypeRouter);
 server.use("/vechicalcost",vechicalcostRouter);
+server.use("/history",histryRouter);
 server.use("/vechicle",vechicleRouter);
 server.use("/driverlocation",driverlocationRouter);
 //customerapi
