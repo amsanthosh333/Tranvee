@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
 
 const historySchema = new mongoose.Schema({
+    tripid : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
     TotalKm : {
         type: Number,
         required: true
