@@ -664,7 +664,14 @@ console.log("",booktrip);
 		  foreignField: "_id",
 		  as: "DriverDetails"
 		}
-   }					 
+   },{$lookup:
+	{
+	  from: "histories",
+	  localField: "tripid",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}						 
 				]);
 				return {
 					response: responce
