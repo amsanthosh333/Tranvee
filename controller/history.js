@@ -63,7 +63,7 @@ class historyController{
 	async update(id, body) {
 
         try {
-            let response = await historySchema.update({_id: id}, body);
+            let response = await historySchema.update({tripid: id}, body);
             return { status: "success", msg:"vechicalcost Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {

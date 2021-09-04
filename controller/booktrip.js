@@ -7,6 +7,8 @@ const historySchema = require('../model/history');
 const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
+const historyController = require('./history');
+
 //  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
 
@@ -33,7 +35,7 @@ class booktripController{
 
 
 	async add(farm){
-		let historytrip;
+		let historytrip={};
 		console.log("totalkm",""+farm.TotalKm);
 		let totalamount;
 		let totalkm=farm.TotalKm*2
@@ -84,7 +86,7 @@ class booktripController{
 			 }
 
 
-
+console.log("",booktrip);
 
 
 		try{
@@ -108,9 +110,13 @@ class booktripController{
 	  });
 
 	
-		 historytrip.tripid=""+response[0]._id;
+		 historytrip.tripid=""+response._id;
 
-	    let historyres = await historySchema.create(historytrip);
+		 console.log("historytrip",historytrip);
+		
+	    let historyres = await historyController.add(historytrip);
+
+	 console.log("historyres",historyres);
 
 			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){

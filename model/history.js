@@ -7,27 +7,27 @@ const historySchema = new mongoose.Schema({
     },
     TotalKm : {
         type: Number,
-        required: true
+        required: false
     },
     FixedCharges : {
         type: Number,
-        required: true
+        required: false
     },
     RateperKm : {
         type: String,
-        required: true
+        required: false
     },
     KmCharges : {
         type: String,
-        required: true
+        required: false
     },
     WaitingTime : {
         type: String,
-        required: true
+        required: false
     },
     WaitingTimeCharges : {
         type: String,
-        required: true
+        required: false
     },
 })
 module.exports = new mongoose.model('history',historySchema);
