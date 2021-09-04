@@ -575,7 +575,14 @@ console.log("",booktrip);
 	  foreignField: "_id",
 	  as: "GoodsDetails"
 	}
-}								 
+},{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}									 
 				]);
 				return {
 					response: responce
@@ -624,6 +631,13 @@ console.log("",booktrip);
 	  localField: "Goods",
 	  foreignField: "_id",
 	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
 	}
 }								 
 				]);
@@ -729,7 +743,14 @@ console.log("",booktrip);
 	  foreignField: "_id",
 	  as: "GoodsDetails"
 	}
-}						 
+},{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}							 
 				]);
 				return {
 					response: responce
