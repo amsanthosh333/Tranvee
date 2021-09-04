@@ -109,8 +109,8 @@ router.put('/amount_update', async (req, res) => {
 		historytrip.WaitingTimeCharges=realamount;
 	}else{
 		sum = estimate;
-		historytrip.WaitingTime="";
-		historytrip.WaitingTimeCharges="";
+		historytrip.WaitingTime="0";
+		historytrip.WaitingTimeCharges="0";
 	}
 
 

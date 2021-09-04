@@ -51,14 +51,14 @@ class booktripController{
 			console.log("totalamount1",""+totalamount);
 			historytrip.RateperKm=""+vechicalcostvicee[0].amount;
 			historytrip.KmCharges=""+totalamount;
-			historytrip.FixedCharges="";
+			historytrip.FixedCharges="0";
 		}else{
 			let vechicalcostvicee=vechimin[0].Min_price;
 			totalamount=vechicalcostvicee;
 			console.log("totalamount2",""+totalamount);
 			historytrip.FixedCharges=""+vechicalcostvicee;
-			historytrip.RateperKm="";
-			historytrip.KmCharges="";
+			historytrip.RateperKm="0";
+			historytrip.KmCharges="0";
 		}
 
       
