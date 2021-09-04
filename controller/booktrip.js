@@ -667,8 +667,8 @@ console.log("",booktrip);
    },{$lookup:
 	{
 	  from: "histories",
-	  localField: "tripid",
-	  foreignField: "_id",
+	  localField: "_id",
+	  foreignField: "tripid",
 	  as: "historiesDetails"
 	}
 }						 
