@@ -17,7 +17,7 @@ router.get('/fetchdata', async (req, res) => {
 })
 router.get('/fetchdata1', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
-	const response = await vechicalcostController.aggregation(req.query.id);
+	const response = await vechicalcostController.aggregation(req.query.Vechicle);
 	res.send(response);
 });
 router.delete('/delete', async (req, res) => {

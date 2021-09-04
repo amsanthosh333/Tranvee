@@ -1,6 +1,7 @@
 const vechicalcostSchema = require('../model/vechicalcost');
 const errorHandler = require('../utils/error.handler');
-
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 class vechicalcostController{
 
 
@@ -31,11 +32,14 @@ class vechicalcostController{
 			};
 		}
 	}
-	async aggregation(id) {
+	async aggregation(Vechicle) {
 		try {
 		let responce=await vechicalcostSchema.aggregate([
 			{
-				$lookup:
+				$match: {
+					Vechicle:ObjectId(Vechicle),
+				}
+			},{$lookup:
 			{
 			  from: "vachicles",
 			  localField: "Vechicle",
