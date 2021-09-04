@@ -94,6 +94,10 @@ const booktripSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: false
     },
+    history : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
     Amount :{
         type: String,
         required: false

@@ -128,10 +128,14 @@ router.put('/amount_update', async (req, res) => {
 		"Amount":sum,
 		 }
 
+		 let historyres = await historyController.update(req.query._id,historytrip);
+
+		 member.history=historyres._id;
+
 		//  console.log("realamount",member);
 	const response = await booktripController.amount_update(req.query._id,member);
 
-	let historyres = await historyController.update(req.query._id,historytrip);
+	
 
 	res.send(response);
 })
