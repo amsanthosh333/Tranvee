@@ -36,6 +36,7 @@ class booktripController{
 
 	async add(farm){
 		let historytrip={};
+		let historybooktrip={};
 		console.log("totalkm",""+farm.TotalKm);
 		let totalamount;
 		let totalkm=farm.TotalKm*2
@@ -119,7 +120,11 @@ console.log("",booktrip);
 		
 	    let historyres = await historyController.add(historytrip);
 
-	 console.log("historyres",historyres);
+	 console.log("historyres",historyres.result._id);
+
+
+	 historybooktrip.history=historyres.result._id;
+	 let responsehis = await booktripSchema.update({_id: response._id}, historybooktrip);
 
 			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
