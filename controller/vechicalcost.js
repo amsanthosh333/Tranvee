@@ -35,10 +35,7 @@ class vechicalcostController{
 		try {
 		let responce=await vechicalcostSchema.aggregate([
 			{
-				$match: {
-					_id:ObjectId(id),
-				}
-			},{$lookup:
+				$lookup:
 			{
 			  from: "vachicles",
 			  localField: "Vechicle",
