@@ -63,7 +63,7 @@ router.put('/driveracceptupdate', async (req, res) => {
 })
 router.put('/amount_update', async (req, res) => {
 
-	let historytrip;
+	let historytrip={};
 	// console.log("minutes",req.query._id);
 
 
@@ -109,6 +109,8 @@ router.put('/amount_update', async (req, res) => {
 		historytrip.WaitingTimeCharges=realamount;
 	}else{
 		sum = estimate;
+		historytrip.WaitingTime="";
+		historytrip.WaitingTimeCharges="";
 	}
 
 
