@@ -31,7 +31,32 @@ class vechicalcostController{
 			};
 		}
 	}
-
+	async aggregation(id) {
+		try {
+		let responce=await vechicalcostSchema.aggregate([
+			{
+				$match: {
+					_id:ObjectId(id),
+				}
+			},{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "Vechicle",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }		 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 	async fetchdata(id){
 		try{
 			let response = await vechicalcostSchema.find({'_id':id});
