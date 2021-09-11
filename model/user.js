@@ -17,8 +17,11 @@ const userSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true,
-    }
-    ,
+    },
+    Designation : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
     token: {
         type: String,
         required: true,
