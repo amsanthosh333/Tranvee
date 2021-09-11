@@ -21,6 +21,7 @@ const booktripRouter = require('./../router/booktrip');
 const goodstypeRouter = require('./../router/goodstype');
 const cityRouter = require('./../router/city');
 const driverlocationRouter = require('./../router/driverlocation');
+const designationRouter = require('./../router/designation');
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
 //  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin123@cluster0.qcrci.mongodb.net/schoolsms?retryWrites=true&w=majority`;
@@ -53,6 +54,7 @@ server.use("/drivervechicle",vechicleRouter);
 server.use("/driverreg",driverRouter);
 server.use("/booking",booktripRouter);
 server.use("/user",userRouter);
+server.use("/designation",designationRouter);
 server.use("/vechicalvicecost",userRouter);
 server.use("/users",userRouter);
 server.use("/goods",goodstypeRouter);
