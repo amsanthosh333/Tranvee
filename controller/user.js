@@ -92,19 +92,26 @@ class UserController {
 	}
 	
 	async fetch(){
-		try{
-			let response = await userSchema.find();
-			let count=Object.keys(response).length;
-			return {
-				response: response,
-				count
-			};
-		} catch(error){
-			return {
-				status: "error",
-				error: errorHandler.parseMongoError(error)
-			};
-		}
+        try {
+            let responce=await userSchema.aggregate([
+              {$lookup:
+                {
+                  from: "designations",
+                  localField: "designation",
+                  foreignField: "_id",
+                  as: "designationDetails"
+                }
+               }		 
+                    ]);
+                    return {
+                        response: responce
+                    };
+            } catch (error) {
+                return {
+                    status: "error",
+                    error: errorHandler.parseMongoError(error)
+                };
+            }
 	}
 
 	async fetchdata(id){
