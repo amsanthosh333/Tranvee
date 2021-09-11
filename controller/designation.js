@@ -17,19 +17,26 @@ class designationController{
 	}
 	
 	async fetch(){
-		try{
-			let response = await designationSchema.find({});
-			let count=Object.keys(response).length;
-			return {
-				response: response,
-				count
-			};
-		} catch(error){
-			return {
-				status: "error",
-				error: errorHandler.parseMongoError(error)
-			};
-		}
+        try {
+            let responce=await designationSchema.aggregate([
+              {$lookup:
+                {
+                  from: "designations",
+                  localField: "designation",
+                  foreignField: "_id",
+                  as: "designationDetails"
+                }
+           }		 
+                    ]);
+                    return {
+                        response: responce
+                    };
+            } catch (error) {
+                return {
+                    status: "error",
+                    error: errorHandler.parseMongoError(error)
+                };
+            }
 	}
 
 	async fetchdata(id){
