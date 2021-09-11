@@ -97,7 +97,7 @@ class UserController {
               {$lookup:
                 {
                   from: "designations",
-                  localField: "designation",
+                  localField: "Designation",
                   foreignField: "_id",
                   as: "designationDetails"
                 }
