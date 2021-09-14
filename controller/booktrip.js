@@ -595,6 +595,62 @@ console.log("",booktrip);
 		}
     }
 
+
+	async acceptaggregation(Bookingstatus) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus:Bookingstatus
+				}
+			}
+			,
+			{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   },{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}									 
+				]);
+				return responce;
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 	async accaggregation(Driverid,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([
