@@ -539,11 +539,12 @@ console.log("",booktrip);
 		}
     }
 
-	async acceptedaggregation(Bookingstatus) {
+	async acceptedaggregation(id,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
+					_id:id,
 					Bookingstatus:Bookingstatus
 				}
 			},

@@ -110,8 +110,9 @@ const driverSchema = new mongoose.Schema({
         required: false
     },
     Status : {
-        type: String,
-        required: false
+        type: Boolean,
+        required: false,
+        default: 0
     },
     token: {
         type: String,
