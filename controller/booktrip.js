@@ -539,7 +539,7 @@ console.log("",booktrip);
 		}
     }
 
-	async acceptedaggregation(id,Bookingstatus) {
+	async acceptedaggregation(id) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
@@ -642,7 +642,9 @@ console.log("",booktrip);
 	}
 }									 
 				]);
-				return responce;
+				return {
+					response: responce
+				};
 		} catch (error) {
 			return {
 				status: "error",
