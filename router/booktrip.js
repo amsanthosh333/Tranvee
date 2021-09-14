@@ -140,7 +140,7 @@ router.get('/aggregation', async (req, res) =>{
 	res.send(response);	
 })
 router.get('/acceptedaggregation', async (req, res) =>{
-	let response = await booktripController.acceptedaggregation((req.query._id,req.query.Bookingstatus);
+	let response = await booktripController.acceptedaggregation(req.query._id,req.query.Bookingstatus);
 	res.send(response);	
 })
 router.get('/accaggregation', async (req, res) =>{
