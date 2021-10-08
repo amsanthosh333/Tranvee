@@ -90,6 +90,27 @@ class driverlocationController{
         }
 
     }
-
+	async aggregation() {
+		try {
+		let responce=await driverlocationSchema.aggregate([
+			{$lookup:
+			{
+			  from: "drivers",
+			  localField: "Driverid",
+			  foreignField: "_id",
+			  as: "driversDetails"
+			}
+	   }		 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 }
 module.exports = new driverlocationController();

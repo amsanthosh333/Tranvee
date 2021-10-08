@@ -23,5 +23,8 @@ router.put('/update', async (req, res) => {
 	const response = await driverlocationController.update(req.query.id, req.body);
 	res.send(response);
 })
-
+router.get('/aggregation', async (req, res) =>{
+	let response = await driverlocationController.aggregation();
+	res.send(response);	
+})
 module.exports = router;
