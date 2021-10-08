@@ -7,15 +7,15 @@ const driverlocationSchema = new mongoose.Schema({
     },
     lat : {
         type: String,
-        required: true
+        required: false
     },
     lng : {
         type: String,
-        required: true
+        required: false
     },
     lastupdate : {
         type: String,
-        required: true
+        required: false
     }
 })
 module.exports = new mongoose.model('driverlocation',driverlocationSchema);
