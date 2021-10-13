@@ -94,9 +94,8 @@ class OwnerController {
 	async fetch(){
         try {
             let response = await ownerSchema.find({});
-			let count=Object.keys(response).length;
                     return {
-                        response: responce
+                        response: response
                     };
             } catch (error) {
                 return {
