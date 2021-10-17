@@ -139,6 +139,10 @@ router.get('/aggregation', async (req, res) =>{
 	let response = await booktripController.aggregation();
 	res.send(response);	
 })
+router.get('/pendingaggregation', async (req, res) =>{
+	let response = await booktripController.pendingaggregation(req.query.referid);
+	res.send(response);	
+})
 router.get('/acceptedaggregation', async (req, res) =>{
 	let response = await booktripController.acceptedaggregation(req.query._id,req.query.Bookingstatus);
 	res.send(response);	
@@ -151,11 +155,18 @@ router.get('/accaggregation', async (req, res) =>{
 	let response = await booktripController.accaggregation(req.query.Driverid,req.query.Bookingstatus);
 	res.send(response);	
 })
+router.get('/accptaggregation', async (req, res) =>{
+	let response = await booktripController.accptaggregation(req.query.referid,req.query.Bookingstatus);
+	res.send(response);	
+})
 router.get('/cloaggregation', async (req, res) =>{
 	let response = await booktripController.cloaggregation(req.query.Driverid,req.query.Bookingstatus);
 	res.send(response);	
 })
-
+router.get('/closeingaggregation', async (req, res) =>{
+	let response = await booktripController.closeingaggregation(req.query.referid,req.query.Bookingstatus);
+	res.send(response);	
+})
 router.get('/fetchbookingstatus', async (req, res) =>{
 	let response = await booktripController.aggregation1(req.query.Customer,req.query.Bookingstatus);
 	res.send(response);	

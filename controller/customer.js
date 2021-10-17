@@ -150,7 +150,21 @@ class CustomerController {
 		}
 	}
 
-	async fetchdata(id){
+	async fetchcustomer(referid){
+		try{
+			let response = await customerSchema.find({referid: referid});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
+
+    async fetchdata(id){
 		try{
 			let response = await customerSchema.find({_id: id});
 			return response;

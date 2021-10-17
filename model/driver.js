@@ -117,6 +117,10 @@ const driverSchema = new mongoose.Schema({
     token: {
         type: String,
         required: false,
+    },
+    referid : {
+        type: mongoose.Schema.ObjectId,
+        required: false
     }
 })
 module.exports = new mongoose.model('driver',driverSchema);

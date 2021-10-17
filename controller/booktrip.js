@@ -538,7 +538,54 @@ console.log("",booktrip);
 			};
 		}
     }
-
+	async pendingaggregation(referid) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					referid:ObjectId(referid),
+					Bookingstatus: "Pending"
+				}
+			},{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   }	,{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+}						 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 	async acceptedaggregation(id) {
 		try {
 		let responce=await booktripSchema.aggregate([
@@ -710,12 +757,119 @@ console.log("",booktrip);
 		}
     }
 
+	async accptaggregation(referid,Bookingstatus) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					referid:ObjectId(referid),
+					Bookingstatus:Bookingstatus
+				}
+			},
+			{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   },{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}								 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 	async cloaggregation(Driverid,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
 					Driverid:ObjectId(Driverid),
+					Bookingstatus:Bookingstatus
+				}
+			},
+			{ $sort : { Endtriptime : -1 } },
+			{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   },{$lookup:
+	{
+	  from: "histories",
+	  localField: "history",
+	  foreignField: "_id",
+	  as: "historiesDetails"
+	}
+}						 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+	async closeingaggregation(referid,Bookingstatus) {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					referid:ObjectId(referid),
 					Bookingstatus:Bookingstatus
 				}
 			},

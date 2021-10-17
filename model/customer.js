@@ -25,6 +25,10 @@ const customerSchema = new mongoose.Schema({
     fcmtoken: {
         type: String,
         required: false,
+    },
+    referid : {
+        type: mongoose.Schema.ObjectId,
+        required: false
     }
 });
 

@@ -193,6 +193,33 @@ class driverController{
 		}
     }
 
+    async aggregationdriver(referid) {
+		try {
+		let responce=await driverSchema.aggregate([
+			{
+				$match: {
+					referid:ObjectId(referid),
+				}
+			},{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "Vechicle",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }		 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 	async delete(id){
 		try{
 			let response = await driverSchema.deleteOne({_id: id});

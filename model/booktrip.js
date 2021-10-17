@@ -109,6 +109,10 @@ const booktripSchema = new mongoose.Schema({
     Reson :{
         type: String,
         required: false
-    }
+    },
+    referid : {
+        type: mongoose.Schema.ObjectId,
+        required: false
+    },
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
