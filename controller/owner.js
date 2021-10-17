@@ -82,7 +82,7 @@ class OwnerController {
     async add(farm){
 		try{
 			let response = await ownerSchema.create(farm);
-			return { status: "success",   msg:"Customer Added successfully", result: response, message: "Added Successfully" };
+			return { status: "success",   msg:"Owner Added successfully", result: response, message: "Added Successfully" };
 		} catch(error){
 			return {
 				status: "error",
@@ -137,7 +137,7 @@ class OwnerController {
 
         try {
             let response = await ownerSchema.update({_id: id}, body);
-            return { status: "success", msg:"Customer Updated successfully",result: response, message: "Updated Successfully" };
+            return { status: "success", msg:"Owner Updated successfully",result: response, message: "Updated Successfully" };
 
         } catch (error) {
             return { status: "error", error: error };
