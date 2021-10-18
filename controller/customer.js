@@ -153,7 +153,9 @@ class CustomerController {
 	async fetchcustomer(referid){
 		try{
 			let response = await customerSchema.find({referid: referid});
-			return response;
+			return {
+				response: response
+			};
 			
 		} catch(error){
 			return {
