@@ -32,6 +32,11 @@ router.get('/fetchdata', async (req, res) => {
 	const response = await userController.fetchdata(req.query.id);
 	res.send(response);
 })
+router.get('/fetchcustomerdata', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await userController.fetchcustomerdata(req.query.referid);
+	res.send(response);
+})
 router.delete('/delete', async (req, res) => {
 	const response = await userController.delete(req.query.id);
 	res.send(response);

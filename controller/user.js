@@ -127,6 +127,19 @@ class UserController {
 		}
 	}
 
+    async fetchcustomerdata(referid){
+		try{
+			let response = await userSchema.find({referid: referid});
+			return response;
+			
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
 	async delete(id){
 		try{
 			let response = await userSchema.deleteOne({_id: id});
