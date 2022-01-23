@@ -222,20 +222,7 @@ class driverController{
 
     async aggregationdriverstatus(status) {
 		try {
-		let responce=await driverSchema.aggregate([
-			{
-				$match: {
-					Status:0,
-				}
-			},{$lookup:
-			{
-			  from: "vachicles",
-			  localField: "Vechicle",
-			  foreignField: "_id",
-			  as: "vechicalDetails"
-			}
-	   }		 
-				]);
+            let response = await driverSchema.find({'Status':status});
 				return {
 					response: responce
 				};
