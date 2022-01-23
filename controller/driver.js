@@ -220,12 +220,12 @@ class driverController{
 		}
     }
 
-    async aggregationdriverstatus(referid) {
+    async aggregationdriverstatus(status) {
 		try {
 		let responce=await driverSchema.aggregate([
 			{
 				$match: {
-					referid:ObjectId(referid),
+					Status:status,
 				}
 			},{$lookup:
 			{
