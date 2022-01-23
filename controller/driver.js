@@ -221,12 +221,12 @@ class driverController{
     }
 
     async aggregationdriverstatus(status) {
-		try {
-            let response = await driverSchema.find({'Status':status});
-				return {
-					response: responce
-				};
-		} catch (error) {
+        try{
+			let response = await driverSchema.find({'Status':status});
+            return {
+				response: response
+			};
+		} catch(error){
 			return {
 				status: "error",
 				error: errorHandler.parseMongoError(error)
