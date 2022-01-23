@@ -225,7 +225,7 @@ class driverController{
 		let responce=await driverSchema.aggregate([
 			{
 				$match: {
-					Status:status,
+					Status:"false",
 				}
 			},{$lookup:
 			{
