@@ -220,6 +220,30 @@ class driverController{
 		}
     }
 
+    async aggregationdriverreg() {
+		try {
+		let responce=await driverSchema.aggregate([
+			{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "Vechicle",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   }		 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
+
     async aggregationdriverstatus(status) {
         try{
 			let response = await driverSchema.find({'Status':status});

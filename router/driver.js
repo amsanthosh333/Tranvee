@@ -37,6 +37,11 @@ router.get('/fetchdriver', async (req, res) => {
 	const response = await driverController.aggregationdriver(req.query.referid);
 	res.send(response);
 });
+router.get('/fetch', async (req, res) => {
+	//res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await driverController.aggregationdriverreg();
+	res.send(response);
+});
 router.get('/fetchdriverstatus', async (req, res) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await driverController.aggregationdriverstatus(req.query.Status);
