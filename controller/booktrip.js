@@ -491,11 +491,12 @@ console.log("",booktrip);
         }
 
     }
-	async aggregation() {
+	async aggregation(vechicalid) {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
+					vechical:ObjectId(vechicalid),
 					Bookingstatus: "Pending"
 				}
 			},{$lookup:

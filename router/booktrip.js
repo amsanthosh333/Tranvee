@@ -136,7 +136,7 @@ router.put('/amount_update', async (req, res) => {
 	res.send(response);
 })
 router.get('/aggregation', async (req, res) =>{
-	let response = await booktripController.aggregation();
+	let response = await booktripController.aggregation(req.query.vechicalid);
 	res.send(response);	
 })
 router.get('/pendingaggregation', async (req, res) =>{
