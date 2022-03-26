@@ -23,6 +23,8 @@ const cityRouter = require('./../router/city');
 const driverlocationRouter = require('./../router/driverlocation');
 const designationRouter = require('./../router/designation');
 const ownerRouter = require('./../router/owner');
+const planRouter = require('./../router/plan');
+
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
 //  let db= process.env.MONGODB_URL ||`mongodb+srv://admin:admin123@cluster0.qcrci.mongodb.net/schoolsms?retryWrites=true&w=majority`;
@@ -64,9 +66,11 @@ server.use("/history",histryRouter);
 server.use("/vechicle",vechicleRouter);
 server.use("/driverlocation",driverlocationRouter);
 server.use("/owner",ownerRouter);
+server.use("/plans",planRouter);
 
 //customerapi
 server.use("/customer",customerRouter);
+
 server.use("/user", async (req, res, next) => {
     console.log("eeeeeeeec",""+req.headers.authorization);
 	if(!req.headers.authorization){
