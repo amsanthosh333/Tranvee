@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const booktripController = require('../controller/booktrip');
 const booktripSchema = require('../model/booktrip');
+const planSchema = require('../model/plan');
 const vechicleSchema = require('../model/vechicle _mas');
 const historySchema = require('../model/history');
 
@@ -69,6 +70,9 @@ router.put('/amount_update', async (req, res) => {
 
 	let detailswaitingcalculation = await booktripSchema.find({'_id':req.query._id});
 
+	let detailplancalculation = await planSchema.find({'_id':detailswaitingcalculation[0].plan_id});
+
+
 	let vechicalid=detailswaitingcalculation[0].vechical;
 	let StartotpTime=detailswaitingcalculation[0].StartotpTime;
 	let StartTripTime=detailswaitingcalculation[0].StartTripTime;
@@ -76,7 +80,7 @@ router.put('/amount_update', async (req, res) => {
 	let ReachDestinationTime=detailswaitingcalculation[0].ReachDestinationTime;
 	let driver=detailswaitingcalculation[0].Driverid;
 
-    	let estimate=parseInt(detailswaitingcalculation[0].Amount);
+    	let estimate=parseInt(detailplancalculation[0].baseFare);
 		console.log("ReachDestinationTime",ReachDestinationTime);
 		console.log("Endtriptime",Endtriptime);
 	     const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime))/1000;
@@ -92,16 +96,28 @@ router.put('/amount_update', async (req, res) => {
 
 
 
-	let Waiting_min=vechicleSchemacalculation[0].Waiting_min;
+	let limit_min=detailplancalculation[0].timeLimit;
+	let limit_km=detailplancalculation[0].distanceLimit;
+
 
 	let calculate;
 	let min_waiting_time;
 	let realamount;
 	let sum;
+	let totalkm;
+
 	
-	if(totalmin>Waiting_min){
-		calculate=totalmin-Waiting_min;
-		min_waiting_time=vechicleSchemacalculation[0].min_waiting_time;
+	if(totalmin>limit_min){
+		calculate=totalmin-limit_min;
+		min_waiting_time=detailplancalculation[0].additionMinPerMin;
+		realamount=calculate*min_waiting_time;
+	    sum = estimate + realamount ;
+
+		historytrip.WaitingTime=calculate;
+		historytrip.WaitingTimeCharges=realamount;
+	}else if(totalkm>limit_km){
+		calculate=totalkm-limit_km;
+		min_waiting_time=detailplancalculation[0].additionDistancePerKm;
 		realamount=calculate*min_waiting_time;
 	    sum = estimate + realamount ;
 
@@ -109,8 +125,8 @@ router.put('/amount_update', async (req, res) => {
 		historytrip.WaitingTimeCharges=realamount;
 	}else{
 		sum = estimate;
-		historytrip.WaitingTime="0";
-		historytrip.WaitingTimeCharges="0";
+		historytrip.WaitingTime=limit_min;
+		historytrip.WaitingTimeCharges=limit_km;
 	}
 
 
