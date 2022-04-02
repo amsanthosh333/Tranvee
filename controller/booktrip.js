@@ -47,9 +47,9 @@ class booktripController{
 		 console.log("totalamount1",""+vechimin[0].Min_km);
 		if(totalkm > vechimin[0].Min_km){
 			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
-			totalamount=totalkm*vechicalcostvicee[0].amount;
+			totalamount=totalkm*1;
 			console.log("totalamount1",""+totalamount);
-			historytrip.RateperKm=""+vechicalcostvicee[0].amount;
+			historytrip.RateperKm=""+1;
 			historytrip.KmCharges=""+totalamount;
 			historytrip.FixedCharges="0";
 		}else{
