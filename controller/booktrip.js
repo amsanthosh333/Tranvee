@@ -60,17 +60,11 @@ class booktripController{
 			historytrip.RateperKm="0";
 			historytrip.KmCharges="0";
 		}
-
-      
-		
+	
 		// let count=Object.keys(vechicalcostvicee).length;
 		// console.log("count",""+count);
 		// console.log("vechicalcostvicee",""+vechicalcostvicee[0].amount);
 	  
-	    console.log("totalamount",""+totalamount);
-
-
-
 		let booktrip={
 			"Customer":""+farm.Customer,
 			"Pickuploc":""+farm.Pickuploc,
@@ -89,29 +83,26 @@ class booktripController{
 			"Bookingstatus":""+farm.Bookingstatus
 			 }
 
+    let response = await booktripSchema.create(booktrip);
 
-console.log("",booktrip);
-
-
-		try{
-			let response = await booktripSchema.create(booktrip);
+	// 	try{
 			
-		var topic = 'general';
-		var message = {
-		  notification: {
-			title: 'New Trip From Customer',
-			body: '*New Trip Created Do you accept this Trip?*'
-		  },
-		  topic: topic
-		};
-		admin.messaging().send(message)
-		.then((response) => {
-		  // Response is a message ID string.
-		  console.log('Successfully sent message:', response);
-		})
-		.catch((error) => {
-		  console.log('Error sending message:', error);
-	  });
+	// 	var topic = 'general';
+	// 	var message = {
+	// 	  notification: {
+	// 		title: 'New Trip From Customer',
+	// 		body: '*New Trip Created Do you accept this Trip?*'
+	// 	  },
+	// 	  topic: topic
+	// 	};
+	// 	admin.messaging().send(message)
+	// 	.then((response) => {
+	// 	  // Response is a message ID string.
+	// 	  console.log('Successfully sent message:', response);
+	// 	})
+	// 	.catch((error) => {
+	// 	  console.log('Error sending message:', error);
+	//   });
 
 	
 		 historytrip.tripid=""+response._id;
@@ -126,13 +117,18 @@ console.log("",booktrip);
 	 historybooktrip.history=historyres.result._id;
 	 let responsehis = await booktripSchema.update({_id: response._id}, historybooktrip);
 
-			return { status: "1",   msg:"Booktrip Added successfully", result: response, message: "Added Successfully" };
-		} catch(error){
-			return {
-				status: "0",
-				error: errorHandler.parseMongoError(error)
-			};
-		}
+	return { 
+	  status: "1", 
+	  msg:"Booktrip Added successfully", 
+	  result: response, 
+	  message: "Added Successfully"
+	 };
+		// } catch(error){
+		// 	return {
+		// 		status: "0",
+		// 		error: errorHandler.parseMongoError(error)
+		// 	};
+		// }
 	}
 
 	async amountcalc(farm){
