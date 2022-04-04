@@ -487,12 +487,11 @@ class booktripController{
         }
 
     }
-	async aggregation(vechicalid) {
+	async aggregation() {
 		try {
 		let responce=await booktripSchema.aggregate([
 			{
 				$match: {
-					vechical:ObjectId(vechicalid),
 					Bookingstatus: "Pending"
 				}
 			},{$lookup:
