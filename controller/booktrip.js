@@ -413,7 +413,7 @@ class booktripController{
 		let token=custresponse[0].token;
 		let messagestatus=body.Bookingstatus;
 		console.log("body",body)
-		let driverdata = await driverSchema.find({'_id':body.driverId});
+		let driverdata = await driverSchema.find({'_id':body.Driverid});
 		console.log("driverdata",driverdata)
 		let drivername=driverdata[0].Name;
 		console.log('messagestatus:',state);
