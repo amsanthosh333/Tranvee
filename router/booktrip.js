@@ -2,6 +2,7 @@ const router = require('express').Router();
 const booktripController = require('../controller/booktrip');
 const booktripSchema = require('../model/booktrip');
 const planSchema = require('../model/plan');
+const driverSchema = require('../model/driver');
 const vechicleSchema = require('../model/vechicle _mas');
 const historySchema = require('../model/history');
 const axios = require('axios')
@@ -72,9 +73,10 @@ router.put('/amount_update', async (req, res) => {
 
 	let detailswaitingcalculation = await booktripSchema.find({ '_id': req.query._id });
 
-	console.log("detailswaitingcalculation",detailswaitingcalculation)
+	console.log("detailswaitingcalculation", detailswaitingcalculation)
 	let detailplancalculation = await planSchema.find({ '_id': detailswaitingcalculation[0].plan_id });
 
+	let driverculation = await driverSchema.find({ '_id': detailswaitingcalculation[0].Driverid });
 
 	let vechicalid = detailswaitingcalculation[0].vechical;
 	let StartotpTime = detailswaitingcalculation[0].StartotpTime;
@@ -82,7 +84,7 @@ router.put('/amount_update', async (req, res) => {
 	let Endtriptime = req.body.Endtriptime;
 	let ReachDestinationTime = detailswaitingcalculation[0].ReachDestinationTime;
 	let driver = detailswaitingcalculation[0].Driverid;
-    console.log("detailplancalculation",detailplancalculation)
+	console.log("detailplancalculation", detailplancalculation)
 	let estimate = parseInt(detailplancalculation[0].baseFare);
 	console.log("ReachDestinationTime", ReachDestinationTime);
 	console.log("Endtriptime", Endtriptime);
@@ -105,31 +107,49 @@ router.put('/amount_update', async (req, res) => {
 	let sum;
 	let totalkm;
 
+	let rta;
+	await axios.post('https://igps.io/customer/api/get_km_api.php', {
+		uname: 'tranvee_logistics_services_9626163696',
+		d_from: StartotpTime,
+		d_end: Endtriptime
+	})
+		.then(res => {
+			//   console.log(`statusCode: ${res.total}`)
+			console.log("res", res.data)
+			rta = res.data.filter(it => it.vehicle_no === driverculation[0].VechicleNum);
+			// rta = res.data.filter(it => it.vehicle_no === 'TN 42 AJ 5608');
 
-	axios.post('https://igps.io/customer/api/get_km_api.php', {
-	  uname: 'tranvee_logistics_services_9626163696',
-	  d_from:StartotpTime,
-	  d_end:Endtriptime
-	})
-	.then(res => {
-	  console.log(`statusCode: ${res.total}`)
-	  console.log(res)
-	})
-	.catch(error => {
-	  console.error(error)
-	})
+			console.log("rta", rta)
+		})
+		.catch(error => {
+			console.error(error)
+		})
 
-	if (totalmin > limit_min) {
-		calculate = totalmin - limit_min;
-		min_waiting_time = detailplancalculation[0].additionMinPerMin;
+	// 	needle.post('https://igps.io/customer/api/get_km_api.php', {
+	// 		uname: 'tranvee_logistics_services_9626163696',
+	// 		d_from:StartotpTime,
+	// 		d_end:Endtriptime
+	// 	  }, 
+	//     function(err, resp, body){
+	//         console.log("data",body);
+	//    });
+	if (rta.length == 0) {
+		totalkm = 0
+	} else {
+		totalkm = rta[0].total ? rta[0].total : 0;
+	}
+
+	if (totalkm > limit_km) {
+		calculate = totalkm - limit_km;
+		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
 		realamount = calculate * min_waiting_time;
 		sum = estimate + realamount;
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
-	} else if (totalkm > limit_km) {
-		calculate = totalkm - limit_km;
-		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
+	} else if (totalmin > limit_min) {
+		calculate = totalmin - limit_min;
+		min_waiting_time = detailplancalculation[0].additionMinPerMin;
 		realamount = calculate * min_waiting_time;
 		sum = estimate + realamount;
 

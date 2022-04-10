@@ -525,7 +525,14 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "GoodsDetails"
 	}
-}						 
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
+}					 
 				]);
 				return {
 					response: responce
@@ -572,6 +579,13 @@ class booktripController{
 	  localField: "Goods",
 	  foreignField: "_id",
 	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
 	}
 }						 
 				]);
@@ -630,6 +644,13 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "historiesDetails"
 	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
 }									 
 				]);
 				return responce;
@@ -686,7 +707,14 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "historiesDetails"
 	}
-}									 
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
+}								 
 				]);
 				return {
 					response: responce
@@ -743,7 +771,14 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "historiesDetails"
 	}
-}								 
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
+}							 
 				]);
 				return {
 					response: responce
@@ -800,6 +835,13 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "historiesDetails"
 	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
 }								 
 				]);
 				return {
@@ -851,6 +893,13 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "historiesDetails"
 	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
 }						 
 				]);
 				return {
@@ -900,6 +949,13 @@ class booktripController{
 	  localField: "history",
 	  foreignField: "_id",
 	  as: "historiesDetails"
+	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
 	}
 }						 
 				]);
@@ -953,6 +1009,13 @@ class booktripController{
 	  localField: "Goods",
 	  foreignField: "_id",
 	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
 	}
 },{$lookup:
 	{
