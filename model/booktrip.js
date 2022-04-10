@@ -116,7 +116,7 @@ const booktripSchema = new mongoose.Schema({
     },
     plan_id : {
         type: mongoose.Schema.ObjectId,
-        required: false
+        required: true
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
