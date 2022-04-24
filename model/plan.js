@@ -24,6 +24,11 @@ const planSchema = new mongoose.Schema({
     additionMinPerMin  : {
         type: Number,
         required: false
-    }
+    },
+    Status : {
+        type: Boolean,
+        required: false,
+        default: 1
+    },
 })
 module.exports = new mongoose.model('plan',planSchema);
