@@ -69,10 +69,6 @@ const vachicleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    Imageprofile : {
-        type: String,
-        required: false
-    },
     Document1 : {
         type: String,
         required: false
