@@ -48,6 +48,42 @@ const vachicleSchema = new mongoose.Schema({
     Image : {
         type: String,
         required: false
+    },
+    VechicleNum : {
+        type: String,
+        required: false
+    },
+    insuranceNumber : {
+        type: String,
+        required: false
+    },
+    insuranceExpDate : {
+        type: String,
+        required: false
+    },
+    SmokeTest : {
+        type: String,
+        required: false
+    },
+    FcExpdate : {
+        type: String,
+        required: false
+    },
+    Imageprofile : {
+        type: String,
+        required: false
+    },
+    Document1 : {
+        type: String,
+        required: false
+    },
+    Document2 : {
+        type: String,
+        required: false
+    },
+    Document3 : {
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('vachicle',vachicleSchema);
