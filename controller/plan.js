@@ -18,7 +18,7 @@ class planController{
 	
 	async fetch(){
 		try{
-			let response = await planSchema.find({});
+			let response = await planSchema.find({'Status':true});
 			let count=Object.keys(response).length;
 			return {
 				response: response,
