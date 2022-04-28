@@ -61,10 +61,6 @@ const vachicleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    SmokeTest : {
-        type: String,
-        required: false
-    },
     FcExpdate : {
         type: String,
         required: false
