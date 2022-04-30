@@ -497,7 +497,9 @@ class booktripController{
 				$match: {
 					Bookingstatus: "Pending"
 				}
-			},{$lookup:
+			},
+			{ $sort : { Endtriptime : -1 } },
+			{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
