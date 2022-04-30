@@ -552,7 +552,8 @@ class booktripController{
 					referid:ObjectId(referid),
 					Bookingstatus: "Pending"
 				}
-			},{$lookup:
+			},{ $sort : { Endtriptime : -1 } },
+			{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
