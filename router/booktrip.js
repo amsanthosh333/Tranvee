@@ -188,7 +188,7 @@ router.get('/aggregation', async (req, res) => {
 	res.send(response);
 })
 router.get('/totalaggregation', async (req, res) => {
-	let response = await booktripController.totalaggregation();
+	let response = await booktripController.totalaggregation(req.body);
 	res.send(response);
 })
 router.get('/pendingaggregation', async (req, res) => {

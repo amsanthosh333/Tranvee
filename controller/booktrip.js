@@ -491,9 +491,10 @@ class booktripController{
 
     }
 
-	async totalaggregation() {
+	async totalaggregation(Driverid) {
 		try {
 		let responce=await booktripSchema.aggregate([
+			{ "$or": [ {Driverid:ObjectId(Driverid)}] },
 			{ $sort : { Bookdate : -1 } },
 			{$lookup:
 				{
