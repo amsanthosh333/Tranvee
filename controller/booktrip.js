@@ -497,9 +497,7 @@ class booktripController{
 				$match: {
 					Bookingstatus: "Pending"
 				}
-			},
-			{ $sort : { Bookdate : -1 } },
-			{$lookup:
+			},{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
@@ -554,9 +552,7 @@ class booktripController{
 					referid:ObjectId(referid),
 					Bookingstatus: "Pending"
 				}
-			},
-			{ $sort : { Bookdate : -1 } },
-			{$lookup:
+			},{$lookup:
 				{
 				  from: "customers",
 				  localField: "Customer",
@@ -612,7 +608,6 @@ class booktripController{
 					// Bookingstatus:Bookingstatus
 				}
 			}
-			{ $sort : { Bookdate : -1 } },
 			,
 			{$lookup:
 				{
@@ -675,7 +670,8 @@ class booktripController{
 				$match: {
 					Bookingstatus:Bookingstatus
 				}
-			},{ $sort : { Bookdate : -1 } },
+			}
+			,
 			{$lookup:
 				{
 				  from: "customers",
@@ -740,7 +736,6 @@ class booktripController{
 					Bookingstatus:Bookingstatus
 				}
 			},
-			{ $sort : { Bookdate : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
@@ -805,7 +800,6 @@ class booktripController{
 					Bookingstatus:Bookingstatus
 				}
 			},
-			{ $sort : { Bookdate : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
