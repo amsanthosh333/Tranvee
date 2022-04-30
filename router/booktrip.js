@@ -188,7 +188,7 @@ router.get('/aggregation', async (req, res) => {
 	res.send(response);
 })
 router.get('/totalaggregation', async (req, res) => {
-	let response = await booktripController.totalaggregation(req.query.Driverid);
+	let response = await booktripController.totalaggregation();
 	res.send(response);
 })
 router.get('/pendingaggregation', async (req, res) => {
