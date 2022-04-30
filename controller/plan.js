@@ -32,6 +32,22 @@ class planController{
 		}
 	}
 
+	async fetch1(){
+		try{
+			let response = await planSchema.find({});
+			let count=Object.keys(response).length;
+			return {
+				response: response,
+				count
+			};
+		} catch(error){
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+	}
+
 	async fetchdata(id){
 		try{
 			let response = await planSchema.find({'_id':id});

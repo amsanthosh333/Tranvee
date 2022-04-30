@@ -10,6 +10,11 @@ router.get('/', async (req, res) => {
 	const response = await planController.fetch();
 	res.send(response);
 })
+router.get('/fetch', async (req, res) => {
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	const response = await planController.fetch1();
+	res.send(response);
+})
 router.get('/fetchdata', async (req, res) => {
 	//res.setHeader('Access-Control-Allow-Origin', '*');
 	const response = await planController.fetchdata(req.query.id);
