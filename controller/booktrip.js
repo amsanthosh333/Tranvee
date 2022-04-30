@@ -498,7 +498,7 @@ class booktripController{
 					Bookingstatus: "Pending"
 				}
 			},
-			{ $sort : { Endtriptime : -1 } },
+			{ $sort : { Bookdate : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
@@ -554,7 +554,7 @@ class booktripController{
 					referid:ObjectId(referid),
 					Bookingstatus: "Pending"
 				}
-			},{ $sort : { Endtriptime : -1 } },
+			},{ $sort : { Bookdate : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
@@ -610,8 +610,8 @@ class booktripController{
 					_id:ObjectId(id),
 					// Bookingstatus:Bookingstatus
 				}
-			}
-			,
+			},
+			{ $sort : { Endtriptime : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
