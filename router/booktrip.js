@@ -208,6 +208,11 @@ router.get('/accaggregation', async (req, res) => {
 	res.send(response);
 })
 
+router.get('/statusaggregation', async (req, res) => {
+	let response = await booktripController.statusaggregation(req.query.Bookingstatus);
+	res.send(response);
+})
+
 router.get('/driveraggregation', async (req, res) => {
 	let response = await booktripController.driveraggregation(req.query.Driverid);
 	res.send(response);
