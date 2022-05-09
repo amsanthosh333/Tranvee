@@ -36,60 +36,61 @@ const driverSchema = new mongoose.Schema({
     Dl_Exp_Date : {
         type: String,
         required: false
-    },
-    Vechicle_Type : {
-        type: String,
-        required: false
-    },
-    Vechicle : {
-        type: mongoose.Schema.ObjectId,
-        required: false
-    },
-    VechicleNum : {
-        type: String,
-        required: false
-    },
-    VechicleId : {
-        type: String,
-        required: false
-    },
-    insuranceNumber : {
-        type: String,
-        required: false
-    },
-    insuranceExpDate : {
-        type: String,
-        required: false
-    },
-    SmokeTest : {
-        type: String,
-        required: false
-    },
-    FcExpdate : {
-        type: String,
-        required: false
-    },
-    Imageprofile : {
-        type: String,
-        required: false
-    },
-    VechicleImage : {
-        type: String,
-        required: false
-    },
-    Document1 : {
-        type: String,
-        required: false
-    },
-    Document2 : {
-        type: String,
-        required: false
-    },
-    Document3 : {
-        type: String,
-        required: false
-    },
-    DepositAmount : {
+    }
+    // ,
+    // Vechicle_Type : {
+    //     type: String,
+    //     required: false
+    // },
+    // Vechicle : {
+    //     type: mongoose.Schema.ObjectId,
+    //     required: false
+    // },
+    // VechicleNum : {
+    //     type: String,
+    //     required: false
+    // },
+    // VechicleId : {
+    //     type: String,
+    //     required: false
+    // },
+    // insuranceNumber : {
+    //     type: String,
+    //     required: false
+    // },
+    // insuranceExpDate : {
+    //     type: String,
+    //     required: false
+    // },
+    // SmokeTest : {
+    //     type: String,
+    //     required: false
+    // },
+    // FcExpdate : {
+    //     type: String,
+    //     required: false
+    // },
+    // Imageprofile : {
+    //     type: String,
+    //     required: false
+    // },
+    // VechicleImage : {
+    //     type: String,
+    //     required: false
+    // },
+    // Document1 : {
+    //     type: String,
+    //     required: false
+    // },
+    // Document2 : {
+    //     type: String,
+    //     required: false
+    // },
+    // Document3 : {
+    //     type: String,
+    //     required: false
+    // },
+    ,DepositAmount : {
         type: String,
         required: false
     },
