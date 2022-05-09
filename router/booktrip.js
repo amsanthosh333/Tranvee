@@ -210,7 +210,7 @@ router.get('/accaggregation', async (req, res) => {
 
 
 router.get('/acceptaggregation', async (req, res) => {
-	let response = await booktripController.acceptaggregation(req.query.Driverid, req.query.Bookingstatus);
+	let response = await booktripController.accepteaggregation(req.query.Driverid, req.query.Bookingstatus);
 	res.send(response);
 })
 
