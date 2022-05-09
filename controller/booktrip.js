@@ -855,7 +855,7 @@ class booktripController{
 				$match: {
 					Driverid:ObjectId(Driverid),
 					Bookingstatus:Bookingstatus,
-					StartotpTime:{ $ne: "0" }
+					StartotpTime:{ $ne: 0 }
 	}
 			},{ $sort : { Bookdate : -1 } },
 			{$lookup:
