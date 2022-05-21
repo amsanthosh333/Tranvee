@@ -40,7 +40,6 @@ class booktripController{
 			username: 'tranvee_logistics_services_9626163696',
 			action: "get_live"
 	}).then(res => {
-		console.log("res", res)
 			return res.data;
 		})
 		.catch(error => {

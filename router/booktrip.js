@@ -16,6 +16,7 @@ router.post('/add', async (req, res) => {
 
 router.get('/driverlocation', async (req, res) => {
 	const response = await booktripController.driverlocation();
+	console.log(response)
 	res.send(response);
 })
 
