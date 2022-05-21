@@ -36,15 +36,17 @@ class booktripController{
 
 
 	async driverlocation(){
+		let locate;
 		await axios.post('http://igps.io/common_pull_api.php', {
 			username: 'tranvee_logistics_services_9626163696',
 			action: "get_live"
 	}).then(res => {
-			return res.data;
+		locate=res.data;
 		})
 		.catch(error => {
-			console.error(error)
+			locate=error;
 		})
+		return locate;
 	}
 
 	async add(farm){
