@@ -8,6 +8,7 @@ const errorHandler = require('../utils/error.handler');
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const historyController = require('./history');
+const axios = require('axios')
 
 //  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
@@ -38,10 +39,9 @@ class booktripController{
 		await axios.post('http://igps.io/common_pull_api.php', {
 			username: 'tranvee_logistics_services_9626163696',
 			action: "get_live"
-	})
-		.then(res => {
-			return res;
-			// console.log("res", res.data)
+	}).then(res => {
+		console.log("res", res)
+			return res.data;
 		})
 		.catch(error => {
 			console.error(error)
