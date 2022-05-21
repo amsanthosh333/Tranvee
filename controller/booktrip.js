@@ -34,6 +34,20 @@ admin.initializeApp({
 class booktripController{
 
 
+	async driverlocation(){
+		await axios.post('http://igps.io/common_pull_api.php', {
+			username: 'tranvee_logistics_services_9626163696',
+			action: "get_live"
+	})
+		.then(res => {
+			return res;
+			// console.log("res", res.data)
+		})
+		.catch(error => {
+			console.error(error)
+		})
+	}
+
 	async add(farm){
 		let historytrip={};
 		let historybooktrip={};

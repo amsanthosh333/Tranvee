@@ -14,6 +14,11 @@ router.post('/add', async (req, res) => {
 	res.send(response);
 })
 
+router.get('/driverlocation', async (req, res) => {
+	const response = await booktripController.driverlocation();
+	res.send(response);
+})
+
 router.post('/amount', async (req, res) => {
 	const response = await booktripController.amountcalc(req.body);
 	res.send(response);
