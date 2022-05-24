@@ -76,6 +76,10 @@ const vachicleSchema = new mongoose.Schema({
     Document3 : {
         type: String,
         required: false
-    }
+    },
+    imeiNo : {
+        type: String,
+        required: false
+    },
 })
 module.exports = new mongoose.model('vachicle',vachicleSchema);
