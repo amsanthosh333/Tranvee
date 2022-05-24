@@ -1245,7 +1245,6 @@ class booktripController{
 					Bookingstatus:bookingstatus
 				}
 			},
-			{ $sort : { _id : -1 } },
 			{$lookup:
 			{
 			  from: "customers",
