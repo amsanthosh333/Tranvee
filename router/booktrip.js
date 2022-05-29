@@ -180,6 +180,8 @@ router.put('/amount_update', async (req, res) => {
 		"Bookingstatus": "Closed",
 		"Driverid": "" + driver,
 		"Amount": sum,
+		"extramin":calculate,
+		"basefare":realamount
 	}
 
 	//  console.log("realamount",member);

@@ -117,6 +117,18 @@ const booktripSchema = new mongoose.Schema({
     referid : {
         type: mongoose.Schema.ObjectId,
         required: false
+    },
+    loadingamount :{
+        type: String,
+        required: false
+    },
+    extramin :{
+        type: String,
+        required: false
+    },
+    basefare :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
