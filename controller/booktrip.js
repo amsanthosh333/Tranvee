@@ -96,7 +96,10 @@ class booktripController{
 			"Droploclng":""+farm.Droploclng,
 			"Goods":""+farm.Goods,
 			"Bookingstatus":""+farm.Bookingstatus,
-			"plan_id":""+farm.plan_id
+			"plan_id":""+farm.plan_id,
+			"extramin":"0",
+		    "basefare":""+totalamount,
+			"loadingamount":"0"
 			 }
 
     let response = await booktripSchema.create(booktrip);
