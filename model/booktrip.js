@@ -129,6 +129,14 @@ const booktripSchema = new mongoose.Schema({
     basefare :{
         type: String,
         required: false
+    },
+    paymentstatus :{
+        type: String,
+        required: false
+    },
+    paymentmode  :{
+        type: String,
+        required: false
     }
 })
 module.exports = new mongoose.model('booktrip',booktripSchema);
