@@ -85,10 +85,6 @@ const vachicleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    insuranceDueDate : {
-        type: String,
-        required: false
-    },
     chassisNumber : {
         type: String,
         required: false
