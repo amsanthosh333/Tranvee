@@ -9,26 +9,26 @@ const vachicleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    Min_km :{
-        type: Number,
-        required: false
-    },
-    Min_price : {
-        type: Number,
-        required: false
-    },
-    Price_km : {
-        type: String,
-        required: false
-    },
-    Waiting_min : {
-        type: String,
-        required: false
-    },  
-    min_waiting_time : {
-        type: String,
-        required: false
-    },
+    // Min_km :{
+    //     type: Number,
+    //     required: false
+    // },
+    // Min_price : {
+    //     type: Number,
+    //     required: false
+    // },
+    // Price_km : {
+    //     type: String,
+    //     required: false
+    // },
+    // Waiting_min : {
+    //     type: String,
+    //     required: false
+    // },  
+    // min_waiting_time : {
+    //     type: String,
+    //     required: false
+    // },
     Capacity : {
         type: String,
         required: false
