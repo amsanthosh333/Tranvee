@@ -70,10 +70,10 @@ const driverSchema = new mongoose.Schema({
     //     type: String,
     //     required: false
     // },
-    // Imageprofile : {
-    //     type: String,
-    //     required: false
-    // },
+    Imageprofile : {
+        type: String,
+        required: false
+    },
     // VechicleImage : {
     //     type: String,
     //     required: false
