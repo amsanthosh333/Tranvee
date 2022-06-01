@@ -81,5 +81,25 @@ const vachicleSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    nextServiceDueDate : {
+        type: String,
+        required: false
+    },
+    insuranceDueDate : {
+        type: String,
+        required: false
+    },
+    chassisNumber : {
+        type: String,
+        required: false
+    },
+    auxBatteryNumber : {
+        type: String,
+        required: false
+    },
+    mainLiBatteryNumber : {
+        type: String,
+        required: false
+    },
 })
 module.exports = new mongoose.model('vachicle',vachicleSchema);
