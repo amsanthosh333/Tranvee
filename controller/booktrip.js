@@ -99,7 +99,8 @@ class booktripController{
 			"plan_id":""+farm.plan_id,
 			"extramin":"0",
 		    "basefare":""+totalamount,
-			"loadingamount":"0"
+			"loadingamount":"0",
+			"paymentstatus":"pending"
 			 }
 
     let response = await booktripSchema.create(booktrip);
