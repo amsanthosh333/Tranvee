@@ -229,6 +229,16 @@ router.get('/statusaggregation', async (req, res) => {
 	res.send(response);
 })
 
+router.get('/paymentaggregation', async (req, res) => {
+	let response = await booktripController.paymentstatusaggregation(req.query.paymentstatus);
+	res.send(response);
+})
+
+router.get('/paymentmodeaggregation', async (req, res) => {
+	let response = await booktripController.paymentmodeaggregation(req.query.paymentmode);
+	res.send(response);
+})
+
 router.get('/driveraggregation', async (req, res) => {
 	let response = await booktripController.driveraggregation(req.query.Driverid);
 	res.send(response);
