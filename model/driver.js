@@ -36,7 +36,7 @@ const driverSchema = new mongoose.Schema({
     Dl_Exp_Date : {
         type: String,
         required: false
-    }
+    },
     // ,
     // Vechicle_Type : {
     //     type: String,
@@ -78,19 +78,19 @@ const driverSchema = new mongoose.Schema({
     //     type: String,
     //     required: false
     // },
-    // Document1 : {
-    //     type: String,
-    //     required: false
-    // },
-    // Document2 : {
-    //     type: String,
-    //     required: false
-    // },
+    Document1 : {
+        type: String,
+        required: false
+    },
+    Document2 : {
+        type: String,
+        required: false
+    },
     // Document3 : {
     //     type: String,
     //     required: false
     // },
-    ,DepositAmount : {
+    DepositAmount : {
         type: String,
         required: false
     },
