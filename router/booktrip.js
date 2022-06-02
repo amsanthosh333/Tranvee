@@ -149,7 +149,7 @@ router.put('/amount_update', async (req, res) => {
 		calculate = totalkm - limit_km;
 		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
 		realamount = calculate * min_waiting_time;
-		sum = estimate + realamount;
+		sum = estimate + realamount+parseInt(req.body.loadingamount);
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
@@ -157,12 +157,12 @@ router.put('/amount_update', async (req, res) => {
 		calculate = totalmin - limit_min;
 		min_waiting_time = detailplancalculation[0].additionMinPerMin;
 		realamount = calculate * min_waiting_time;
-		sum = estimate + realamount;
+		sum = estimate + realamount+parseInt(req.body.loadingamount);
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
 	} else {
-		sum = estimate;
+		sum = estimate+parseInt(req.body.loadingamount);
 		historytrip.WaitingTime = limit_min;
 		historytrip.WaitingTimeCharges = limit_km;
 	}
