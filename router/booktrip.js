@@ -121,11 +121,11 @@ router.put('/amount_update', async (req, res) => {
 	})
 		.then(res => {
 			//   console.log(`statusCode: ${res.total}`)
-			console.log("res", res.data)
+			// console.log("res", res.data)
 			rta = res.data.filter(it => it.vehicle_no === driverculation[0].VechicleNum);
 			// rta = res.data.filter(it => it.vehicle_no === 'TN 42 AJ 5608');
 
-			console.log("rta", rta)
+			// console.log("rta", rta)
 		})
 		.catch(error => {
 			console.error(error)
