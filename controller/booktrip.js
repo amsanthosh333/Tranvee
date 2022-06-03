@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const historyController = require('./history');
 const axios = require('axios')
+const planSchema = require('../model/plan');
 
 //  const admin = require('../tranzporter-f2fc8-firebase-adminsdk-mnit9-f3d6a6cec4.json')
 
@@ -54,24 +55,22 @@ class booktripController{
 		let historybooktrip={};
 		console.log("totalkm",""+farm.TotalKm);
 		let totalamount;
-		let totalkm=farm.TotalKm*2
+		let totalkm=farm.TotalKm
 		console.log("totalkm",""+totalkm);
 
 		historytrip.totalkm=""+totalkm;
-		let vechimin = await vechicleSchema.find({'_id':farm.vechical});
-		 console.log("totalamount1",""+vechimin[0].Min_km);
-		if(totalkm > vechimin[0].Min_km){
-			let vechicalcostvicee = await vechicalcostSchema.find({Vechicle:farm.vechical,Startkm:{$lte:totalkm},Endkm:{$gte:totalkm}});
-			totalamount=totalkm*1;
+		let vechimin = await planSchema.find({'_id':farm.plan_id});
+		//  console.log("totalamount1",""+vechimin[0].Min_km);
+		if(totalkm < vechimin[0].distanceLimit){
+			totalamount=vechimin[0].baseFare;
 			console.log("totalamount1",""+totalamount);
-			historytrip.RateperKm=""+1;
+			historytrip.RateperKm="";
 			historytrip.KmCharges=""+totalamount;
 			historytrip.FixedCharges="0";
 		}else{
-			let vechicalcostvicee=vechimin[0].Min_price;
-			totalamount=vechicalcostvicee;
+			totalamount=(totalkm - vechimin[0].distanceLimit)*vechimin[0].additionDistancePerKm;
 			console.log("totalamount2",""+totalamount);
-			historytrip.FixedCharges=""+vechicalcostvicee;
+			historytrip.FixedCharges=""+totalamount;
 			historytrip.RateperKm="0";
 			historytrip.KmCharges="0";
 		}
@@ -104,6 +103,8 @@ class booktripController{
 			 }
 
     let response = await booktripSchema.create(booktrip);
+
+	console.log("response",response)
 
 	// 	try{
 			
