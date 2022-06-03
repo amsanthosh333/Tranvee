@@ -169,7 +169,7 @@ router.put('/amount_update', async (req, res) => {
 
 
 
-	console.log("min_waiting_time", min_waiting_time);
+	// console.log("min_waiting_time", min_waiting_time);
 	console.log("calculate", calculate);
 	console.log("realamount", realamount);
 	console.log("sum", sum);
