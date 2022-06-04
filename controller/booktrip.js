@@ -1315,7 +1315,7 @@ class booktripController{
 					Customer:ObjectId(customerid)
 								}
 			},
-			{ $sort : { Bookdate : -1 } },
+			{ $sort : { _id : -1 } },
 			{$lookup:
 			{
 			  from: "customers",
@@ -1441,7 +1441,7 @@ class booktripController{
 				$match: {
 					paymentmode:paymentmode
 				}
-			},{ $sort : { Bookdate : -1 } },
+			},{ $sort : { _id : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
