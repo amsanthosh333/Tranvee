@@ -571,7 +571,7 @@ class booktripController{
 					Bookingstatus: "Pending"
 				}
 			},
-			{ $sort : { Bookdate : -1 } },
+			{ $sort : { _id : -1 } },
 			{$lookup:
 				{
 				  from: "customers",
