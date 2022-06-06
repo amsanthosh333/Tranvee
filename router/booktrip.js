@@ -92,6 +92,7 @@ router.put('/amount_update', async (req, res) => {
 	let driver = detailswaitingcalculation[0].Driverid;
 	console.log("detailplancalculation", detailplancalculation)
 	let estimate = parseInt(detailplancalculation[0].baseFare);
+	let loadingamount=parseInt(req.body.loadingamount);
 	console.log("ReachDestinationTime", ReachDestinationTime);
 	console.log("Endtriptime", Endtriptime);
 	const diffInMilliseconds = Math.abs(new Date(StartotpTime) - new Date(StartTripTime)) / 1000;
@@ -149,7 +150,7 @@ router.put('/amount_update', async (req, res) => {
 		calculate = totalkm - limit_km;
 		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
 		realamount = calculate * min_waiting_time;
-		sum = estimate + realamount+req.body.loadingamount;
+		sum = estimate + realamount+loadingamount;
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
@@ -157,12 +158,12 @@ router.put('/amount_update', async (req, res) => {
 		calculate = totalmin - limit_min;
 		min_waiting_time = detailplancalculation[0].additionMinPerMin;
 		realamount = calculate * min_waiting_time;
-		sum = estimate + realamount+req.body.loadingamount;
+		sum = estimate + realamount+loadingamount;
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
 	} else {
-		sum = estimate+req.body.loadingamount;
+		sum = estimate+loadingamount;
 		historytrip.WaitingTime = limit_min;
 		historytrip.WaitingTimeCharges = limit_km;
 	}
