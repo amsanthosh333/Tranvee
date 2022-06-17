@@ -184,7 +184,8 @@ router.put('/amount_update', async (req, res) => {
 		"extramin":calculate,
 		"basefare":realamount,
 		"paymentstatus":"received",
-		"paymentmode":"cash on hand"
+		"paymentmode":"cash on hand",
+		"loadingamount":loadingamount
 	}
 
 	//  console.log("realamount",member);
