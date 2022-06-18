@@ -182,7 +182,7 @@ router.put('/amount_update', async (req, res) => {
 		"Driverid": "" + driver,
 		"Amount": sum,
 		"extramin":calculate,
-		"basefare":realamount,
+		"basefare":estimate,
 		"paymentstatus":"received",
 		"paymentmode":"cash on hand",
 		"loadingamount":loadingamount
