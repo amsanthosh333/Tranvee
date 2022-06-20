@@ -862,7 +862,21 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.phone',
-	  customerphone: '$CustomerDetails.username'
+	  customerphone: '$CustomerDetails.username',
+	  Pickuploc:1,
+	  Droploc:1,
+	  drivername:'$DriverDetails.Name',
+	  paymentstatus:1,
+	  TotalKm:1,
+	  loadingamount:1,
+	  basefare:1,
+	  extramin:1,
+	  Amount:1,
+	  baseFare:'$planDetails.baseFare',
+	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
+	  additionMinPerMin:'$planDetails.additionMinPerMin',
+	  timeLimit:'$planDetails.timeLimit',
+	  distanceLimit:'$planDetails.distanceLimit'
 	}
   }								 
 				]);
