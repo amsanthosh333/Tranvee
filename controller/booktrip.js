@@ -855,11 +855,16 @@ class booktripController{
 	  foreignField: "_id",
 	  as: "planDetails"
 	}
-}, {
-    $group: {
-      _id: "$_id",
-	  CustomerName:"$CustomerDetails.username"
-	}}								 
+},{
+	$unwind: '$CustomerDetails'
+  },
+  {
+	$project: {
+	  _id: 0,
+	  customerusername: '$CustomerDetails.ticker',
+	  customerphone: '$CustomerDetails.currentPrice'
+	}
+  }								 
 				]);
 				return {
 					response: responce
