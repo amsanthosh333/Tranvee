@@ -856,7 +856,10 @@ class booktripController{
 	  as: "planDetails"
 	}
 },{
-	$unwind: '$CustomerDetails'
+	$unwind: '$CustomerDetails',
+	$unwind: '$DriverDetails',
+	$unwind: '$planDetails',
+	$unwind: '$vechicalDetails'
   },
   {
 	$project: {
@@ -866,6 +869,7 @@ class booktripController{
 	  Pickuploc:1,
 	  Droploc:1,
 	  drivername:'$DriverDetails.Name',
+	  driverphone:'$DriverDetails.phone',
 	  paymentstatus:1,
 	  TotalKm:1,
 	  loadingamount:1,
@@ -876,7 +880,9 @@ class booktripController{
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
 	  additionMinPerMin:'$planDetails.additionMinPerMin',
 	  timeLimit:'$planDetails.timeLimit',
-	  distanceLimit:'$planDetails.distanceLimit'
+	  distanceLimit:'$planDetails.distanceLimit',
+	  vechicleName:'$vechicalDetails.Name',
+	  vechicleNo:'$vechicalDetails.VechicleNum'
 	}
   }								 
 				]);
