@@ -861,8 +861,8 @@ class booktripController{
   {
 	$project: {
 	  _id: 1,
-	  customerusername: '$CustomerDetails.ticker',
-	  customerphone: '$CustomerDetails.currentPrice'
+	  customerusername: '$CustomerDetails.phone',
+	  customerphone: '$CustomerDetails.username'
 	}
   }								 
 				]);
