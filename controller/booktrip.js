@@ -867,8 +867,8 @@ class booktripController{
   {
 	$project: {
 	  _id: 1,
-	  customerusername: '$CustomerDetails.phone',
-	  customerphone: '$CustomerDetails.username',
+	  customerusername: '$CustomerDetails.username',
+	  customerphone: '$CustomerDetails.phone',
 	  Pickuploc:1,
 	  Droploc:1,
 	  drivername:'$DriverDetails.Name',
