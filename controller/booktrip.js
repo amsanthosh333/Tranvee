@@ -856,9 +856,12 @@ class booktripController{
 	  as: "planDetails"
 	}
 },{
-	$unwind: '$CustomerDetails',
-	$unwind: '$DriverDetails',
-	$unwind: '$planDetails',
+	$unwind: '$CustomerDetails'
+},{
+	$unwind: '$DriverDetails'
+},{
+	$unwind: '$planDetails'
+},{
 	$unwind: '$vechicalDetails'
   },
   {
