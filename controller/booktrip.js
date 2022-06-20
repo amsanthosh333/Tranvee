@@ -870,6 +870,7 @@ class booktripController{
 	  customerusername: '$CustomerDetails.username',
 	  customerphone: '$CustomerDetails.phone',
 	  Pickuploc:1,
+	  Bookdate:1,
 	  Droploc:1,
 	  drivername:'$DriverDetails.Name',
 	  driverphone:'$DriverDetails.phone',
