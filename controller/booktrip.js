@@ -868,11 +868,13 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
+	  drivername:'$DriverDetails.Name',
+	  vechicleName:'$vechicalDetails.Name',
+	  vechicleNo:'$vechicalDetails.VechicleNum',
 	  customerphone: '$CustomerDetails.phone',
 	  Pickuploc:1,
 	  Bookdate:1,
 	  Droploc:1,
-	  drivername:'$DriverDetails.Name',
 	  driverphone:'$DriverDetails.phone',
 	  paymentstatus:1,
 	  TotalKm:1,
@@ -884,9 +886,7 @@ class booktripController{
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
 	  additionMinPerMin:'$planDetails.additionMinPerMin',
 	  timeLimit:'$planDetails.timeLimit',
-	  distanceLimit:'$planDetails.distanceLimit',
-	  vechicleName:'$vechicalDetails.Name',
-	  vechicleNo:'$vechicalDetails.VechicleNum'
+	  distanceLimit:'$planDetails.distanceLimit'
 	}
   }								 
 				]);
