@@ -872,27 +872,64 @@ class booktripController{
 	  vechicleName:'$vechicalDetails.Name',
 	  vechicleNo:'$vechicalDetails.VechicleNum',
 	  customerphone: '$CustomerDetails.phone',
+	  driverphone:'$DriverDetails.phone',
+	  baseFare:'$planDetails.baseFare',
+	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
+	  additionMinPerMin:'$planDetails.additionMinPerMin',
+	  timeLimit:'$planDetails.timeLimit',
+	  distanceLimit:'$planDetails.distanceLimit',
 	  Pickuploc:1,
 	  Bookdate:1,
 	  Droploc:1,
-	  driverphone:'$DriverDetails.phone',
 	  paymentstatus:1,
 	  TotalKm:1,
 	  loadingamount:1,
 	  basefare:1,
 	  extramin:1,
 	  Amount:1,
-	  baseFare:'$planDetails.baseFare',
-	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
-	  additionMinPerMin:'$planDetails.additionMinPerMin',
-	  timeLimit:'$planDetails.timeLimit',
-	  distanceLimit:'$planDetails.distanceLimit'
 	}
   }								 
 				]);
-				console.log("responce",responce);
+
+
+
+			let result=[]
+				
+			let Datares;
+
+			for (const res of responce) {
+				
+				Datares  = {
+					_id: res._id,
+					customerusername: res.customerusername,
+					drivername:res.drivername,
+					vechicleName:res.vechicleName,
+					vechicleNo:res.vechicleNo,
+					customerphone: res.customerphone,
+					driverphone:res.driverphone,
+					baseFare:res.baseFare,
+					additionDistancePerKm:res.additionDistancePerKm,
+					additionMinPerMin:res.additionMinPerMin,
+					timeLimit:res.timeLimit,
+					distanceLimit:res.distanceLimit,
+					Pickuploc:res.Pickuploc,
+					Bookdate:res.Bookdate,
+					Droploc:res.Droploc,
+					paymentstatus:res.paymentstatus,
+					TotalKm:res.TotalKm,
+					loadingamount:res.loadingamount,
+					basefare:res.basefare,
+					extramin:res.extramin,
+					Amount:res.Amount
+				}
+
+				result.push(Datares);
+
+			}
+
+		
 				return {
-					response: responce
+					response: result
 				};
 		} catch (error) {
 			return {
