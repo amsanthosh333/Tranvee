@@ -1052,7 +1052,8 @@ class booktripController{
 					basefare:res.basefare,
 					extramin:res.extramin,
 					Amount:res.Amount,
-					vechicleType:res.vechicleType
+					vechicleType:res.vechicleType,
+					GoodsName:res.GoodsName
 				}
 
 				result.push(Datares);
