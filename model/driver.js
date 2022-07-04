@@ -86,10 +86,10 @@ const driverSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    // Document3 : {
-    //     type: String,
-    //     required: false
-    // },
+    Document3 : {
+        type: String,
+        required: false
+    },
     DepositAmount : {
         type: String,
         required: false
