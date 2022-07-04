@@ -993,6 +993,9 @@ class booktripController{
 	$unwind: '$vechicalDetails'
   },
   {
+	$unwind: '$GoodsDetails'
+  },
+  {
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
@@ -1003,6 +1006,7 @@ class booktripController{
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
 	  additionMinPerMin:'$planDetails.additionMinPerMin',
+	  GoodsName:'$GoodsDetails.GoodsName',
 	  timeLimit:'$planDetails.timeLimit',
 	  distanceLimit:'$planDetails.distanceLimit',
 	  Pickuploc:1,
@@ -1011,7 +1015,7 @@ class booktripController{
 	  paymentstatus:1,
 	  TotalKm:1,
 	  loadingamount:1,
-	  basefare:1,
+	  basekm:1,
 	  extramin:1,
 	  Amount:1,
 	}
