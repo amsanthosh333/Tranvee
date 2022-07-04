@@ -871,6 +871,7 @@ class booktripController{
 	  drivername:'$DriverDetails.Name',
 	  vechicleName:'$vechicalDetails.Name',
 	  vechicleNo:'$vechicalDetails.VechicleNum',
+	  vechicleType:'$vechicalDetails.VechicleType',
 	  customerphone: '$CustomerDetails.phone',
 	  driverphone:'$DriverDetails.phone',
 	  baseFare:'$planDetails.baseFare',
