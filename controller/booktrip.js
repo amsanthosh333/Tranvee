@@ -941,6 +941,132 @@ class booktripController{
 		}
     }
 
+	async pendingaggregationapi() {
+		try {
+		let responce=await booktripSchema.aggregate([
+			{
+				$match: {
+					Bookingstatus: "Pending"
+				}
+			},
+			{ $sort : { _id : -1 } },
+			{$lookup:
+				{
+				  from: "customers",
+				  localField: "Customer",
+				  foreignField: "_id",
+				  as: "CustomerDetails"
+				}
+		   },{$lookup:
+			{
+			  from: "vachicles",
+			  localField: "vechical",
+			  foreignField: "_id",
+			  as: "vechicalDetails"
+			}
+	   },{$lookup:
+		{
+		  from: "drivers",
+		  localField: "Driverid",
+		  foreignField: "_id",
+		  as: "DriverDetails"
+		}
+   }	,{$lookup:
+	{
+	  from: "goods",
+	  localField: "Goods",
+	  foreignField: "_id",
+	  as: "GoodsDetails"
+	}
+},{$lookup:
+	{
+	  from: "plans",
+	  localField: "plan_id",
+	  foreignField: "_id",
+	  as: "planDetails"
+	}
+},{
+	$unwind: '$CustomerDetails'
+},{
+	$unwind: '$planDetails'
+},{
+	$unwind: '$vechicalDetails'
+  },
+  {
+	$project: {
+	  _id: 1,
+	  customerusername: '$CustomerDetails.username',
+	  vechicleName:'$vechicalDetails.Name',
+	  vechicleNo:'$vechicalDetails.VechicleNum',
+	  vechicleType:'$vechicalDetails.VechicleType',
+	  customerphone: '$CustomerDetails.phone',
+	  baseFare:'$planDetails.baseFare',
+	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
+	  additionMinPerMin:'$planDetails.additionMinPerMin',
+	  timeLimit:'$planDetails.timeLimit',
+	  distanceLimit:'$planDetails.distanceLimit',
+	  Pickuploc:1,
+	  Bookdate:1,
+	  Droploc:1,
+	  paymentstatus:1,
+	  TotalKm:1,
+	  loadingamount:1,
+	  basefare:1,
+	  extramin:1,
+	  Amount:1,
+	}
+  }								 
+				]);
+
+
+
+			let result=[]
+				
+			let Datares;
+
+			for (const res of responce) {
+				
+				Datares  = {
+					_id: res._id,
+					customerusername: res.customerusername,
+					drivername:res.drivername,
+					vechicleName:res.vechicleName,
+					vechicleNo:res.vechicleNo,
+					customerphone: res.customerphone,
+					driverphone:res.driverphone,
+					baseFare:res.baseFare,
+					additionDistancePerKm:res.additionDistancePerKm,
+					additionMinPerMin:res.additionMinPerMin,
+					timeLimit:res.timeLimit,
+					distanceLimit:res.distanceLimit,
+					Pickuploc:res.Pickuploc,
+					Bookdate:res.Bookdate,
+					Droploc:res.Droploc,
+					paymentstatus:res.paymentstatus,
+					TotalKm:res.TotalKm,
+					loadingamount:res.loadingamount,
+					basefare:res.basefare,
+					extramin:res.extramin,
+					Amount:res.Amount,
+					vechicleType:res.vechicleType
+				}
+
+				result.push(Datares);
+
+			}
+
+		
+				return {
+					response: result
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
+
 	async accaggregation(Driverid,Bookingstatus) {
 		try {
 		let responce=await booktripSchema.aggregate([

@@ -219,6 +219,10 @@ router.get('/acceptaggregationapi', async (req, res) => {
 	let response = await booktripController.acceptaggregationapi(req.query.Bookingstatus);
 	res.send(response);
 })
+router.get('/pendingaggregationapi', async (req, res) => {
+	let response = await booktripController.pendingaggregationapi();
+	res.send(response);
+})
 router.get('/accaggregation', async (req, res) => {
 	let response = await booktripController.accaggregation(req.query.Driverid, req.query.Bookingstatus);
 	res.send(response);
