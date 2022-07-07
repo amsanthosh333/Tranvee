@@ -109,6 +109,8 @@ router.put('/amount_update', async (req, res) => {
 	let limit_km = detailplancalculation[0].distanceLimit;
 
 	let calculate;
+	let calculate1;
+
 	let min_waiting_time;
 	let realamount;
 	let sum;
@@ -148,16 +150,19 @@ router.put('/amount_update', async (req, res) => {
 
 	if (totalkm > limit_km) {
 		calculate = totalkm - limit_km;
+		calculate1 = totalmin - limit_min;
+
 		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
-		realamount = calculate * min_waiting_time;
-		sum = estimate + realamount+loadingamount;
+		realamount = (14 * totalkm) + (3 * calculate1);
+		sum = estimate + realamount + loadingamount;
 
 		historytrip.WaitingTime = calculate;
 		historytrip.WaitingTimeCharges = realamount;
 	} else if (totalmin > limit_min) {
-		calculate = totalmin - limit_min;
+		calculate = totalkm - limit_km;
+		calculate1 = totalmin - limit_min;
 		min_waiting_time = detailplancalculation[0].additionMinPerMin;
-		realamount = calculate * min_waiting_time;
+		realamount = (14 * totalkm) + (3 * calculate1);
 		sum = estimate + realamount+loadingamount;
 
 		historytrip.WaitingTime = calculate;
