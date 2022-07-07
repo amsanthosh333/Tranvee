@@ -62,13 +62,13 @@ class booktripController{
 		let vechimin = await planSchema.find({'_id':farm.plan_id});
 		//  console.log("totalamount1",""+vechimin[0].Min_km);
 		if(totalkm < vechimin[0].distanceLimit){
-			totalamount=vechimin[0].baseFare;
+			totalamount=vechimin[0].baseFare + (14*totalkm);
 			console.log("totalamount1",""+totalamount);
 			historytrip.RateperKm="";
 			historytrip.KmCharges=""+totalamount;
 			historytrip.FixedCharges="0";
 		}else{
-			totalamount=(totalkm - vechimin[0].distanceLimit)*vechimin[0].additionDistancePerKm;
+			totalamount=((14*totalkm) - vechimin[0].distanceLimit)*vechimin[0].additionDistancePerKm;
 			console.log("totalamount2",""+totalamount);
 			historytrip.FixedCharges=""+totalamount;
 			historytrip.RateperKm="0";
