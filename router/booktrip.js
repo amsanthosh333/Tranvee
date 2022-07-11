@@ -165,7 +165,7 @@ router.put('/amount_update', async (req, res) => {
 		calculate = totalkm - limit_km;
 		calculate1 = totalmin - limit_min;
 		min_waiting_time = detailplancalculation[0].additionMinPerMin;
-		realamount = (14 * totalkm);
+		realamount = (14 * totalkm) + (3 * calculate1);
 		sum = estimate + realamount+loadingamount;
 
 		historytrip.WaitingTime = calculate;
