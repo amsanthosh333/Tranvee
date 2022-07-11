@@ -142,6 +142,9 @@ router.put('/amount_update', async (req, res) => {
 	//     function(err, resp, body){
 	//         console.log("data",body);
 	//    });
+
+	       console.log("estimate",estimate);
+
 	if (rta.length == 0) {
 		totalkm = 0
 	} else {
