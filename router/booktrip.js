@@ -146,7 +146,7 @@ router.put('/amount_update', async (req, res) => {
 	       console.log("estimate",estimate);
 
 	if (rta.length == 0) {
-		totalkm = 0
+		totalkm = detailswaitingcalculation[0].TotalKm;
 	} else {
 		totalkm = rta[0].total ? rta[0].total : 0;
 	}
