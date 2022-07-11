@@ -189,7 +189,7 @@ router.put('/amount_update', async (req, res) => {
 		"Bookingstatus": "Closed",
 		"Driverid": "" + driver,
 		"Amount": sum,
-		"extramin":calculate,
+		"extramin":calculate1,
 		"basefare":estimate,
 		"paymentstatus":"received",
 		"paymentmode":"cash on hand",
