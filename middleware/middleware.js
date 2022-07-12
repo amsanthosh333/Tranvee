@@ -24,6 +24,7 @@ const driverlocationRouter = require('./../router/driverlocation');
 const designationRouter = require('./../router/designation');
 const ownerRouter = require('./../router/owner');
 const planRouter = require('./../router/plan');
+const vechicaltypeRouter = require('./../router/vechicaltype');
 
 // console.log("enter")
  let { protocal, host, port, name,username,password } = config.app.db;
@@ -67,6 +68,7 @@ server.use("/vechicle",vechicleRouter);
 server.use("/driverlocation",driverlocationRouter);
 server.use("/owner",ownerRouter);
 server.use("/plans",planRouter);
+server.use("/vechicaltype",vechicaltypeRouter);
 
 //customerapi
 server.use("/customer",customerRouter);
