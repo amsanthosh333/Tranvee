@@ -127,7 +127,7 @@ class vechicleController{
 		let responce=await vechicleSchema.aggregate([
 			{$lookup:
 				{
-				  from: "vechicaltype",
+				  from: "vechicaltypes",
 				  localField: "VechicleType",
 				  foreignField: "_id",
 				  as: "VechicleTypeDetails"
