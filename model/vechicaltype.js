@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const vechicaltypeSchema = new mongoose.Schema({
     name : {
-        type: Number,
+        type: String,
         required: true
     },
     Document : {
