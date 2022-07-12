@@ -504,9 +504,9 @@ class booktripController{
 
             let response = await booktripSchema.updateOne({_id: id}, body);
             return { status: "success", msg:"Booktrip Updated successfully",result: response, message: "Updated Successfully" };
-
         } catch (error) {
             return { status: "error", error: error };
+
         }
 
     }
