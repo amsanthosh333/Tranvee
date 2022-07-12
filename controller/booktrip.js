@@ -60,15 +60,15 @@ class booktripController{
 
 		historytrip.totalkm=""+totalkm;
 		let vechimin = await planSchema.find({'_id':farm.plan_id});
-		//  console.log("totalamount1",""+vechimin[0].Min_km);
+		 console.log("totalamount1",""+vechimin[0].baseFare);
 		if(totalkm < vechimin[0].distanceLimit){
-			totalamount=vechimin[0].baseFare + (14*totalkm);
+			totalamount=parseInt(vechimin[0].baseFare) + (14*totalkm);
 			console.log("totalamount1",""+totalamount);
 			historytrip.RateperKm="";
 			historytrip.KmCharges=""+totalamount;
 			historytrip.FixedCharges="0";
 		}else{
-			totalamount=((14*totalkm) - vechimin[0].distanceLimit)*vechimin[0].additionDistancePerKm;
+			totalamount= parseInt(vechimin[0].baseFare) + (14*totalkm);
 			console.log("totalamount2",""+totalamount);
 			historytrip.FixedCharges=""+totalamount;
 			historytrip.RateperKm="0";
@@ -97,7 +97,7 @@ class booktripController{
 			"Bookingstatus":""+farm.Bookingstatus,
 			"plan_id":""+farm.plan_id,
 			"extramin":"0",
-		    "basefare":""+totalamount,
+		    "basefare":""+vechimin[0].baseFare,
 			"loadingamount":"0",
 			"paymentstatus":"pending"
 			 }
