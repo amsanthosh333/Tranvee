@@ -108,8 +108,18 @@ router.put('/amount_update', async (req, res) => {
 	let limit_min = detailplancalculation[0].timeLimit;
 	let limit_km = detailplancalculation[0].distanceLimit;
 
+
+	const diffInseconds = Math.abs(new Date(StartTripTime)) / 1000;
+	const firsttripminutes = Math.floor(diffInseconds / 60) % 60;
+	console.log("minutes", firsttripminutes);
+	const diffInseconds1 = Math.abs(new Date(Endtriptime)) / 1000;
+	const secondtripminutes = Math.floor(diffInseconds1 / 60) % 60;
+	console.log("minutes", secondtripminutes);
+	let totaltripmin = firsttripminutes + secondtripminutes;
+
 	let calculate;
 	let calculate1;
+	let calculate2;
 
 	let min_waiting_time;
 	let realamount;
@@ -153,27 +163,26 @@ router.put('/amount_update', async (req, res) => {
 
 	if (totalkm > limit_km) {
 		calculate = totalkm - limit_km;
-		calculate1 = totalmin - limit_min;
-
+		calculate1 = 0;
+		if (totaltripmin > limit_min) {
+			calculate1 = totaltripmin - limit_min;
+			calculate2 = totalmin - limit_min;
+		}
 		min_waiting_time = detailplancalculation[0].additionDistancePerKm;
-		realamount = (14 * totalkm);
+		realamount = (14 * totalkm) + (3 * calculate1);
 		sum = estimate + realamount + loadingamount;
 
-		historytrip.WaitingTime = calculate;
+		historytrip.WaitingTime = calculate2;
 		historytrip.WaitingTimeCharges = realamount;
-	} else if (totalmin > limit_min) {
-		calculate = totalkm - limit_km;
-		calculate1 = totalmin - limit_min;
-		min_waiting_time = detailplancalculation[0].additionMinPerMin;
-		realamount = (14 * totalkm) + (3 * calculate1);
-		sum = estimate + realamount+loadingamount;
-
-		historytrip.WaitingTime = calculate;
+	}  else {
+		calculate1 = 0;
+		if (totaltripmin > limit_min) {
+			calculate1 = totaltripmin - limit_min;
+			calculate2 = totalmin - limit_min;
+		}
+		sum = estimate+(14 * totalkm)+loadingamount+(3 * calculate1);
+		historytrip.WaitingTime = totaltripmin;
 		historytrip.WaitingTimeCharges = realamount;
-	} else {
-		sum = estimate+(14 * totalkm)+loadingamount;
-		historytrip.WaitingTime = limit_min;
-		historytrip.WaitingTimeCharges = limit_km;
 	}
 
 
