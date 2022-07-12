@@ -122,6 +122,27 @@ class vechicleController{
 			};
 		}
     }
-
+	async aggregation1() {
+		try {
+		let responce=await vechicleSchema.aggregate([
+			{$lookup:
+				{
+				  from: "vechicaltype",
+				  localField: "VechicleType",
+				  foreignField: "_id",
+				  as: "VechicleTypeDetails"
+				}
+		   }			 
+				]);
+				return {
+					response: responce
+				};
+		} catch (error) {
+			return {
+				status: "error",
+				error: errorHandler.parseMongoError(error)
+			};
+		}
+    }
 }
 module.exports = new vechicleController();

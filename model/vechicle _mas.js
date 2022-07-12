@@ -6,7 +6,7 @@ const vachicleSchema = new mongoose.Schema({
         required: false
     },
     VechicleType : {
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: false
     },
     // Min_km :{

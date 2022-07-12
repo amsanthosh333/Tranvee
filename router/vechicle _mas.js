@@ -37,4 +37,9 @@ router.get('/aggregation', async (req, res) =>{
 	let response = await vechicleController.aggregation(req.query.VechicleType);
 	res.send(response);	
 })
+
+router.get('/aggregation1', async (req, res) =>{
+	let response = await vechicleController.aggregation1();
+	res.send(response);	
+})
 module.exports = router;
