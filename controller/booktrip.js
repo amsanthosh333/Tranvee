@@ -959,9 +959,10 @@ class booktripController{
 				  foreignField: "_id",
 				  as: "CustomerDetails"
 				}
-		   },{$lookup:
+		   },
+		   {$lookup:
 			{
-			  from: "vachicles",
+			  from: "vechicaltypes",
 			  localField: "vechical",
 			  foreignField: "_id",
 			  as: "vechicalDetails"
@@ -1001,9 +1002,7 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
-	  vechicleName:'$vechicalDetails.Name',
-	  vechicleNo:'$vechicalDetails.VechicleNum',
-	  vechicleType:'$vechicalDetails.VechicleType',
+	  vechicleType:'$vechicalDetails.Name',
 	  customerphone: '$CustomerDetails.phone',
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
@@ -1037,8 +1036,6 @@ class booktripController{
 					_id: res._id,
 					customerusername: res.customerusername,
 					drivername:res.drivername,
-					vechicleName:res.vechicleName,
-					vechicleNo:res.vechicleNo,
 					customerphone: res.customerphone,
 					driverphone:res.driverphone,
 					baseFare:res.baseFare,
