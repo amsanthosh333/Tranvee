@@ -960,13 +960,6 @@ class booktripController{
 				  as: "CustomerDetails"
 				}
 		   },{$lookup:
-			{
-			  from: "vachicles",
-			  localField: "vechical",
-			  foreignField: "_id",
-			  as: "vechicalDetails"
-			}
-	   },{$lookup:
 		{
 		  from: "drivers",
 		  localField: "Driverid",
@@ -991,9 +984,7 @@ class booktripController{
 	$unwind: '$CustomerDetails'
 },{
 	$unwind: '$planDetails'
-},{
-	$unwind: '$vechicalDetails'
-  },
+},
   {
 	$unwind: '$GoodsDetails'
   },
@@ -1001,9 +992,6 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
-	  vechicleName:'$vechicalDetails.Name',
-	  vechicleNo:'$vechicalDetails.VechicleNum',
-	  vechicleType:'$vechicalDetails.VechicleType',
 	  customerphone: '$CustomerDetails.phone',
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
@@ -1030,6 +1018,7 @@ class booktripController{
 			let result=[]
 				
 			let Datares;
+			console.log("rrrrrrrrrrrrrrrrrrrrrrrrr",responce.length)
 
 			for (const res of responce) {
 				
