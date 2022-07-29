@@ -821,12 +821,19 @@ class booktripController{
 				}
 		   },{$lookup:
 			{
-			  from: "vachicles",
-			  localField: "vechical",
+			  from: "vechicaltypes",
+			  localField: "Vechicaltype",
 			  foreignField: "_id",
-			  as: "vechicalDetails"
+			  as: "VechicaltypeDetails"
 			}
 	   },{$lookup:
+		{
+		  from: "vachicles",
+		  localField: "vechical",
+		  foreignField: "_id",
+		  as: "vechicalDetails"
+		}
+   },{$lookup:
 		{
 		  from: "drivers",
 		  localField: "Driverid",
@@ -870,7 +877,7 @@ class booktripController{
 	  drivername:'$DriverDetails.Name',
 	  vechicleName:'$vechicalDetails.Name',
 	  vechicleNo:'$vechicalDetails.VechicleNum',
-	  vechicleType:'$vechicalDetails.VechicleType',
+	  vechicleType:'$vechicaltypes.name',
 	  customerphone: '$CustomerDetails.phone',
 	  driverphone:'$DriverDetails.phone',
 	  baseFare:'$planDetails.baseFare',
