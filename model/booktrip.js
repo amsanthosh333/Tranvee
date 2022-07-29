@@ -35,7 +35,7 @@ const booktripSchema = new mongoose.Schema({
         required: false
     },
     Vechicaltype : {
-        type: String,
+        type: mongoose.Schema.ObjectId,
         required: false
     },
     vechical : {
