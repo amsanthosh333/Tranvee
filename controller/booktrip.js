@@ -992,7 +992,7 @@ class booktripController{
 },{
 	$unwind: '$planDetails'
 },{
-	$unwind: '$vechicalDetails'
+	$unwind: '$vechicalTypeDetails'
   },
   {
 	$unwind: '$GoodsDetails'
