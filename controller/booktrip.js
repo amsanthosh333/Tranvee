@@ -1001,7 +1001,7 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
-	  vechicleType:'$vechicalTypeDetails.name',
+	//   vechicleType:'$vechicalTypeDetails.name',
 	  customerphone: '$CustomerDetails.phone',
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
