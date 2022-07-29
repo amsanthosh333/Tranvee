@@ -108,7 +108,7 @@ class vechicleController{
 		let responce=await vechicleSchema.aggregate([
 			{
 				$match: {
-					VechicleType: VechicleType
+					VechicleType: ObjectId(VechicleType)
 				}
 			}				 
 				]);

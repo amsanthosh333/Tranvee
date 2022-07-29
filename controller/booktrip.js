@@ -1024,7 +1024,7 @@ class booktripController{
   }								 
 				]);
 
-console.log("ggdvgf0",responce)
+
 
 			let result=[]
 				
