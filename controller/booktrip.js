@@ -959,14 +959,7 @@ class booktripController{
 				  as: "CustomerDetails"
 				}
 		   },
-		   {$lookup:
-			{
-			  from: "vechicaltypes",
-			  localField: "Vechicaltype",
-			  foreignField: "_id",
-			  as: "vechicalTypeDetails"
-			}
-	   },{$lookup:
+		 {$lookup:
 		{
 		  from: "drivers",
 		  localField: "Driverid",
@@ -1001,7 +994,6 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
-	//   vechicleType:'$vechicalTypeDetails.name',
 	  customerphone: '$CustomerDetails.phone',
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
