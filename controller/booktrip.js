@@ -85,7 +85,6 @@ class booktripController{
 			"Droploc":""+farm.Droploc,
 			"TotalKm":""+farm.TotalKm,
 			"Vechicaltype":""+farm.Vechicaltype,
-			"vechical":""+farm.vechical,
 			"Booktime":""+farm.Booktime,
 			"Bookdate":""+farm.Bookdate,
 			"Amount":""+totalamount,
@@ -963,9 +962,9 @@ class booktripController{
 		   {$lookup:
 			{
 			  from: "vechicaltypes",
-			  localField: "vechical",
+			  localField: "Vechicaltype",
 			  foreignField: "_id",
-			  as: "vechicalDetails"
+			  as: "vechicalTypeDetails"
 			}
 	   },{$lookup:
 		{
@@ -1002,7 +1001,7 @@ class booktripController{
 	$project: {
 	  _id: 1,
 	  customerusername: '$CustomerDetails.username',
-	  vechicleType:'$vechicalDetails.name',
+	  vechicleType:'$vechicalTypeDetails.name',
 	  customerphone: '$CustomerDetails.phone',
 	  baseFare:'$planDetails.baseFare',
 	  additionDistancePerKm:'$planDetails.additionDistancePerKm',
