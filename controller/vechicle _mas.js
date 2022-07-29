@@ -1,5 +1,7 @@
 const vechicleSchema = require('../model/vechicle _mas');
 const errorHandler = require('../utils/error.handler');
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 class vechicleController{
 
