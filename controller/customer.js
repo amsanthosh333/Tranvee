@@ -27,12 +27,13 @@ class CustomerController {
         let password=responce.password;
         let token=responce.token;
         try{
+            // let alluser=  await customerSchema.find({});
             let user = await customerSchema.findOne({
                 phone: phone,
                 password: password,
             });
 
-            if(!user){
+            if(!user){     
                 throw new Error('invalid creds');
             }
             // let token = this.generateToken();
@@ -40,10 +41,11 @@ class CustomerController {
             this.saveToken(user._id, token);
 
             user.token = token;
+            console.log("user",user);
             return {
                 status: "1",
                 msg: "Login Sucessfully",
-                token:""+user.token,
+                token:user.token,
                 user
             };
 
@@ -91,6 +93,7 @@ class CustomerController {
     async saveToken(userID, token){
         try{
             await customerSchema.update({_id: userID}, {token: token})
+            let alluser=  await customerSchema.find({});
         } catch(err){
             console.log(err);
         }
@@ -103,7 +106,8 @@ class CustomerController {
     }
 
     async validateToken(res, token){
-        try{
+        
+        try{ 
             let user = await customerSchema.findOne({
                 token: token
             });
@@ -111,10 +115,11 @@ class CustomerController {
             if(!user){
                 throw new Error('invalid token');
             }
-
+  
             global.userSession = user;
             
         } catch(error){
+            console.log("error", error);
             res.send({
                 status: '0',
                 msg: 'Invalid token'

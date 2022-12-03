@@ -25,12 +25,14 @@ class UserController {
         let password=responce.password;
 
         try{
+            let alluser = await userSchema.findOne({});
             let user = await userSchema.findOne({
                 username: username,
                 password: password,
             });
 
             if(!user){
+                console.log("alluser",alluser);
                 throw new Error('invalid creds');
             }
 
@@ -52,13 +54,13 @@ class UserController {
 
     async login1(username,password){
        
-        try{
+        try{  
             let user = await userSchema.findOne({
                 username: username,
                 password: password,
             });
 
-            if(!user){
+            if(!user){ 
                 throw new Error('invalid creds');
             }
 
